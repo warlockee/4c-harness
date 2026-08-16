@@ -1,0 +1,17 @@
+flowchart TB
+    Application[Application<br/>intent · user value · root predicates]
+    Harness[Harness<br/>model-driven task execution semantics]
+    Infrastructure[Infrastructure<br/>model-call and runtime computation]
+    Model[Model<br/>inference and learned selection capability]
+    World[Tools / external world<br/>effects and observations]
+
+    Application --> Harness
+    Harness --> Model
+    Model --> Harness
+    Harness --> Infrastructure
+    Infrastructure --> Model
+    Harness --> World
+    World --> Harness
+
+    Rule[Classify the mechanism by its controlled object<br/>not by vendor or feature name]
+    Rule -.-> Harness

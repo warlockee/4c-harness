@@ -1,15 +1,13 @@
 flowchart LR
-    Caching --> Cost
-    Compression --> Cost
-    Compression --> Continuity
-    Routing --> Cost
-    Routing --> Compatibility
-    Routing --> Cognition
-    MCP --> Compatibility
-    ToolCalling[Tool Calling] --> Compatibility
-    Memory --> Continuity
-    Loop[Loop Engineering] --> Continuity
-    Durable[Durable Execution] --> Continuity
-    Tracing --> Cognition
-    Evals --> Cognition
-    SelfImprove[Self-Improvement] --> Cognition
+    F[Feature name] --> Q{Why does task policy change?}
+
+    Q -->|resource boundary| Cost
+    Q -->|semantic difference| Compatibility
+    Q -->|temporal dependence| Continuity
+    Q -->|past evidence changes future policy| Cognition
+    Q -->|missing / stale / unattributable evidence| Epistemic[Epistemic Access]
+    Q -->|truth / acceptance / postcondition| Validity
+    Q -->|principal / delegation / permission| Authority
+    Q -->|only computation changes| Infrastructure
+
+    N[No causal residual] --> Reject[Mechanism, outcome, or pattern<br/>not a fundamental category]

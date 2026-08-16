@@ -1,0 +1,24 @@
+{
+  "codex": "0.147.0",
+  "controlled_variables": [
+    "Codex binary",
+    "permission profile",
+    "command executable",
+    "operation",
+    "filesystem owner and mode"
+  ],
+  "experiment": "codex-sandbox-authority-enforcement",
+  "independent_variable": "effect target inside versus outside authorized workspace",
+  "observations": {
+    "command_exit": 1,
+    "denial_observed": true,
+    "inside_workspace": "allowed",
+    "outside_workspace": "denied"
+  },
+  "permission_profile": ":workspace",
+  "platform": "Darwin",
+  "result": {
+    "authority_enforcement_observed": true,
+    "claim": "With capability and operation held fixed, delegated effect scope changes whether the coding Harness admits the effect."
+  }
+}

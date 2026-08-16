@@ -1,0 +1,30 @@
+{
+  "controlled_variables": [
+    "model graph and weights",
+    "input tensor",
+    "requested output tensor",
+    "task-facing result"
+  ],
+  "execution_provider": "CPUExecutionProvider",
+  "experiment": "onnxruntime-infrastructure-boundary",
+  "independent_variable": "inference threads and graph-optimization policy",
+  "onnxruntime": "1.22.1",
+  "result": {
+    "claim": "Inference scheduling/optimization policy changes how a forward pass is computed; it does not by itself define task execution.",
+    "controlled_object": "model computation",
+    "task_transition_semantics_observed": false
+  },
+  "runs": {
+    "conservative": {
+      "graph_optimization": "disabled",
+      "output": [[9.0, 14.0]],
+      "threads": 1
+    },
+    "optimized": {
+      "graph_optimization": "all",
+      "output": [[9.0, 14.0]],
+      "threads": 2
+    }
+  },
+  "runtime": "3.13.4"
+}

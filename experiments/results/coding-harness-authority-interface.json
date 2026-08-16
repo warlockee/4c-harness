@@ -1,0 +1,28 @@
+{
+  "evidence_level": "installed-binary interface; enforcement not tested",
+  "experiment": "coding-harness-authority-interface",
+  "result": {
+    "authority_surface_replicated": true,
+    "claim": "Two independent coding Harnesses expose permission decisions separately from sandbox enforcement and explicit bypass modes.",
+    "not_proven": "that either implementation enforces every advertised policy"
+  },
+  "systems": {
+    "claude-code": {
+      "controls": {
+        "allow_rules": true,
+        "deny_rules": true,
+        "explicit_bypass": true,
+        "permission_mode": true
+      },
+      "version": "2.1.201"
+    },
+    "codex": {
+      "controls": {
+        "approval_policy": true,
+        "explicit_bypass": true,
+        "sandbox_modes": true
+      },
+      "version": "0.147.0"
+    }
+  }
+}

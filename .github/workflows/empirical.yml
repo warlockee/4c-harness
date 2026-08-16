@@ -1,0 +1,36 @@
+name: Empirical falsification suite
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: experiments/requirements.txt
+      - name: Install pinned systems
+        run: python -m pip install -r experiments/requirements.txt
+      - name: Run counterfactual experiments
+        run: python experiments/run_all.py
+
+  inference-boundary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: experiments/requirements-inference.txt
+      - name: Install pinned inference runtime
+        run: python -m pip install -r experiments/requirements-inference.txt
+      - name: Run inference boundary control
+        run: python experiments/onnxruntime_infra_boundary.py

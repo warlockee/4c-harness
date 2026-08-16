@@ -1,0 +1,44 @@
+{
+  "branches": [
+    {
+      "authority_decision": "approve",
+      "checkpoint_next": ["authority_gate"],
+      "checkpoint_status": "requested",
+      "fixed_candidate": {
+        "account_id": "acct-fixed",
+        "operation": "delete_account",
+        "question": "May this execution cause the effect?"
+      },
+      "outcome": "deleted",
+      "thread_id": "authority-approved"
+    },
+    {
+      "authority_decision": "deny",
+      "checkpoint_next": ["authority_gate"],
+      "checkpoint_status": "requested",
+      "fixed_candidate": {
+        "account_id": "acct-fixed",
+        "operation": "delete_account",
+        "question": "May this execution cause the effect?"
+      },
+      "outcome": "denied",
+      "thread_id": "authority-denied"
+    }
+  ],
+  "controlled_variables": [
+    "graph topology",
+    "candidate operation",
+    "account id",
+    "checkpoint state",
+    "tool capability"
+  ],
+  "experiment": "langgraph-authority-continuity",
+  "independent_variable": "authority decision",
+  "langgraph": "0.6.6",
+  "result": {
+    "authority_residual": true,
+    "claim": "Authority changes admissibility while Continuity preserves the suspended execution; neither substitutes for the other.",
+    "continuity_observed": true
+  },
+  "runtime": "3.14.0"
+}

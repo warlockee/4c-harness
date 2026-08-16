@@ -1,0 +1,17 @@
+flowchart TB
+    subgraph OP[Operational pressure plane]
+        Cost[Cost<br/>resource scarcity]
+        Compatibility[Compatibility<br/>semantic heterogeneity]
+        Continuity[Continuity<br/>temporal dependence]
+    end
+
+    Execution[Current Harness execution policy]
+    Evidence[Outcomes and execution evidence]
+    Cognition[Cognition feedback plane<br/>cross-run policy learning]
+
+    Cost --> Execution
+    Compatibility --> Execution
+    Continuity --> Execution
+    Execution --> Evidence
+    Evidence --> Cognition
+    Cognition -->|reusable policy delta| Execution

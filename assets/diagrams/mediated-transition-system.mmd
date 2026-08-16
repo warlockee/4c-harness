@@ -1,0 +1,31 @@
+flowchart TB
+    App[Application / principal boundary<br/>intent · success predicate · authority policy]
+
+    subgraph Harness[Concurrent mediated Harness transition system]
+        SE[State · evidence · events]
+        Select[Select candidate transitions<br/>model · code · human · event]
+        Mediate{Mediate boundaries}
+        Validity[Validity<br/>evidence · candidate · postcondition]
+        Authority[Authority<br/>principal · delegation · scope · audience]
+        Apply[Apply / expose<br/>zero or more transitions]
+        Outcome[Correlated outcome · error · cancellation]
+
+        SE --> Select
+        Select --> Mediate
+        Validity --> Mediate
+        Authority --> Mediate
+        Mediate -->|allow / revise / reject / escalate / suspend| Apply
+        Apply --> Outcome
+        Outcome --> SE
+    end
+
+    App --> SE
+    App --> Validity
+    App --> Authority
+
+    Infra[Infrastructure · tools · external world]
+    Apply --> Infra
+    Infra --> Outcome
+
+    C3[Operational plane<br/>Cost · Compatibility · Continuity] -. varies current policy .-> Harness
+    Cog[Cognition feedback plane<br/>experience → reusable policy delta] -. updates future policy .-> Harness

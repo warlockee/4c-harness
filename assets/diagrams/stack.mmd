@@ -1,4 +1,14 @@
 flowchart TB
-    A[Application<br/>User Value] --> H[Harness<br/>Execution]
-    H --> I[Infrastructure<br/>Computation]
-    I --> M[Model<br/>Intelligence]
+    A[Application<br/>intent · predicates · user value]
+    H[Harness<br/>model-driven task execution semantics]
+    I[Infrastructure<br/>model-call/runtime computation]
+    M[Model<br/>inference · learned capability]
+
+    A --> H
+    H --> M
+    M --> H
+    H --> I
+    I --> M
+
+    N[Products may span layers;<br/>mechanisms are the mapping unit]
+    N -.-> H

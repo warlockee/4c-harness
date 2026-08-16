@@ -3,25 +3,33 @@
 A theory that explains everything explains nothing. This document
 records the strongest attacks on 4C.
 
+The current theory is explicitly compositional. The 4C `3 + 1` lens answers why
+execution policy varies; a mediated transition system answers what execution
+does; Epistemic Access, Validity and Authority answer what may cross execution
+boundaries. Treating the lens alone as the complete architecture would revive
+the already-falsified original claim.
+
 ## 1. The four Cs are not at the same abstraction level
 
 **Attack:** Cost looks like an outcome, Compatibility a property,
 Continuity a runtime capability, and Cognition a meta-capability.
 
 **Response:** 4C should not be presented as four software modules. They
-are four constraints imposed on execution by four realities: finite
-resources, heterogeneity, time, and experience.
+are a `3 + 1` causal structure: finite resources, heterogeneity and time impose
+conditionally activated operational pressures; experience supplies the feedback
+plane that can revise later policy.
 
 This objection remains useful: if a definition drifts from the
 constraint level into implementation detail, the theory weakens.
 
 ## 2. Why isn't Control a fifth C?
 
-Control is essential, but under 4C it is inseparable from Continuity.
-State without control can preserve an infinite loop perfectly.
+“Control” is a functional role, not one cause. Resource control maps to Cost;
+capability control to Compatibility; lifecycle control to Continuity; evidence,
+Validity and Authority control retain their own questions.
 
-Continuity therefore means **persistent + controlled execution across
-time**, not memory alone.
+Continuity therefore means **state plus lifecycle control across time**, not
+memory alone and not every rule that affects execution.
 
 ## 3. Why isn't Safety/Security/Governance a fifth C?
 
@@ -31,9 +39,20 @@ infrastructure, harness and application layers.
 4C intentionally describes the fundamental constraints of **model-driven
 execution**, not the complete requirements of an AI company or product.
 
-This is an open pressure point: if a harness-specific safety constraint
-cannot be reduced to the existing Cs without distortion, it may falsify
-completeness.
+This answer is currently under successful attack. "Cross-cutting" is an
+architectural description, not a proof that the concern is reducible to 4C.
+Coding, tool and browser harnesses enforce permissions, sandbox boundaries and
+approval decisions that change the permitted action set.
+
+The first [authority attack](validation/authority-attack.md) found that bounded
+authority remains necessary in a one-shot, single-provider, single-tool,
+unlimited-resource, no-history execution. It therefore survives the removal of
+Cost, Compatibility, Continuity and Cognition.
+
+Current status: **the original exhaustive 4C claim is falsified**. Authority is
+retained as a separate mediation obligation in the revised non-exhaustive model,
+and has been independently replicated in Codex, Claude Code, MCP and agent-SDK
+approval mechanisms. Calling the residual "safety" does not reduce it.
 
 ## 4. Cognition is anthropomorphic
 
@@ -49,6 +68,10 @@ Observe → Reconstruct → Evaluate → Diagnose → Learn → Adapt
 A system with only traces has Cognition infrastructure, not mature
 Cognition.
 
+The [Cognition attack](validation/cognition-attack.md) adds the causal test:
+past-run evidence must produce a reusable change in future Harness policy.
+Current-run evaluation and model training alone do not qualify.
+
 ## 5. Features overlap multiple Cs
 
 Correct. That is expected.
@@ -59,12 +82,17 @@ not necessarily a taxonomy failure.
 
 ## 6. Cost is just optimization
 
-If Cost meant "spend less," the criticism would be strong.
+If Cost meant either "spend less" or "optimize all compute," the criticism
+would succeed.
 
-The stronger definition is **economic semantics**: provider pricing and
-resource constraints alter execution policy. Caching, context shaping,
-routing and compression can become necessary parts of correct economic
-execution.
+The stronger definition is **resource semantics**: finite tokens, latency,
+context, concurrency, attempts, compute or money alter task execution policy.
+Caching, context shaping, routing and stopping can therefore be Harness Cost.
+Kernel optimization, GPU placement and continuous batching remain
+Infrastructure even when they save money.
+
+The [Core Four symmetry audit](validation/core-four-symmetry-audit.md) retained
+Cost only under this layer-specific causal definition.
 
 ## 7. Compatibility will be standardized away
 
@@ -86,17 +114,64 @@ policy.
 "How does the plan persist, branch, retry, pause and resume?" belongs to
 Continuity.
 
-If planning produces a distinct harness-level constraint irreducible to
-the four realities, it is a candidate counterexample.
+The [Planning and Control attack](validation/planning-control-attack.md) did not
+find an irreducible residual. Plan generation is usually model intelligence or
+Application policy. The Harness exposes observations and tools, persists plan
+state, schedules steps, validates progress and mediates actions. Those execution
+semantics decompose across the tested categories.
+
+Current status: **rejected as a peer constraint**, while remaining an important
+mechanism and artifact.
 
 ## 9. Reliability is missing
 
-Reliability is usually an outcome produced by mechanisms across
-Compatibility, Continuity and Cognition rather than a distinct
-underlying constraint.
+Reliability as a service-level aggregate is an outcome produced by mechanisms
+across several constraints. That does not settle the narrower current-run
+problem: a model proposal can be syntactically valid, authorized and still
+wrong.
 
-The theory should be challenged if important reliability mechanisms
-cannot be explained through those constraints.
+The [correctness attack](validation/correctness-attack.md) shows that validation,
+verification and accept/reject/retry policy remain necessary after removing the
+four proposed causes. Calling retries Continuity describes how another attempt
+occurs, not why the first result was rejected. Calling validation Compatibility
+confuses schema conformance with semantic task validity. Calling it Cognition
+confuses current-run checking with improvement from past experience.
+
+Current status: **the exhaustive claim is falsified; Validity is a separate
+mediation obligation**. The Application commonly owns the predicate while the
+Harness evaluates or transports it before actions, after observed effects and
+before output exposure. Predicate ownership does not erase enforcement semantics.
+
+## 10. Context is missing
+
+The original answer was that Context Engineering spans Cost and Continuity:
+context is finite, and task state must survive across bounded inference windows.
+That answer covers capacity management and temporal preservation, but not the
+one-shot epistemic problem.
+
+The [context attack](validation/context-attack.md) shows that a model cannot use
+a private or current fact it has not observed, even with free unlimited context,
+one model, one call and no history. Compatibility can expose a data source and
+Validity can reject an unsupported answer, but neither selects and presents the
+evidence required for inference.
+
+Current status: **the exhaustive claim is falsified; Epistemic Access is a
+separate evidence obligation**. Applications and tools may own data, but the
+Harness still determines what task-relevant evidence becomes available to
+model-driven selection and mediation.
+
+## 11. Uncertainty or controllability is missing
+
+Browser and embodied agents show that observations can be stale and accepted
+actions can fail to create their intended postconditions.
+
+The [browser/embodied attack](validation/browser-embodied-attack.md) treats
+uncertainty as a deep background reality, but not one Harness primitive. Current
+world uncertainty maps to Epistemic Access; candidate and postcondition judgment
+to Validity; risk/permission to Authority; recovery to Continuity.
+
+Current status: **provisionally rejected as a peer category**. Reopen if a
+recurring uncertainty-driven decision survives removal of all four questions.
 
 # Falsifying 4C
 
