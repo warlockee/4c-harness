@@ -1,0 +1,94 @@
+# Popular Open-Source Harness Selection Audit
+
+Status: **README comparison cohort**<br>
+Snapshot: **2026-08-16**
+
+## Purpose
+
+This audit prevents the README comparison from becoming either a miscellaneous
+list of agent-related projects or a coding-agent monoculture. Popularity
+determines which systems deserve scarce reader attention. It does not determine
+a 4C assessment or product quality.
+
+The README uses two cohorts. The like-for-like cohort stays close to DeepSeek
+Harness and uses a runnable agent execution as its unit. The ecosystem cohort
+adds one high-visibility system for each materially different architecture that
+the first cohort misses. The two cohorts are not ranked together.
+
+## Admission rule
+
+A project enters the README only when the last three conditions below hold at
+the snapshot date. It then enters one of two cohorts based on the first:
+
+1. **Comparison unit:** a directly runnable end-user/API task loop enters the
+   like-for-like cohort. A runtime, framework, platform or gateway enters the
+   ecosystem cohort only when it represents a distinct missing archetype.
+2. **Open implementation:** the relevant mechanism code is publicly auditable
+   under an OSI-approved license.
+3. **High visibility:** at least 30,000 GitHub stars. This is a coarse attention
+   threshold, not a quality metric.
+4. **Current relevance:** the repository is not archived and has recorded
+   activity during the prior six months.
+
+Stars and repository activity were read from the GitHub repository API. Feature
+claims below come from project-owned repositories or documentation. A feature
+claim documents that a mechanism exists; it does not establish efficacy.
+
+## Like-for-like Harness cohort
+
+| Project | Approx. stars | License | Why it is comparable | Primary mechanism evidence |
+|---|---:|---|---|---|
+| [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) | 137k | MIT | General agent/coding Harness whose model adapter, tools, session log and loop are plugins. | [Architecture](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.md) |
+| [Codex](https://github.com/openai/codex) | 106k | Apache-2.0 | Terminal coding agent with an auditable execution core. | [Official Codex documentation](https://developers.openai.com/codex/) and repository [sandbox documentation](https://github.com/openai/codex/blob/main/docs/sandbox.md) |
+| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | 107k | Apache-2.0 | Terminal coding/general agent with tools, extensions and session lifecycle. | Repository documentation for [checkpointing](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/checkpointing.md), [model routing](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/model-routing.md), [token caching](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/token-caching.md) and [MCP](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md) |
+| [browser-use](https://github.com/browser-use/browser-use) | 109k | MIT | A specialized but complete browser-agent execution loop rather than a browser driver alone. | Project [README](https://github.com/browser-use/browser-use) and open [benchmark](https://github.com/browser-use/benchmark) |
+| [OpenHands](https://github.com/OpenHands/OpenHands) | 84k | MIT | Coding-agent runtime with model choice, sandboxed execution and an agent server. | Project [README](https://github.com/OpenHands/OpenHands) and [architecture](https://github.com/OpenHands/OpenHands/blob/main/docs/architecture.md) |
+| [Cline](https://github.com/cline/cline) | 66k | Apache-2.0 | Shared coding-agent core exposed through IDE, CLI and SDK surfaces. | Project [README](https://github.com/cline/cline), [checkpoints](https://github.com/cline/cline/blob/main/docs/core-workflows/checkpoints.mdx) and [MCP](https://github.com/cline/cline/blob/main/docs/mcp/mcp-overview.mdx) |
+| [Aider](https://github.com/Aider-AI/aider) | 48k | Apache-2.0 | Focused terminal coding agent with model abstraction, repository context and git-mediated effects. | Project [README](https://github.com/Aider-AI/aider), [repository map](https://aider.chat/docs/repomap.html) and [benchmarks](https://aider.chat/docs/benchmarks.html) |
+
+This cohort deliberately contains multiple coding systems because they embody
+different execution surfaces: plugin-native, terminal, autonomous runtime, IDE,
+minimal pair-programming and domain-specific browser control. The ecosystem
+cohort below corrects the resulting domain skew.
+
+## Ecosystem architecture cohort
+
+| Project | Approx. stars | Open mechanism license | Distinct archetype | Why this representative was selected |
+|---|---:|---|---|---|
+| [LangGraph](https://github.com/langchain-ai/langgraph) | 40k | MIT | Stateful agent runtime | A leading checkpoint/replay/interrupt-centered runtime; adds explicit durable graph execution without duplicating an end-user coding agent. |
+| [CrewAI](https://github.com/crewAIInc/crewAI) | 57k | MIT | Multi-agent orchestration framework | Adds role-based crews, delegation and flows; selected over a second multi-agent framework to avoid redundant coverage. |
+| [Langflow](https://github.com/langflow-ai/langflow) | 153k | MIT | Visual agent/workflow platform | Adds visual composition, deployment and integration breadth under an OSI-approved license. |
+| [LiteLLM](https://github.com/BerriAI/litellm) | 56k | MIT outside `enterprise/` | Model gateway | Adds provider normalization, routing, budgets/fallback and logging at the request-to-task boundary. |
+
+These systems are representative validation cases, not substitutes for each
+other. Their rows answer “does 4C survive this architecture?”, not “which
+product should a coding-agent user install?”
+
+## Notable exclusions
+
+Exclusion from the compact README table is not a negative judgment. These
+projects remain valid evidence elsewhere in the repository.
+
+| Project or class | Why it is not in the like-for-like cohort |
+|---|---|
+| [Claude Code](https://github.com/anthropics/claude-code) | Extremely visible and directly comparable in use, but the repository does not publish the core under an open-source license. It therefore fails the open-implementation rule. |
+| [Dify](https://github.com/langgenius/dify) and [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | Broad application/agent platforms. Langflow already supplies the platform archetype with an OSI-approved core license, so adding these would be redundant rather than representative. |
+| [LlamaIndex](https://github.com/run-llama/llama_index) | Primarily a data, document-agent and OCR platform rather than a like-for-like coding/general Harness. |
+| [AutoGen](https://github.com/microsoft/autogen), [OpenAI Agents SDK](https://github.com/openai/openai-agents-python), [Pydantic AI](https://github.com/pydantic/pydantic-ai) and [smolagents](https://github.com/huggingface/smolagents) | Valuable frameworks and libraries, but CrewAI already covers multi-agent orchestration while LangGraph covers stateful runtime. Adding more framework rows would overweight one archetype. |
+| [Continue](https://github.com/continuedev/continue) | It clears the numerical threshold, but its README describes the 2.0.0 line as a final release and points users toward maintenance/forking. It fails the current-product relevance test for this cohort. |
+| [Roo Code](https://github.com/RooCodeInc/Roo-Code) | The repository is archived, so it fails the current-relevance rule. |
+
+## Interpretation limits
+
+- The cohort is not exhaustive and the threshold will need periodic refresh.
+- GitHub stars measure attention imperfectly and can be affected by project age,
+  audience and promotion.
+- `Strong`, `Partial`, `Evidence` and `External` are qualitative mechanism
+  classifications, not benchmark scores.
+- The table does not measure usability, reliability, latency, output quality,
+  maintenance burden or task fit.
+- A smaller 4C capability profile can be the correct minimal Harness.
+
+Reopen the cohort when a project crosses the threshold, changes license or
+maintenance status, or shifts from a component/platform into a directly
+runnable agent execution system.

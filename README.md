@@ -62,10 +62,11 @@ Accuracy and permission failures are deliberately not hidden inside a C. See
 
 ## How high-visibility open-source Harnesses map to 4C
 
-Start with the required first test case: DeepSeek Harness. The broader
-matrix then covers projects with substantial adoption across coding agents,
-agent runtimes, workflows and LLM application platforms. It evaluates
-documented mechanisms, not project quality or popularity.
+Start with the required first test case: DeepSeek Harness. The broader matrix is
+deliberately narrow: only highly visible, open-source systems that directly run
+agent tasks are included. Application platforms, data frameworks and libraries
+for building a Harness are not mixed into this like-for-like comparison. The
+table evaluates documented mechanisms, not project quality or popularity.
 `Strong` means the project exposes substantial first-class machinery for that
 pressure; `Partial` means some mechanisms exist but application policy still
 does most of the work; `Evidence` means the project records or evaluates runs
@@ -99,32 +100,48 @@ own documentation warns that compatibility-breaking changes are expected. See
 its [architecture document](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.md)
 for the underlying mechanisms.
 
-### Broader comparison
+### Like-for-like comparison
 
 | Open-source system | Cost | Compatibility | Continuity | Cognition | Best fit / 4C takeaway |
 |---|---|---|---|---|---|
 | [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) | Partial | **Strong** | **Strong** | Evidence | Plugin-native coding/agent Harness with replaceable services and an event-sourced session model. Extensibility is not automatic learning. |
-| [Dify](https://github.com/langgenius/dify) | Partial | **Strong** | **Strong** | Evidence | Broad LLM application platform spanning workflows, RAG, agents, model management and observability. Powerful when those product surfaces are required; excessive for a narrow execution kernel. |
+| [Codex](https://github.com/openai/codex) | Partial | **Strong** | **Strong** | Evidence | Open-source coding Harness with sandboxed tools, approval policy, MCP/skills and resumable sessions. Configuration and traces do not by themselves create Cognition. |
+| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | **Strong** | **Strong** | **Strong** | Evidence | Coding Harness with model routing, token caching, MCP/extensions, sandboxing, checkpointing and session management. Its broad coverage is useful only when the task activates it. |
 | [OpenHands](https://github.com/OpenHands/OpenHands) | Partial | **Strong** | **Strong** | Evidence | Coding-agent Harness with sandboxed execution and lifecycle control. Evaluation evidence does not by itself make the execution policy self-improving. |
-| [AutoGen](https://github.com/microsoft/autogen) | Partial | **Strong** | **Strong** | External | Multi-agent framework with model clients, tools and orchestration. Teams are justified only when roles require genuinely different context, tools or authority. |
-| [CrewAI](https://github.com/crewAIInc/crewAI) | Partial | **Strong** | **Strong** | External | Useful when crews, delegated tasks, flows and memory are intrinsic to the task. Multi-agent structure is overhead when one agent plus tools suffices. |
-| [LlamaIndex](https://github.com/run-llama/llama_index) | Partial | **Strong** | Partial | External | Data-centric LLM application framework with integrations, agents and workflows. Use it when ingestion/retrieval semantics are central, not merely to wrap one model call. |
-| [LangGraph](https://github.com/langchain-ai/langgraph) | Partial | Partial | **Strong** | Evidence | Best when checkpoint, interrupt/resume, replay and explicit state transitions dominate. Do not adopt it merely for a one-call tool wrapper. |
-| [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | Partial | **Strong** | **Strong** | Evidence | Lightweight general agent loop with tools, handoffs, guardrails, sessions, HITL and tracing. Tracing is not automatic learning. |
-| [Pydantic AI](https://github.com/pydantic/pydantic-ai) | Partial | **Strong** | **Strong** | Evidence | Strong fit for typed Python, multi-provider execution, structured validation and optional durable workflows. Evals still need an adaptation step to become Cognition. |
-| [smolagents](https://github.com/huggingface/smolagents) | Partial | **Strong** | Partial | External | Good minimal baseline for code/tool agents across models. Add durable state or learning only when the task proves it needs them. |
+| [Cline](https://github.com/cline/cline) | Partial | **Strong** | **Strong** | Evidence | Coding Harness across IDE, CLI and SDK with many model providers, plugins/MCP, checkpoints and persistent agent state. Multi-agent and scheduled automation can be unnecessary for smaller tasks. |
+| [Aider](https://github.com/Aider-AI/aider) | Partial | **Strong** | Partial | Evidence | Focused terminal coding Harness with broad model support, repository maps, git-backed edits/undo and a public benchmark. Its smaller profile is often an advantage. |
+| [browser-use](https://github.com/browser-use/browser-use) | Partial | **Strong** | Partial | Evidence | Domain-specific browser Harness with provider choice, custom tools, persistent browser resources and an open benchmark. Browser specialization should not be mistaken for general Harness completeness. |
 
-Visibility snapshot: **2026-08-16**. DeepSeek Harness (~132k GitHub stars),
-Dify (~153k), OpenHands (~84k), AutoGen (~60k), CrewAI (~57k), LlamaIndex
-(~52k), LangGraph (~40k), smolagents (~29k), OpenAI Agents SDK (~29k) and
-Pydantic AI (~19k). Stars determine inclusion here, never the 4C assessment.
-Counts are rounded and will drift; the links point to project-owned repositories.
+Visibility snapshot: **2026-08-16**. DeepSeek Harness (~137k GitHub stars),
+Gemini CLI and Codex (~107k each), browser-use (~109k), OpenHands (~84k),
+Cline (~66k) and Aider (~48k). Stars determine eligibility here, never the 4C
+assessment. Counts are rounded and will drift; all projects exceed 30k stars,
+use an OSI-approved license and showed repository activity in the prior six months.
+See the [selection audit](docs/validation/popular-harness-selection.md) for the
+criteria, sources and notable exclusions.
+
+### Ecosystem coverage cases
+
+The direct-Harness cohort alone would overrepresent coding agents. These four
+popular open-source systems cover distinct adjacent architectures that can own
+Harness mechanisms. They are separated because their product units are not
+comparable with a terminal or IDE agent.
+
+| Representative system | Archetype | Cost | Compatibility | Continuity | Cognition | Why it matters to 4C |
+|---|---|---|---|---|---|---|
+| [LangGraph](https://github.com/langchain-ai/langgraph) | Stateful agent runtime | Partial | Partial | **Strong** | Evidence | Tests whether explicit graph state, checkpoint, interrupt/resume and replay fit Continuity without turning durability into a universal requirement. |
+| [CrewAI](https://github.com/crewAIInc/crewAI) | Multi-agent orchestration framework | Partial | **Strong** | **Strong** | External | Tests whether roles, delegation, flows and memory introduce a fifth constraint; 4C instead predicts differences, shared temporal state and authority boundaries. |
+| [Langflow](https://github.com/langflow-ai/langflow) | Visual agent/workflow platform | Partial | **Strong** | **Strong** | Evidence | Tests 4C against composed workflows, deployment and a large integration surface rather than one local agent loop. |
+| [LiteLLM](https://github.com/BerriAI/litellm) | Model gateway | **Strong** | **Strong** | Partial | Evidence | Tests the request/task boundary through cost tracking, routing, fallback, provider normalization, guardrails and logging. |
+
+These rows broaden theoretical coverage; they do not form a product leaderboard
+with the like-for-like cohort. Each project had roughly 40k–153k GitHub stars at
+the snapshot date.
 
 How to read the table:
 
-- **LangGraph is not “better” than smolagents** because it has stronger
-  Continuity. It is better only when your task has temporal state and recovery
-  requirements.
+- **Gemini CLI is not “better” than Aider** because it exposes more first-class
+  machinery. It is better only when your task requires that machinery.
 - **A trace or eval platform does not automatically activate Cognition.** It
   becomes Cognition only when prior-run evidence produces a reusable change to
   prompt assembly, retrieval, routing, tool, retry or stopping policy.
