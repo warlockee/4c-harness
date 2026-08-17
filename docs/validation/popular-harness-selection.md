@@ -38,10 +38,10 @@ feature claim documents that a mechanism exists; it does not establish efficacy.
 
 Stars, license and activity drift, so they are not maintained by hand. The
 table below is generated from the GitHub repository API by
-`tools/visibility_check.py --refresh`, and CI reruns the check on a schedule.
-An archived repository, a license change, six months of silence or a fall below
-the threshold fails the check, because each changes cohort membership. Star
-drift only warns.
+`tools/visibility_check.py --refresh`. Rerun it whenever the cohort is
+republished or re-argued: an archived repository, a license change, six months
+of silence or a fall below the threshold fails the check, because each changes
+cohort membership. Star drift only warns.
 
 <!-- visibility:start -->
 | Project | Cohort | Approx. stars | License | Last activity |

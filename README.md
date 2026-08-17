@@ -132,9 +132,10 @@ eligibility here, never the 4C assessment. Per-project counts are deliberately
 not repeated in this file — they drift daily and were wrong within a day of the
 last hand-edit. They live in a [generated
 table](docs/validation/popular-harness-selection.md#visibility-and-eligibility-facts)
-refreshed from the GitHub API by `tools/visibility_check.py`, which CI reruns
-weekly so that an archived repository or a license change fails the build. See
-the [selection audit](docs/validation/popular-harness-selection.md) for the
+refreshed from the GitHub API by `tools/visibility_check.py`. Run it before
+publishing a cohort claim: it fails when a project is archived, relicensed,
+inactive or below the threshold, since each changes who belongs in the table.
+See the [selection audit](docs/validation/popular-harness-selection.md) for the
 criteria, sources and notable exclusions.
 
 ### Ecosystem coverage cases
