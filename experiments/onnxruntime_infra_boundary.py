@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Vary inference-engine policy while holding the task-facing result fixed."""
+"""Vary inference-engine policy while holding the task-facing result fixed.
+
+Evidence level: third-party behaviour. ONNX Runtime executes the forward pass
+under two different computation policies; this file only fixes the graph, input
+and requested output and compares what the runtime returns.
+"""
 
 from __future__ import annotations
 
@@ -13,6 +18,8 @@ import numpy as np
 import onnx
 import onnxruntime as ort
 from onnx import TensorProto, helper
+
+from _support import THIRD_PARTY_BEHAVIOUR, require
 
 
 def build_model(path: Path) -> None:
@@ -62,11 +69,12 @@ def main() -> None:
         optimized = infer(model_path, threads=2, optimize=True)
 
     expected = [[9.0, 14.0]]
-    assert conservative == expected
-    assert optimized == expected
+    require(conservative == expected, "unoptimized forward pass changed the result")
+    require(optimized == expected, "optimized forward pass changed the result")
 
     report = {
         "experiment": "onnxruntime-infrastructure-boundary",
+        "evidence_level": THIRD_PARTY_BEHAVIOUR,
         "runtime": platform.python_version(),
         "onnxruntime": importlib.metadata.version("onnxruntime"),
         "execution_provider": "CPUExecutionProvider",

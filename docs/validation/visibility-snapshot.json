@@ -1,0 +1,106 @@
+{
+  "checked": "2026-08-17",
+  "star_threshold": 30000,
+  "note": "Maintained by tools/visibility_check.py --refresh. Stars gate admission to the README cohort; they never affect a 4C assessment.",
+  "projects": [
+    {
+      "name": "DeepSeek Harness",
+      "repo": "deepseek-ai/deepseek-harness",
+      "cohort": "like-for-like",
+      "stars": 148404,
+      "license": "MIT",
+      "pushed_at": "2026-08-17T12:01:58Z",
+      "archived": false
+    },
+    {
+      "name": "browser-use",
+      "repo": "browser-use/browser-use",
+      "cohort": "like-for-like",
+      "stars": 109501,
+      "license": "MIT",
+      "pushed_at": "2026-08-17T16:20:12Z",
+      "archived": false
+    },
+    {
+      "name": "Gemini CLI",
+      "repo": "google-gemini/gemini-cli",
+      "cohort": "like-for-like",
+      "stars": 106540,
+      "license": "Apache-2.0",
+      "pushed_at": "2026-08-17T17:23:50Z",
+      "archived": false
+    },
+    {
+      "name": "Codex",
+      "repo": "openai/codex",
+      "cohort": "like-for-like",
+      "stars": 106465,
+      "license": "Apache-2.0",
+      "pushed_at": "2026-08-17T17:28:39Z",
+      "archived": false
+    },
+    {
+      "name": "OpenHands",
+      "repo": "OpenHands/OpenHands",
+      "cohort": "like-for-like",
+      "stars": 84303,
+      "license": "MIT",
+      "pushed_at": "2026-08-17T17:27:56Z",
+      "archived": false
+    },
+    {
+      "name": "Cline",
+      "repo": "cline/cline",
+      "cohort": "like-for-like",
+      "stars": 66346,
+      "license": "Apache-2.0",
+      "pushed_at": "2026-08-17T16:36:59Z",
+      "archived": false
+    },
+    {
+      "name": "Aider",
+      "repo": "Aider-AI/aider",
+      "cohort": "like-for-like",
+      "stars": 48281,
+      "license": "Apache-2.0",
+      "pushed_at": "2026-05-22T14:02:20Z",
+      "archived": false
+    },
+    {
+      "name": "Langflow",
+      "repo": "langflow-ai/langflow",
+      "cohort": "ecosystem",
+      "stars": 153359,
+      "license": "MIT",
+      "pushed_at": "2026-08-17T17:25:02Z",
+      "archived": false
+    },
+    {
+      "name": "CrewAI",
+      "repo": "crewAIInc/crewAI",
+      "cohort": "ecosystem",
+      "stars": 57206,
+      "license": "MIT",
+      "pushed_at": "2026-08-17T16:41:56Z",
+      "archived": false
+    },
+    {
+      "name": "LiteLLM",
+      "repo": "BerriAI/litellm",
+      "cohort": "ecosystem",
+      "stars": 56537,
+      "license": "NOASSERTION",
+      "pushed_at": "2026-08-17T17:28:56Z",
+      "archived": false
+    },
+    {
+      "name": "LangGraph",
+      "repo": "langchain-ai/langgraph",
+      "cohort": "ecosystem",
+      "stars": 39869,
+      "license": "MIT",
+      "pushed_at": "2026-08-16T00:22:02Z",
+      "archived": false
+    }
+  ]
+}

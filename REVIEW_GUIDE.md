@@ -3,6 +3,12 @@
 This repository contains a small public theory and a deliberately large
 falsification record. Review the claim before reviewing the archive.
 
+Roughly 95% of the words here are archive. The claim itself is the README plus
+[theory sections 1–4](docs/theory.md); the [glossary](docs/glossary.md)
+translates the vocabulary if the register gets in the way. Nothing else is
+required reading to review the claim — the ledger exists so that the claim can
+be checked, not so that it must be read first.
+
 ## Five-minute review
 
 Read the [README](README.md), then answer two questions:

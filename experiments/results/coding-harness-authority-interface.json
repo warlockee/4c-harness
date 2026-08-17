@@ -1,5 +1,5 @@
 {
-  "evidence_level": "installed-binary interface; enforcement not tested",
+  "evidence_level": "declared interface: control surfaces are read from a shipped binary; enforcement is not exercised",
   "experiment": "coding-harness-authority-interface",
   "result": {
     "authority_surface_replicated": true,
@@ -14,7 +14,7 @@
         "explicit_bypass": true,
         "permission_mode": true
       },
-      "version": "2.1.201"
+      "version": "2.1.233"
     },
     "codex": {
       "controls": {
@@ -22,7 +22,7 @@
         "explicit_bypass": true,
         "sandbox_modes": true
       },
-      "version": "0.147.0"
+      "version": "0.146.0"
     }
   }
 }

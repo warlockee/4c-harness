@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Observe provider-semantic translation in LiteLLM without making API calls."""
+"""Observe provider-semantic translation in LiteLLM without making API calls.
+
+Evidence level: third-party behaviour. Every observed difference is produced by
+LiteLLM's own parameter mapping; this file only holds the canonical request
+fixed and reads what the library emits per provider.
+"""
 
 from __future__ import annotations
 
@@ -9,6 +14,8 @@ import platform
 from copy import deepcopy
 
 import litellm
+
+from _support import THIRD_PARTY_BEHAVIOUR, require
 
 
 CANONICAL_TOOL = {
@@ -44,34 +51,55 @@ def main() -> None:
     translated = {
         provider: translate(provider, model) for provider, model in TARGETS.items()
     }
-    assert CANONICAL_TOOL["function"]["parameters"] == {
-        "type": "object",
-        "properties": {},
-    }
+    require(
+        CANONICAL_TOOL["function"]["parameters"] == {"type": "object", "properties": {}},
+        "the canonical request was mutated during translation",
+    )
 
     # Same semantic request, provider-specific representations.
-    assert translated["openai"]["stop"] == ["END"]
-    assert translated["anthropic"]["stop_sequences"] == ["END"]
-    assert translated["bedrock"]["stopSequences"] == ["END"]
-    assert translated["gemini"]["stop_sequences"] == ["END"]
+    require(translated["openai"]["stop"] == ["END"], "openai stop sequence changed shape")
+    require(
+        translated["anthropic"]["stop_sequences"] == ["END"],
+        "anthropic stop sequence changed shape",
+    )
+    require(
+        translated["bedrock"]["stopSequences"] == ["END"],
+        "bedrock stop sequence changed shape",
+    )
+    require(
+        translated["gemini"]["stop_sequences"] == ["END"],
+        "gemini stop sequence changed shape",
+    )
 
-    assert translated["openai"]["tools"][0]["function"]["parameters"] == {
-        "type": "object",
-        "properties": {},
-    }
-    assert translated["anthropic"]["tools"][0]["input_schema"] == {
-        "type": "object",
-        "properties": {},
-    }
-    assert "function_declarations" in translated["gemini"]["tools"][0]
+    require(
+        translated["openai"]["tools"][0]["function"]["parameters"]
+        == {"type": "object", "properties": {}},
+        "openai tool schema is no longer nested under function.parameters",
+    )
+    require(
+        translated["anthropic"]["tools"][0]["input_schema"]
+        == {"type": "object", "properties": {}},
+        "anthropic tool schema is no longer expressed as input_schema",
+    )
+    require(
+        "function_declarations" in translated["gemini"]["tools"][0],
+        "gemini tool schema is no longer expressed as function_declarations",
+    )
 
     # Translation is deterministic when the target semantics are fixed.
-    assert translated["anthropic"] == translate("anthropic", TARGETS["anthropic"])
+    require(
+        translated["anthropic"] == translate("anthropic", TARGETS["anthropic"]),
+        "translation is not deterministic for a fixed target",
+    )
     serialized = {json.dumps(value, sort_keys=True) for value in translated.values()}
-    assert len(serialized) == len(TARGETS)
+    require(
+        len(serialized) == len(TARGETS),
+        "two providers produced an identical representation",
+    )
 
     report = {
         "experiment": "litellm-provider-compatibility",
+        "evidence_level": THIRD_PARTY_BEHAVIOUR,
         "runtime": platform.python_version(),
         "litellm": importlib.metadata.version("litellm"),
         "controlled_variables": [

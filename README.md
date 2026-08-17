@@ -67,11 +67,25 @@ deliberately narrow: only highly visible, open-source systems that directly run
 agent tasks are included. Application platforms, data frameworks and libraries
 for building a Harness are not mixed into this like-for-like comparison. The
 table evaluates documented mechanisms, not project quality or popularity.
-`Strong` means the project exposes substantial first-class machinery for that
-pressure; `Partial` means some mechanisms exist but application policy still
-does most of the work; `Evidence` means the project records or evaluates runs
-without demonstrating automatic reusable policy change; `External` means bring
-another component if the task activates that pressure.
+
+For Cost, Compatibility and Continuity: `Strong` means the project exposes
+substantial first-class machinery for that pressure; `Partial` means some
+mechanisms exist but application policy still does most of the work; `External`
+means bring another component if the task activates that pressure.
+
+Cognition uses its own three-rung scale, because a single `Evidence` label made
+the column uniform and therefore uninformative:
+
+| Rung | Test |
+|---|---|
+| `Evidence` | The project records or evaluates runs. Any resulting policy change is authored by a human. |
+| `Adaptive` | Documented mechanisms let prior-run or prior-request outcomes change a live execution policy automatically — routing, cooldowns, retrieval or context assembly — without producing a reviewable, versioned artifact. |
+| `Strong` | Prior-run evidence produces a versioned, reusable policy artifact with rollout and rollback. |
+
+No surveyed system is graded `Strong`, and that is a claim rather than a
+formality: if a project documents evidence-driven, versioned policy artifacts,
+its row is wrong and should be corrected. `Adaptive` marks the rung most
+readers actually care about, and two projects reach it today.
 
 ### 1. DeepSeek Harness: the first 4C analysis
 
@@ -112,12 +126,15 @@ for the underlying mechanisms.
 | [Aider](https://github.com/Aider-AI/aider) | Partial | **Strong** | Partial | Evidence | Focused terminal coding Harness with broad model support, repository maps, git-backed edits/undo and a public benchmark. Its smaller profile is often an advantage. |
 | [browser-use](https://github.com/browser-use/browser-use) | Partial | **Strong** | Partial | Evidence | Domain-specific browser Harness with provider choice, custom tools, persistent browser resources and an open benchmark. Browser specialization should not be mistaken for general Harness completeness. |
 
-Visibility snapshot: **2026-08-16**. DeepSeek Harness (~137k GitHub stars),
-Gemini CLI and Codex (~107k each), browser-use (~109k), OpenHands (~84k),
-Cline (~66k) and Aider (~48k). Stars determine eligibility here, never the 4C
-assessment. Counts are rounded and will drift; all projects exceed 30k stars,
-use an OSI-approved license and showed repository activity in the prior six months.
-See the [selection audit](docs/validation/popular-harness-selection.md) for the
+Eligibility: at least 30k GitHub stars, an OSI-approved license on the relevant
+mechanism code, and repository activity in the prior six months. Stars determine
+eligibility here, never the 4C assessment. Per-project counts are deliberately
+not repeated in this file — they drift daily and were wrong within a day of the
+last hand-edit. They live in a [generated
+table](docs/validation/popular-harness-selection.md#visibility-and-eligibility-facts)
+refreshed from the GitHub API by `tools/visibility_check.py`, which CI reruns
+weekly so that an archived repository or a license change fails the build. See
+the [selection audit](docs/validation/popular-harness-selection.md) for the
 criteria, sources and notable exclusions.
 
 ### Ecosystem coverage cases
@@ -130,9 +147,25 @@ comparable with a terminal or IDE agent.
 | Representative system | Archetype | Cost | Compatibility | Continuity | Cognition | Why it matters to 4C |
 |---|---|---|---|---|---|---|
 | [LangGraph](https://github.com/langchain-ai/langgraph) | Stateful agent runtime | Partial | Partial | **Strong** | Evidence | Tests whether explicit graph state, checkpoint, interrupt/resume and replay fit Continuity without turning durability into a universal requirement. |
-| [CrewAI](https://github.com/crewAIInc/crewAI) | Multi-agent orchestration framework | Partial | **Strong** | **Strong** | External | Tests whether roles, delegation, flows and memory introduce a fifth constraint; 4C instead predicts differences, shared temporal state and authority boundaries. |
+| [CrewAI](https://github.com/crewAIInc/crewAI) | Multi-agent orchestration framework | Partial | **Strong** | **Strong** | *Adaptive* | Tests whether roles, delegation, flows and memory introduce a fifth constraint; 4C instead predicts differences, shared temporal state and authority boundaries. |
 | [Langflow](https://github.com/langflow-ai/langflow) | Visual agent/workflow platform | Partial | **Strong** | **Strong** | Evidence | Tests 4C against composed workflows, deployment and a large integration surface rather than one local agent loop. |
-| [LiteLLM](https://github.com/BerriAI/litellm) | Model gateway | **Strong** | **Strong** | Partial | Evidence | Tests the request/task boundary through cost tracking, routing, fallback, provider normalization, guardrails and logging. |
+| [LiteLLM](https://github.com/BerriAI/litellm) | Model gateway | **Strong** | **Strong** | Partial | *Adaptive* | Tests the request/task boundary through cost tracking, routing, fallback, provider normalization, guardrails and logging. |
+
+Why those two clear the `Adaptive` rung:
+
+- **LiteLLM** documents latency-based routing that "caches, and updates the
+  response times for deployments," usage-based routing over tracked
+  consumption, and failure-triggered cooldowns that remove a deployment from
+  rotation ([routing](https://docs.litellm.ai/docs/routing)). Observed outcomes
+  of prior requests change the next routing decision with no human in the loop.
+- **CrewAI** documents memory that, after each task, "automatically extracts
+  discrete facts from the task output and stores them," then recalls them into
+  the next task's prompt ([memory](https://docs.crewai.com/en/concepts/memory)).
+  Prior-run outcomes change later context assembly automatically.
+
+Neither produces a versioned, reviewable policy artifact, which is why neither
+reaches `Strong`. This also corrects an earlier error: CrewAI was graded
+`External` on Cognition, which its documented memory system contradicts.
 
 These rows broaden theoretical coverage; they do not form a product leaderboard
 with the like-for-like cohort. Each project had roughly 40k–153k GitHub stars at
@@ -144,7 +177,8 @@ How to read the table:
   machinery. It is better only when your task requires that machinery.
 - **A trace or eval platform does not automatically activate Cognition.** It
   becomes Cognition only when prior-run evidence produces a reusable change to
-  prompt assembly, retrieval, routing, tool, retry or stopping policy.
+  prompt assembly, retrieval, routing, tool, retry or stopping policy — the
+  `Adaptive` rung. Recording runs is the `Evidence` rung and stops there.
 - **A product can span layers.** vLLM batching, kernels and GPU scheduling
   optimize model computation and remain Infrastructure; task-level model
   routing or retry policy belongs to the Harness.
@@ -290,6 +324,8 @@ engineering did not survive hostile testing. The revision preserves the useful
 
 ## Read further
 
+- [Glossary](docs/glossary.md) — every term in one plain sentence; start here if
+  the vocabulary below gets heavy
 - [Theory](docs/theory.md) — precise definitions; sections 1–4 are the core
 - [Review guide](REVIEW_GUIDE.md) — 5-minute, 30-minute and adversarial paths
 - [Evidence matrix](docs/evidence.md) — primary sources and reopening conditions

@@ -10,7 +10,8 @@
 **Reading boundary:** Sections 1–4 contain the complete 4C core. Sections 5–7
 clarify scope. Sections 8–10 document the optional adversarial model used to
 test where 4C stops; they are not extra Cs and are not prerequisites for using
-the lens.
+the lens. Every term below is restated in one plain sentence in the
+[glossary](glossary.md).
 
 ## 1. Definition
 

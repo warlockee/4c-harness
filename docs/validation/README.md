@@ -8,6 +8,15 @@ not to accumulate examples that can be labelled with four letters. Its purpose
 is to find recurring harness problems that the four proposed constraints do
 not explain without distortion.
 
+**This is an archive, not a reading list.** Nothing here is required to use or
+review 4C — the README and [theory sections 1–4](../theory.md) are the claim,
+and the [glossary](../glossary.md) covers the vocabulary. Come here to check a
+specific rejection, starting with the
+[final falsification audit](v1-final-falsification-audit.md). Note also the
+adjudication limit recorded in the [evidence matrix](../evidence.md#evidence-limits):
+every rejection below was written by the same authors who defined the
+categories.
+
 ## Research question
 
 > Is there a fundamental constraint on model-driven execution that is not

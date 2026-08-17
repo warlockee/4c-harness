@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""Separate evaluation evidence from a reusable Cognition policy update."""
+"""Instrument the evaluation/Cognition boundary around a real scorer.
+
+Evidence level: instrumented illustration. Autoevals supplies the scorer and
+the score that both branches share; the adaptation operator is the locally
+authored `adapt` function. The experiment demonstrates that identical
+evaluation evidence is insufficient for a policy delta — the operator has to
+exist — and deliberately claims nothing about how any upstream eval platform
+handles adaptation.
+"""
 
 from __future__ import annotations
 
@@ -9,6 +17,8 @@ import json
 import platform
 
 from autoevals import ExactMatch
+
+from _support import INSTRUMENTED_ILLUSTRATION, require
 
 
 INITIAL_POLICY = {"version": 1, "answer": "four"}
@@ -34,21 +44,22 @@ def main() -> None:
     passive_before = execute(passive_policy)
     passive_score = score(passive_before)
     passive_after = execute(passive_policy)
-    assert passive_score["score"] == 0
-    assert passive_policy == INITIAL_POLICY
-    assert passive_after == passive_before
+    require(passive_score["score"] == 0, "scorer did not reject the initial output")
+    require(passive_policy == INITIAL_POLICY, "policy changed without an adaptation step")
+    require(passive_after == passive_before, "future execution changed without adaptation")
 
     adaptive_policy = copy.deepcopy(INITIAL_POLICY)
     adaptive_before = execute(adaptive_policy)
     adaptive_score = score(adaptive_before)
     adapt(adaptive_policy, adaptive_score)
     adaptive_after = execute(adaptive_policy)
-    assert adaptive_score == passive_score
-    assert adaptive_policy["version"] == 2
-    assert adaptive_after == EXPECTED
+    require(adaptive_score == passive_score, "evaluation evidence differed between branches")
+    require(adaptive_policy["version"] == 2, "adaptation did not version the policy artifact")
+    require(adaptive_after == EXPECTED, "adapted policy did not change future execution")
 
     report = {
         "experiment": "autoevals-cognition-boundary",
+        "evidence_level": INSTRUMENTED_ILLUSTRATION,
         "runtime": platform.python_version(),
         "autoevals": importlib.metadata.version("autoevals"),
         "controlled_variables": [
@@ -59,6 +70,8 @@ def main() -> None:
             "evaluation score",
         ],
         "independent_variable": "whether evaluation triggers a reusable policy update",
+        "observed_from_upstream": ["ExactMatch scoring of an identical output"],
+        "authored_locally": ["the execution policy artifact", "the adaptation operator"],
         "branches": {
             "passive_evaluation": {
                 "score": passive_score,
@@ -77,6 +90,10 @@ def main() -> None:
             "claim": (
                 "Identical evaluation evidence changes future execution only "
                 "when an explicit adaptation operation updates reusable policy."
+            ),
+            "not_proven": (
+                "that any surveyed eval platform does or does not perform that "
+                "adaptation; the operator is authored in this file"
             ),
         },
     }

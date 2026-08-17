@@ -75,12 +75,44 @@ policy variation. Evidence for one part does not establish the other two.
 ## Evidence limits
 
 The current corpus is strong for documented mechanisms and counterfactual layer
-reasoning. It is weaker in three ways:
+reasoning. It is weaker in four ways:
 
 1. most mappings are desk research rather than instrumented reproductions;
 2. vendor documentation can describe intended behavior without proving efficacy;
 3. absence of a new residual in the sampled systems does not prove universal
-   completeness.
+   completeness;
+4. the counterfactual-removal test is adjudicated in prose by the same authors
+   who defined the categories.
+
+The fourth limit is the structural one and is worth stating plainly rather than
+leaving for a hostile reader to notice. Every rejected peer candidate —
+Reliability, Coordination, Planning, generic Control, Grounding, Uncertainty,
+Identity — was rejected by decomposing it into categories this repository
+already contains. A framework that could absorb anything would produce exactly
+that record. Three defenses are available, and only the second is strong:
+
+- The categories were fixed before the attacks, and each attack states its
+  reopening condition in advance, so a later dispute is about evidence rather
+  than definitions.
+- The method has actually fired. Authority, Validity and Epistemic Access
+  survived removal and **broke the original exhaustive claim**, which remains
+  rejected in the canonical documents. A purely self-confirming procedure does
+  not produce that outcome, and predictions P8 and P9 record their own
+  falsification.
+- Some rejections rest on primary sources rather than on the classification
+  alone.
+
+What is still missing is independent adjudication: no attack in this ledger was
+authored or scored by someone with an interest in 4C failing. Until that
+happens, treat the rejected-candidate table as this repository's best attempt at
+self-refutation, not as a settled result. A counterexample from a reader
+outranks any entry in it — see the [review guide](../REVIEW_GUIDE.md).
+
+Experiment evidence carries a third label beyond documented/inferred: whether
+the observed policy delta is produced by the upstream system or by locally
+authored instrumentation. See [`experiments/README.md`](../experiments/README.md);
+claims resting on an instrumented illustration are not independently
+corroborated.
 
 Those limits are why the theory includes explicit kill criteria and why future
 case studies should record executable configurations, traces and failure cases.

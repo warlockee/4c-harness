@@ -5,6 +5,7 @@
     "requested output tensor",
     "task-facing result"
   ],
+  "evidence_level": "third-party behaviour: the observed policy delta is produced by the upstream system under test",
   "execution_provider": "CPUExecutionProvider",
   "experiment": "onnxruntime-infrastructure-boundary",
   "independent_variable": "inference threads and graph-optimization policy",
@@ -17,14 +18,24 @@
   "runs": {
     "conservative": {
       "graph_optimization": "disabled",
-      "output": [[9.0, 14.0]],
+      "output": [
+        [
+          9.0,
+          14.0
+        ]
+      ],
       "threads": 1
     },
     "optimized": {
       "graph_optimization": "all",
-      "output": [[9.0, 14.0]],
+      "output": [
+        [
+          9.0,
+          14.0
+        ]
+      ],
       "threads": 2
     }
   },
-  "runtime": "3.13.4"
+  "runtime": "3.13.9"
 }

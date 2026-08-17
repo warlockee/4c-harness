@@ -7,6 +7,7 @@
     "tool-choice intent",
     "no network request"
   ],
+  "evidence_level": "third-party behaviour: the observed policy delta is produced by the upstream system under test",
   "experiment": "litellm-provider-compatibility",
   "independent_variable": "target provider semantics",
   "litellm": "1.97.0",
@@ -14,7 +15,7 @@
     "claim": "Holding task intent and canonical parameters fixed, target provider semantics change the required request representation.",
     "compatibility_residual": true
   },
-  "runtime": "3.14.0",
+  "runtime": "3.14.6",
   "targets": {
     "anthropic": "claude-3-5-sonnet-20241022",
     "bedrock": "anthropic.claude-3-5-sonnet-20241022-v2:0",
@@ -24,55 +25,92 @@
   "translated_parameters": {
     "anthropic": {
       "max_tokens": 128,
-      "stop_sequences": ["END"],
-      "tool_choice": {"type": "auto"},
-      "tools": [{
-        "description": "Look up a fixed record",
-        "input_schema": {"properties": {}, "type": "object"},
-        "name": "lookup",
-        "type": "custom"
-      }]
+      "stop_sequences": [
+        "END"
+      ],
+      "tool_choice": {
+        "type": "auto"
+      },
+      "tools": [
+        {
+          "description": "Look up a fixed record",
+          "input_schema": {
+            "properties": {},
+            "type": "object"
+          },
+          "name": "lookup",
+          "type": "custom"
+        }
+      ]
     },
     "bedrock": {
       "maxTokens": 128,
-      "stopSequences": ["END"],
+      "stopSequences": [
+        "END"
+      ],
       "stream": false,
-      "tool_choice": {"auto": {}},
-      "tools": [{
-        "function": {
-          "description": "Look up a fixed record",
-          "name": "lookup",
-          "parameters": {"properties": {}, "type": "object"}
-        },
-        "type": "function"
-      }]
+      "tool_choice": {
+        "auto": {}
+      },
+      "tools": [
+        {
+          "function": {
+            "description": "Look up a fixed record",
+            "name": "lookup",
+            "parameters": {
+              "properties": {},
+              "type": "object"
+            }
+          },
+          "type": "function"
+        }
+      ]
     },
     "gemini": {
       "max_output_tokens": 128,
-      "stop_sequences": ["END"],
-      "tool_choice": {"functionCallingConfig": {"mode": "AUTO"}},
-      "tools": [{
-        "function_declarations": [{
-          "description": "Look up a fixed record",
-          "name": "lookup",
-          "parameters": {"type": "object"}
-        }]
-      }]
+      "stop_sequences": [
+        "END"
+      ],
+      "tool_choice": {
+        "functionCallingConfig": {
+          "mode": "AUTO"
+        }
+      },
+      "tools": [
+        {
+          "function_declarations": [
+            {
+              "description": "Look up a fixed record",
+              "name": "lookup",
+              "parameters": {
+                "type": "object"
+              }
+            }
+          ]
+        }
+      ]
     },
     "openai": {
       "extra_body": {},
       "max_tokens": 128,
-      "stop": ["END"],
+      "stop": [
+        "END"
+      ],
       "stream": false,
       "tool_choice": "auto",
-      "tools": [{
-        "function": {
-          "description": "Look up a fixed record",
-          "name": "lookup",
-          "parameters": {"properties": {}, "type": "object"}
-        },
-        "type": "function"
-      }]
+      "tools": [
+        {
+          "function": {
+            "description": "Look up a fixed record",
+            "name": "lookup",
+            "parameters": {
+              "properties": {},
+              "type": "object"
+            }
+          },
+          "type": "function"
+        }
+      ]
     }
   }
 }

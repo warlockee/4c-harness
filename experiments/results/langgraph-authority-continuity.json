@@ -1,8 +1,14 @@
 {
+  "authored_locally": [
+    "the authority gate node",
+    "the mapping from decision to outcome"
+  ],
   "branches": [
     {
       "authority_decision": "approve",
-      "checkpoint_next": ["authority_gate"],
+      "checkpoint_next": [
+        "authority_gate"
+      ],
       "checkpoint_status": "requested",
       "fixed_candidate": {
         "account_id": "acct-fixed",
@@ -14,7 +20,9 @@
     },
     {
       "authority_decision": "deny",
-      "checkpoint_next": ["authority_gate"],
+      "checkpoint_next": [
+        "authority_gate"
+      ],
       "checkpoint_status": "requested",
       "fixed_candidate": {
         "account_id": "acct-fixed",
@@ -32,13 +40,20 @@
     "checkpoint state",
     "tool capability"
   ],
+  "evidence_level": "instrumented illustration: the policy delta is produced by locally authored code, with the upstream package supplying only the named primitive",
   "experiment": "langgraph-authority-continuity",
   "independent_variable": "authority decision",
   "langgraph": "0.6.6",
+  "observed_from_upstream": [
+    "suspension at interrupt()",
+    "checkpointed state and pending next node",
+    "resumption under Command(resume=...)"
+  ],
   "result": {
     "authority_residual": true,
     "claim": "Authority changes admissibility while Continuity preserves the suspended execution; neither substitutes for the other.",
-    "continuity_observed": true
+    "continuity_observed": true,
+    "not_proven": "that LangGraph itself separates permission from lifecycle; the divergence is authored in this file"
   },
-  "runtime": "3.14.0"
+  "runtime": "3.14.6"
 }

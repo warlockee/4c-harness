@@ -129,7 +129,7 @@ the tested categories.
 | Rival primitives face counterfactual controls | candidate attacks plus this audit | Pass for the named corpus. |
 | Claims have primary-source anchors and falsifiers | evidence matrix, case studies, predictions | Pass for canonical theoretical claims; source availability is separately checked. |
 | Diagrams encode current semantics | Mermaid and rendered SVG artifacts | Pass subject to compile/XML validation. |
-| Empirical reproductions exist | `experiments/` | **Pass for representative mechanisms: LangGraph, LiteLLM, Autoevals, Codex sandbox and ONNX Runtime behavioral controls pass; Codex/Claude interfaces replicate independently. vLLM GPU specifics remain source-level and are not generalized from ONNX.** |
+| Empirical reproductions exist | `experiments/` | **Partial. Three experiments observe third-party behaviour: LiteLLM provider translation, Codex sandbox enforcement and ONNX Runtime computation policy. Two are instrumented illustrations whose policy delta is authored locally (LangGraph authority/continuity, Autoevals cognition boundary), and one reads a declared interface without exercising it (Codex/Claude control surfaces). vLLM GPU specifics remain source-level and are not generalized from ONNX.** |
 | Universal completeness is proven | Not attainable from sampled mappings | **Not claimed.** Kill criteria remain open. |
 
 ## Promotion decision
@@ -142,11 +142,27 @@ coding-Harness and inference-boundary surfaces.
 
 Here “bullet proof” means hardened against the documented attacks with explicit
 reopening conditions, not mathematically or historically exhaustive. A finite
-corpus cannot prove that no future Harness decision exists. The executable suite
-covers LangGraph, LiteLLM, Autoevals, Codex sandbox and ONNX Runtime behavior
-plus Codex/Claude interfaces. Each experiment records controlled variables, the
-policy delta, observations and outcome. A single unclassified recurring
-decision or failed kill criterion reopens the model immediately.
+corpus cannot prove that no future Harness decision exists. A single
+unclassified recurring decision or failed kill criterion reopens the model
+immediately.
+
+The executable suite deserves a sharper statement than it previously received.
+Each experiment records controlled variables, the policy delta, observations and
+outcome — but not every experiment is evidence of the same strength, and the
+earlier wording let all six read as equivalent:
+
+| Evidence level | Experiments | What it establishes |
+|---|---|---|
+| Third-party behaviour | LiteLLM translation, Codex sandbox enforcement, ONNX Runtime computation policy | An upstream system produces the policy delta under a controlled cause. This is the only tier that independently supports a classification. |
+| Instrumented illustration | LangGraph authority/continuity, Autoevals cognition boundary | The distinction can be stated and mechanised, and the named primitive behaves as documented. The divergence itself is authored locally, so it cannot corroborate the classification. |
+| Declared interface | Codex/Claude control surfaces | Two independent products advertise separable permission controls. Enforcement is untested here. |
+
+So the Authority and Cognition classifications currently rest on desk research
+plus one genuine enforcement observation (Codex sandbox), not on five
+independent reproductions. Closing that gap means finding upstream systems whose
+own code makes the allow/deny and evidence/adaptation distinctions observable —
+Agents SDK tool-approval interruptions and a DSPy compile step are the obvious
+next candidates.
 
 ## Final promotion gate
 
@@ -158,7 +174,7 @@ decision or failed kill criterion reopens the model immediately.
 | vLLM/inference versus Harness layer boundary | Pass at controlled-object level; vLLM remains Infrastructure, and ONNX Runtime supplies executable computation-boundary control. |
 | Primary-source hardening | Pass in the evidence matrix; theory classifications remain labeled as inference. |
 | Formal diagrams and sourced cases | Pass; Mermaid sources compile and rendered SVGs validate. |
-| Executable counterfactuals | Pass for representative runtime, gateway, eval, coding-Harness and inference mechanisms. |
+| Executable counterfactuals | Partial: three third-party behavioural controls (gateway, coding-Harness sandbox, inference), two instrumented illustrations, one declared-interface reading. |
 | Falsifiability | Pass: six canonical kill criteria and claim-level reopening conditions. |
 
 **Decision: promote the revised composed Harness model to v1.0. Do not restore

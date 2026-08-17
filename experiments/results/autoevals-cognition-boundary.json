@@ -1,15 +1,33 @@
 {
+  "authored_locally": [
+    "the execution policy artifact",
+    "the adaptation operator"
+  ],
   "autoevals": "0.3.0",
   "branches": {
     "adaptive_feedback": {
       "next_output": "five",
-      "policy_after": {"answer": "five", "version": 2},
-      "score": {"error": null, "name": "ExactMatch", "score": 0}
+      "policy_after": {
+        "answer": "five",
+        "version": 2
+      },
+      "score": {
+        "error": null,
+        "name": "ExactMatch",
+        "score": 0
+      }
     },
     "passive_evaluation": {
       "next_output": "four",
-      "policy_after": {"answer": "four", "version": 1},
-      "score": {"error": null, "name": "ExactMatch", "score": 0}
+      "policy_after": {
+        "answer": "four",
+        "version": 1
+      },
+      "score": {
+        "error": null,
+        "name": "ExactMatch",
+        "score": 0
+      }
     }
   },
   "controlled_variables": [
@@ -19,12 +37,17 @@
     "ExactMatch evaluator",
     "evaluation score"
   ],
+  "evidence_level": "instrumented illustration: the policy delta is produced by locally authored code, with the upstream package supplying only the named primitive",
   "experiment": "autoevals-cognition-boundary",
   "independent_variable": "whether evaluation triggers a reusable policy update",
+  "observed_from_upstream": [
+    "ExactMatch scoring of an identical output"
+  ],
   "result": {
     "claim": "Identical evaluation evidence changes future execution only when an explicit adaptation operation updates reusable policy.",
     "evaluation_is_not_sufficient_for_cognition": true,
+    "not_proven": "that any surveyed eval platform does or does not perform that adaptation; the operator is authored in this file",
     "reusable_policy_delta_observed_only_in_adaptive_branch": true
   },
-  "runtime": "3.14.0"
+  "runtime": "3.14.6"
 }

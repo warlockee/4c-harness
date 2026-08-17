@@ -3,6 +3,10 @@ name: Empirical falsification suite
 on:
   push:
   pull_request:
+  schedule:
+    # Weekly, so cohort eligibility drift is caught without a push.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
 
 jobs:
   reproduce:
@@ -34,3 +38,18 @@ jobs:
         run: python -m pip install -r experiments/requirements-inference.txt
       - name: Run inference boundary control
         run: python experiments/onnxruntime_infra_boundary.py
+
+  cohort-visibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check README cohort eligibility against the GitHub API
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/visibility_check.py

@@ -1,5 +1,5 @@
 {
-  "codex": "0.147.0",
+  "codex": "0.146.0",
   "controlled_variables": [
     "Codex binary",
     "permission profile",
@@ -7,6 +7,7 @@
     "operation",
     "filesystem owner and mode"
   ],
+  "evidence_level": "third-party behaviour: the observed policy delta is produced by the upstream system under test",
   "experiment": "codex-sandbox-authority-enforcement",
   "independent_variable": "effect target inside versus outside authorized workspace",
   "observations": {
@@ -19,6 +20,8 @@
   "platform": "Darwin",
   "result": {
     "authority_enforcement_observed": true,
-    "claim": "With capability and operation held fixed, delegated effect scope changes whether the coding Harness admits the effect."
+    "claim": "With capability and operation held fixed, delegated effect scope changes whether the coding Harness admits the effect.",
+    "not_proven": "that the sandbox resists an adversarial escape attempt; only that the declared scope is enforced for this operation",
+    "scope_note": "the :workspace profile also grants $TMPDIR, so an unauthorized target must be chosen outside every granted root"
   }
 }

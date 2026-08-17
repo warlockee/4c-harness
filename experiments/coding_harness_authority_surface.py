@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Inspect installed coding-Harness binaries for independent authority controls.
 
-This is an interface reproduction, not an enforcement test. It is intentionally
-excluded from credential-free CI because the third-party CLIs are not installed
-on the runner.
+Evidence level: declared interface. This reads the control surfaces two shipped
+binaries advertise. It is not an enforcement test, and a missing CLI is a
+skipped precondition rather than a failed claim — see
+`codex_sandbox_authority.py` for the enforcement observation.
 """
 
 from __future__ import annotations
@@ -12,6 +13,8 @@ import json
 import re
 import shutil
 import subprocess
+
+from _support import DECLARED_INTERFACE, require, skip
 
 
 def output(*command: str) -> str:
@@ -23,13 +26,14 @@ def output(*command: str) -> str:
 def version(binary: str) -> str:
     text = output(binary, "--version")
     match = re.search(r"\d+(?:\.\d+)+", text)
-    assert match, f"could not parse {binary} version"
+    require(match, f"could not parse {binary} version")
     return match.group(0)
 
 
 def main() -> None:
     missing = [binary for binary in ("codex", "claude") if not shutil.which(binary)]
-    assert not missing, f"required local CLIs missing: {', '.join(missing)}"
+    if missing:
+        skip(f"CLIs not installed: {', '.join(missing)}; interface reproduction not run")
 
     codex_help = output("codex", "--help")
     claude_help = output("claude", "--help")
@@ -48,12 +52,14 @@ def main() -> None:
         "permission_mode": "--permission-mode" in claude_help,
         "explicit_bypass": "--dangerously-skip-permissions" in claude_help,
     }
-    assert all(codex_controls.values())
-    assert all(claude_controls.values())
+    require(all(codex_controls.values()), f"Codex control surface changed: {codex_controls}")
+    require(
+        all(claude_controls.values()), f"Claude Code control surface changed: {claude_controls}"
+    )
 
     report = {
         "experiment": "coding-harness-authority-interface",
-        "evidence_level": "installed-binary interface; enforcement not tested",
+        "evidence_level": DECLARED_INTERFACE,
         "systems": {
             "codex": {"version": version("codex"), "controls": codex_controls},
             "claude-code": {
