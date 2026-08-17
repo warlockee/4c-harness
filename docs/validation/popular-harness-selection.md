@@ -95,6 +95,39 @@ These systems are representative validation cases, not substitutes for each
 other. Their rows answer “does 4C survive this architecture?”, not “which
 product should a coding-agent user install?”
 
+## How Cognition is graded
+
+Cost, Compatibility and Continuity use `Strong` / `Partial` / `External`.
+Cognition needs its own scale: a single `Evidence` label applied to every
+surveyed system, which made the column uniform and therefore uninformative.
+
+| Rung | Test |
+|---|---|
+| `Evidence` | The project records or evaluates runs. Any resulting policy change is authored by a human. |
+| `Adaptive` | Documented mechanisms let prior-run or prior-request outcomes change a live execution policy automatically — routing, cooldowns, retrieval or context assembly — without producing a reviewable, versioned artifact. |
+| `Strong` | Prior-run evidence produces a versioned, reusable policy artifact with rollout and rollback. |
+
+Two systems currently reach `Adaptive`:
+
+- **LiteLLM** documents latency-based routing that "caches, and updates the
+  response times for deployments," usage-based routing over tracked
+  consumption, and failure-triggered cooldowns that remove a deployment from
+  rotation ([routing](https://docs.litellm.ai/docs/routing)). Observed outcomes
+  of prior requests change the next routing decision with no human in the loop.
+- **CrewAI** documents memory that, after each task, "automatically extracts
+  discrete facts from the task output and stores them," then recalls them into
+  the next task's prompt ([memory](https://docs.crewai.com/en/concepts/memory)).
+  Prior-run outcomes change later context assembly automatically. This corrects
+  an earlier `External` grade that its documented memory system contradicts.
+
+No surveyed system reaches `Strong`. That is a claim, not a formality: a project
+documenting evidence-driven, versioned policy artifacts with rollout and
+rollback has a wrong row here and the row should be corrected.
+
+Human-authored context files — `AGENTS.md`, rule files, hand-maintained memory
+banks — do not reach `Adaptive`. The distinction is whether the system closes
+the loop or a person does.
+
 ## Notable exclusions
 
 Exclusion from the compact README table is not a negative judgment. These
