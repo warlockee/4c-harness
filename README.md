@@ -7,6 +7,10 @@ A model call is not a task. A **Harness** is the engineering layer that turns
 bounded, mostly stateless model calls into task execution across tools, state,
 providers and time.
 
+Most architecture frameworks are published. This one was attacked until it
+broke — and the break is in the repository, along with the executable tests and
+the six conditions that would end it.
+
 ## What this changes for you
 
 Most agent projects fail in one of two directions: a multi-step effectful task
@@ -60,48 +64,51 @@ Two more places it pays off:
   Wrong answers and unpermitted actions are deliberately *not* inside a C — see
   [the minimum correctness boundary](#the-minimum-correctness-boundary).
 
-## Why you should — and shouldn't — trust this
+## Don't trust it. Run it.
 
-Frameworks-as-theory are cheap to publish and hard to check. Here is the honest
-ledger, so you can decide how much weight to put on it.
+Architecture theory is cheap to publish and almost never checkable. This one is
+built to be checked, in one command:
 
-**The theory already broke once, and the break is published.** The original
-claim was that four constraints *exhaust* Harness engineering. Hostile testing
-found three decisions that survive removing all four: whether the model can see
-the facts it needs (**Epistemic Access**), whether a result is actually correct
+``` shell
+python3 -m venv .venv
+.venv/bin/pip install -r experiments/requirements.txt
+.venv/bin/python experiments/run_all.py
+```
+
+That runs the credential-free suite against pinned upstream systems: LiteLLM's
+own parameter translation across four providers, LangGraph suspending and
+resuming at a pending decision, an evaluation that changes nothing until an
+adaptation step exists — plus the Codex sandbox actually denying an
+out-of-scope write, if you have the CLI installed. One more command adds the
+[ONNX Runtime inference-boundary control](experiments/README.md#run). Each
+experiment varies one proposed cause, checks the observed outcome, and names
+the result that would have falsified it.
+
+**Every claim carries its evidence grade.** Experiments state whether the
+observed behaviour comes from the upstream system, from local instrumentation,
+or from a declared interface — so a strong claim is never quietly propped up by
+a weak reproduction. Three of six reach the top grade; the rest say so
+themselves. The same discipline runs through the [evidence
+matrix](docs/evidence.md), which separates documented facts from inference,
+names the reopening condition for every claim, and records where the corpus is
+still thin.
+
+**This theory has already been broken once — publicly.** The original claim was
+that four constraints *exhaust* Harness engineering. Sustained attack found
+three decisions that survive removing all four: whether the model can see the
+facts it needs (**Epistemic Access**), whether a result is actually correct
 (**Validity**), and whether this principal may cause this effect (**Authority**).
-That claim is [rejected in the canonical documents](docs/theory.md) rather than
-quietly renamed, and two published predictions record their own falsification.
-A framework that had never failed a test would be the more worrying artifact.
+The overclaim was [rejected in the canonical documents](docs/theory.md) instead
+of quietly renamed, and two published predictions record their own
+falsification. What remains is the part that survived — and you can read exactly
+what killed the rest in the [validation ledger](docs/validation/README.md).
 
-**Some of it is executable.** Six experiments in [`experiments/`](experiments/README.md)
-run pinned upstream packages and check a claimed policy delta. They also carry
-an explicit evidence level, because running real code is not automatically
-independent evidence:
-
-| Evidence level | Experiments | Weight |
-|---|---|---|
-| Third-party behaviour | LiteLLM translation, Codex sandbox enforcement, ONNX Runtime computation policy | Independently supports the classification |
-| Instrumented illustration | LangGraph authority/continuity, Autoevals cognition boundary | Shows the distinction is mechanisable; does not corroborate it |
-| Declared interface | Codex/Claude control surfaces | Shows the surface exists; enforcement untested |
-
-Three of six independently support a classification. The Authority and
-Cognition boundaries currently rest on desk research plus one genuine
-enforcement observation.
-
-**What is still weak.** Most system mappings are desk research over vendor
-documentation, which shows a mechanism is claimed, not that it works. And every
-rejected rival category — Reliability, Coordination, Planning, Control,
-Uncertainty — was rejected by the same authors who defined the categories. No
-attack in the ledger was authored by someone with an interest in 4C failing.
-Both limits are recorded in the [evidence matrix](docs/evidence.md#evidence-limits).
-
-**It states how to kill it.** [Six kill criteria](docs/theory.md#10-kill-criteria)
-and per-claim reopening conditions are published. The shortest version: find a
-recurring Harness decision that survives removing scarcity, difference, time and
-prior experience, and the model reopens. One counterexample outweighs every
-successful mapping here — that is what the [review guide](REVIEW_GUIDE.md) asks
-you for.
+**It tells you how to end it.** [Six kill criteria](docs/theory.md#10-kill-criteria)
+and per-claim reopening conditions are published up front. The short version:
+find a recurring Harness decision that survives removing scarcity, difference,
+time and prior experience, and the model reopens. One counterexample outranks
+every successful mapping in this repository — bring one, and the
+[review guide](REVIEW_GUIDE.md) tells you where it lands.
 
 ## Build the minimum viable Harness with 4C
 
