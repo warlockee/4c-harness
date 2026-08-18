@@ -1,27 +1,43 @@
-# A new Harness shipped. Should you switch?
+# 4C — Stop choosing AI agent Harnesses by vibes
 
-> **4C turns that question into two answers: whether the new Harness changes
-> any decision your task actually forces, and what the migration would cost,
-> line by line.**
+> **Another Harness shipped. It has more tools, more agents and a better demo.
+> Cool. Does any of that change a decision your task actually needs?**
 
-You are already running something. A new Harness appears, it looks better, and
-the two things you want are an evaluation and a migration estimate. Neither is
-served by what is currently available.
+[Run the decision prompt](#put-a-candidate-on-trial) ·
+[Price a migration](#make-the-candidate-pay-the-moving-bill) ·
+[Compare popular systems](#skip-the-homework-popular-systems-pre-profiled) ·
+[Build the minimum](#building-one-start-smaller-than-feels-comfortable)
 
-| Signal you have today | What it answers | What it leaves open |
-|---|---|---|
-| Task benchmarks (SWE-bench, Aider's benchmark, OSWorld, WebArena) | How well a model and Harness scored on someone else's task distribution | Whether it changes anything for *your* task, and how much of the score is the model |
-| Feature matrix and docs | Which mechanisms exist | Whether you need them, and what you would rebuild |
-| Stars, release cadence, demos | Attention and maintenance | Fit, and the cost of leaving what you have |
-| **4C** | Which of your execution decisions the switch would change, and what carries over | Usability, latency, output quality, how good it feels to use |
+4C turns “should we switch?” into two concrete artifacts: an **execution-policy
+diff** and a **line-by-line migration bill**.
 
-A model call is not a task. A **Harness** is the engineering layer that turns
-bounded, mostly stateless model calls into task execution across tools, state,
-providers and time. Two Harnesses differ only where they take a different
-execution decision. 4C names the four reasons a decision has to change, so
-"should I switch" becomes a diff instead of an impression.
+``` text
+your actual task ──→ 4C activation test ──→ stay / switch / adopt one piece
+                              │
+                              └────────────→ what carries over, what gets rebuilt
+```
 
-## Evaluate the candidate
+The rule is ruthless: **if removing a pressure does not change an execution
+decision, that pressure is inactive.** A candidate being brilliant at an
+inactive pressure is not a reason to migrate.
+
+### A 30-second example
+
+You use a small local coding Harness. The candidate's headline features are
+multi-provider routing, distributed checkpoints and adaptive memory. Your work
+uses one provider, finishes in one session and treats Git as recovery.
+
+| Candidate advantage | Relevant to your task? | Decision |
+|---|---:|---|
+| Multi-provider routing | No semantic differences to absorb | Ignore it |
+| Distributed checkpoints | No process boundary to survive | Ignore it |
+| Adaptive memory | No past-run evidence updates future policy | Ignore it |
+| Better sandbox boundary | Yes, effects need tighter scope | Test this one mechanism |
+
+The verdict is not “old good, new bad.” It is: **keep the current Harness and
+trial the sandbox boundary.** That is a decision you can test, budget and undo.
+
+## Put a candidate on trial
 
 Hand this to your coding agent. It works on any Harness, not just the ones
 profiled below.
@@ -50,7 +66,22 @@ An inactive pressure is the most common finding, and it is the one that saves
 the migration. A candidate with a stronger router changes nothing if your token
 envelope never binds.
 
-## Price the migration
+### Why the usual signals do not answer the question
+
+| Signal you have today | What it answers | What it leaves open |
+|---|---|---|
+| Task benchmarks (SWE-bench, Aider's benchmark, OSWorld, WebArena) | How well a model and Harness scored on someone else's task distribution | Whether it changes anything for *your* task, and how much of the score is the model |
+| Feature matrix and docs | Which mechanisms exist | Whether you need them, and what you would rebuild |
+| Stars, release cadence, demos | Attention and maintenance | Fit, and the cost of leaving what you have |
+| **4C** | Which of your execution decisions the switch would change, and what carries over | Usability, latency, output quality, how good it feels to use |
+
+A model call is not a task. A **Harness** is the engineering layer that turns
+bounded, mostly stateless model calls into task execution across tools, state,
+providers and time. Two Harnesses differ in a way that matters only where they
+take a different execution decision. 4C names the four reasons that decision
+has to change, so “should I switch?” becomes a diff instead of an impression.
+
+## Make the candidate pay the moving bill
 
 If the verdict is switch, the cost is not "learn a new CLI". It is the set of
 execution decisions you currently get for free and would have to re-establish.
@@ -81,7 +112,7 @@ running it rather than by reading docs. Flag anything I currently get from the
 Harness that I would silently lose.
 ```
 
-## Profiles for the systems most people are comparing
+## Skip the homework: popular systems, pre-profiled
 
 Pre-computed, so you can skip the analysis if your candidate is here. These
 evaluate documented mechanisms, not project quality or how good the software is
@@ -126,7 +157,7 @@ another component. Table eligibility is 30k+ GitHub stars, an OSI-approved
 license and activity in the prior six months; live counts and sources are in the
 [selection audit](docs/validation/popular-harness-selection.md).
 
-## The method behind the answers
+## The engine: three pressures + one feedback plane
 
 Four questions, one per durable reason execution policy has to change:
 
@@ -178,7 +209,7 @@ or unauthorized. These three are also the residuals that falsified the original
 version of this theory, which is why they are named separately instead of being
 folded into a C, and why they are line items in the migration table.
 
-## If you are building rather than switching
+## Building one? Start smaller than feels comfortable
 
 ### Step 1: Write the task contract before choosing a framework
 
@@ -263,7 +294,7 @@ Deliver:
 | Research across web and private documents | Cost + Compatibility + Continuity | Evidence retrieval, typed tools, bounded loop, explicit state/citations and stop rule; add checkpoints only if execution must resume |
 | Autonomous coding task | Cost + Compatibility + Continuity; Cognition optional | Sandboxed tools, stateful loop, tests/postcondition checks, scoped permissions, budget/step stops; add Cognition only when traces update a versioned coding policy |
 
-## Case study: DeepSeek Harness
+## Worked example: DeepSeek Harness
 
 A useful test because its claim is architectural. Model adapters, tools,
 persistence, sandboxing, approval policy and the agent loop are all plugins
@@ -285,7 +316,7 @@ boundary you always own rather than adding a fifth C. See its
 for the mechanisms; this assesses a developer preview whose own documentation
 warns that breaking changes are expected.
 
-## Why these classifications are worth acting on
+## Evidence, scars and ways this theory can die
 
 Six experiments in [`experiments/`](experiments/README.md) run pinned upstream
 packages and check a claimed policy delta: LiteLLM's own parameter translation,
@@ -310,7 +341,7 @@ recurring Harness decision that survives removing scarcity, difference, time and
 prior experience. One counterexample outranks every mapping in this repository,
 and the [review guide](REVIEW_GUIDE.md) says where to send it.
 
-## Read further
+## Go deeper
 
 - [Glossary](docs/glossary.md): every term in one plain sentence
 - [Theory](docs/theory.md): precise definitions; sections 1–4 are the core
