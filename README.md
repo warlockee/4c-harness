@@ -1,73 +1,91 @@
-# 4C: choose an AI Harness, or build the smallest one that works
+# A new Harness shipped. Should you switch?
 
-> **Point your coding agent at this repository and ask it to evaluate a
-> Harness, or to design the minimum one your task needs. It will produce a
-> structured answer instead of a feature-list opinion.**
+> **4C turns that question into two answers: whether the new Harness changes
+> any decision your task actually forces, and what the migration would cost,
+> line by line.**
+
+You are already running something. A new Harness appears, it looks better, and
+the two things you want are an evaluation and a migration estimate. Neither is
+served by what is currently available.
+
+| Signal you have today | What it answers | What it leaves open |
+|---|---|---|
+| Task benchmarks (SWE-bench, Aider's benchmark, OSWorld, WebArena) | How well a model and Harness scored on someone else's task distribution | Whether it changes anything for *your* task, and how much of the score is the model |
+| Feature matrix and docs | Which mechanisms exist | Whether you need them, and what you would rebuild |
+| Stars, release cadence, demos | Attention and maintenance | Fit, and the cost of leaving what you have |
+| **4C** | Which of your execution decisions the switch would change, and what carries over | Usability, latency, output quality, how good it feels to use |
 
 A model call is not a task. A **Harness** is the engineering layer that turns
 bounded, mostly stateless model calls into task execution across tools, state,
-providers and time. Choosing one is currently done by reading feature lists and
-star counts, which does not answer the only question that matters: does this
-framework control the decisions *your* task actually forces?
+providers and time. Two Harnesses differ only where they take a different
+execution decision. 4C names the four reasons a decision has to change, so
+"should I switch" becomes a diff instead of an impression.
 
-4C answers that with four questions and a removal test.
+## Evaluate the candidate
 
-## Give this to your agent
-
-**Which Harness should I use?**
+Hand this to your coding agent. It works on any Harness, not just the ones
+profiled below.
 
 ``` text
 Read https://github.com/warlockee/4c-harness (README, then docs/theory.md
 sections 1-4).
 
-My task: <describe one task execution: input, success condition, effects,
-required evidence, hard limits>
+Current Harness: <what you run today>
+Candidate Harness: <the new one>
+My task: <input, success condition, effects, required evidence, hard limits>
 
-Using the 4C removal test, tell me:
-1. which of Cost / Compatibility / Continuity / Cognition my task activates,
-   and the exact policy delta that activates each one;
-2. which candidate Harness fits that profile, using the comparison tables in
-   the README and the evidence matrix in docs/evidence.md;
-3. what machinery I should NOT adopt, and which of my requirements would have
-   to change before it becomes necessary;
-4. which correctness and authority checks I still own regardless of framework.
+Produce:
+1. Activation profile. Which of Cost / Compatibility / Continuity / Cognition
+   does my task actually activate? For each, state the exact policy delta.
+   Deleting the pressure must change a decision, or it is inactive.
+2. Difference table. For each activated pressure only, what does the candidate
+   decide differently from my current Harness? Cite documented mechanisms, not
+   marketing.
+3. Verdict: stay, switch, or adopt for one subtask. An inactive pressure where
+   the candidate is stronger is not a reason to switch.
+4. What the benchmarks did not measure for my case.
 ```
 
-**Is the framework I already picked the right size?**
+An inactive pressure is the most common finding, and it is the one that saves
+the migration. A candidate with a stronger router changes nothing if your token
+envelope never binds.
+
+## Price the migration
+
+If the verdict is switch, the cost is not "learn a new CLI". It is the set of
+execution decisions you currently get for free and would have to re-establish.
+Price these seven line items; the first four are the pressures, the last three
+are the boundary obligations that no framework removes from you.
+
+| Line item | What you are actually moving | Usual cost |
+|---|---|---|
+| **Cost** | Budget accounting, stop rules, cache and routing policy | Low if your app owns the envelope, high if you relied on the Harness's routing or caching to stay in budget |
+| **Compatibility** | Provider adapters, tool schemas, MCP servers, structured output | Low for MCP tools and standard schemas, high for bespoke tool wrappers written against one Harness's API |
+| **Continuity** | Session format, checkpoints, resume, fork, history, undo | Usually the largest item. Session and checkpoint formats are product-specific, so in-flight work and history rarely port |
+| **Cognition** | Rule files, memory, learned or accumulated policy | Low for hand-authored context files, which are text. Adaptive state does not transfer |
+| **Epistemic Access** | Retrieval, repository maps, ignore rules, context assembly | Re-tune, then verify the model still sees the facts the task needs. Silent regressions here look like model quality drops |
+| **Validity** | Output checks, test gates, postcondition verification | Carries if you own it in CI, rebuilds if you leaned on Harness-side validation hooks |
+| **Authority** | Permission rules, sandbox profile, approval policy, effect scope | Re-express and re-verify. Two products can advertise the same guarantee and enforce a different scope, so test it rather than reading it |
+
+That last row is not theoretical. Codex's `:workspace` profile also grants the
+system temporary directory, which the
+[enforcement experiment](experiments/codex_sandbox_authority.py) had to work
+around. Assume nothing about a new sandbox until a denied write actually fails.
 
 ``` text
-Read https://github.com/warlockee/4c-harness, then audit my current design
-against it: <paste architecture or point at the repo>.
+Continue from the evaluation above.
 
-For every mechanism present (router, memory, checkpointer, multi-agent layer,
-optimizer), name the 4C pressure that justifies it and the counterfactual that
-would prove it necessary. List anything that fails the test as removable, and
-anything missing that an active pressure requires.
+Price my migration across the seven line items in the README's migration table.
+For each: what carries over unchanged, what I rebuild, what I must re-verify by
+running it rather than by reading docs. Flag anything I currently get from the
+Harness that I would silently lose.
 ```
 
-**Build me the minimum Harness.** The full implementation brief is in
-[Step 4](#step-4-make-the-coding-agent-prove-minimality) below. It constrains
-the agent to build only what an activated pressure justifies, with tests for
-the denied effect, the budget stop and the tool failure.
+## Profiles for the systems most people are comparing
 
-## What comes back
-
-For *extract a typed record from one uploaded invoice*, the removal test
-returns: Cost inactive unless the document can exceed the envelope,
-Compatibility inactive at one provider, Continuity inactive at one call,
-Cognition inactive with no prior runs. The correct build is one model call,
-typed output validation and a token ceiling. No agent loop, no memory, no
-framework. If the invoice can exceed the context window, Cost activates and you
-add exactly one mechanism: a size check and a stop.
-
-That is the shape of every answer: an activation profile, a minimum build, and
-an explicit list of what not to adopt.
-
-## The short answers
-
-If you would rather read the conclusion than run the analysis, these are the
-pre-computed profiles. They evaluate documented mechanisms, not project quality
-or how good the software is to use.
+Pre-computed, so you can skip the analysis if your candidate is here. These
+evaluate documented mechanisms, not project quality or how good the software is
+to use.
 
 | Open-source system | Cost | Compatibility | Continuity | Cognition | Best fit |
 |---|---|---|---|---|---|
@@ -84,29 +102,29 @@ because their product unit is not a terminal or IDE agent:
 
 | Representative system | Archetype | Cost | Compatibility | Continuity | Cognition | Reach for it when |
 |---|---|---|---|---|---|---|
-| [LangGraph](https://github.com/langchain-ai/langgraph) | Stateful agent runtime | Partial | Partial | **Strong** | Evidence | Continuity is the dominant pressure: durable state, interrupt/resume, replay. |
-| [CrewAI](https://github.com/crewAIInc/crewAI) | Multi-agent orchestration | Partial | **Strong** | **Strong** | *Adaptive* | Two or more roles genuinely need different tools, authority or context. |
-| [Langflow](https://github.com/langflow-ai/langflow) | Visual workflow platform | Partial | **Strong** | **Strong** | Evidence | Composition and deployment matter more than one local agent loop. |
-| [LiteLLM](https://github.com/BerriAI/litellm) | Model gateway | **Strong** | **Strong** | Partial | *Adaptive* | Cost and Compatibility dominate: budgets, routing, fallback, many providers. |
+| [LangGraph](https://github.com/langchain-ai/langgraph) | Stateful agent runtime | Partial | Partial | **Strong** | Evidence | Continuity dominates: durable state, interrupt/resume, replay |
+| [CrewAI](https://github.com/crewAIInc/crewAI) | Multi-agent orchestration | Partial | **Strong** | **Strong** | *Adaptive* | Two or more roles genuinely need different tools, authority or context |
+| [Langflow](https://github.com/langflow-ai/langflow) | Visual workflow platform | Partial | **Strong** | **Strong** | Evidence | Composition and deployment matter more than one local agent loop |
+| [LiteLLM](https://github.com/BerriAI/litellm) | Model gateway | **Strong** | **Strong** | Partial | *Adaptive* | Cost and Compatibility dominate: budgets, routing, fallback, many providers |
 
-Three things this table is not saying:
+Three things these tables are not saying:
 
-- **Gemini CLI is not better than Aider** for exposing more machinery. It is
-  better only when your task requires that machinery. More activated Cs mean a
-  harder task, not a better product.
+- **Gemini CLI is not better than Aider** for exposing more machinery. More
+  activated Cs mean a harder task, not a better product. If your task does not
+  activate a pressure, machinery serving it is migration cost with no return.
 - **A trace or eval feature is not Cognition.** Only two systems here reach
   `Adaptive`, where prior outcomes automatically change live policy, and none
-  reaches `Strong`. The rungs are defined in the
+  reaches `Strong`. Rungs are defined in the
   [selection audit](docs/validation/popular-harness-selection.md#how-cognition-is-graded).
-- **A product can span layers.** vLLM batching and GPU scheduling optimize
-  model computation and stay Infrastructure; task-level routing or retry policy
-  is Harness.
+- **A product can span layers.** vLLM batching and GPU scheduling optimize model
+  computation and stay Infrastructure; task-level routing or retry policy is
+  Harness.
 
-Grades: `Strong` is substantial first-class machinery, `Partial` is mechanisms
-that exist while application policy does most of the work, `External` means
-bring another component. Eligibility for the tables is 30k+ GitHub stars, an
-OSI-approved license and activity in the prior six months; live counts and
-sources are in the [selection audit](docs/validation/popular-harness-selection.md).
+`Strong` is substantial first-class machinery, `Partial` is mechanisms that
+exist while application policy does most of the work, `External` means bring
+another component. Table eligibility is 30k+ GitHub stars, an OSI-approved
+license and activity in the prior six months; live counts and sources are in the
+[selection audit](docs/validation/popular-harness-selection.md).
 
 ## The method behind the answers
 
@@ -126,7 +144,7 @@ cross-run feedback plane that can update them.
 
 A pressure counts only when deleting it from your task changes a decision:
 
-| Delete this | If nothing changes | Then don't build |
+| Delete this | If nothing changes | Then you need no |
 |---|---|---|
 | Resource scarcity: make it free, instant, unlimited | Cost is inactive | Router, cache, budget optimizer beyond one hard stop |
 | Semantic difference: one provider, one tool schema | Compatibility is inactive | Adapters, capability negotiation, fallback |
@@ -136,14 +154,31 @@ A pressure counts only when deleting it from your task changes a decision:
 "We may need it someday" does not activate anything. Only an observed policy
 delta does.
 
-It also narrows a production incident: budget exhausted, latency cliff or
-context overflow is **Cost**; provider, tool or schema mismatch is
+The same four questions narrow a production incident: budget exhausted, latency
+cliff or context overflow is **Cost**; provider, tool or schema mismatch is
 **Compatibility**; lost state, unsafe retry, runaway loop or broken resume is
 **Continuity**; the same failure repeating despite accumulated evidence is a
 **Cognition gap**. Wrong answers and unpermitted actions are deliberately not
-inside a C; see [the minimum correctness boundary](#the-minimum-correctness-boundary).
+inside a C; see [the boundary you always own](#the-boundary-you-always-own).
 
-## Build the minimum viable Harness
+## The boundary you always own
+
+4C tells you why execution policy changes. It does not make an agent accurate
+or safe, and no framework takes these three off your hands:
+
+- **Epistemic Access:** did the model observe the task-relevant, attributable
+  and sufficiently fresh evidence?
+- **Validity:** do the input, proposed action, output and observed postcondition
+  satisfy the task contract?
+- **Authority:** may this principal cause or expose this effect for this scope
+  and audience?
+
+A tool call can be cheap, compatible, stateful and learned, and still be wrong
+or unauthorized. These three are also the residuals that falsified the original
+version of this theory, which is why they are named separately instead of being
+folded into a C, and why they are line items in the migration table.
+
+## If you are building rather than switching
 
 ### Step 1: Write the task contract before choosing a framework
 
@@ -154,8 +189,6 @@ effects        Which tools, files, services or people may it affect?
 evidence       What current facts must the model be able to observe?
 limits         What token, time, money and attempt envelope applies?
 ```
-
-If these are unknown, framework selection is premature.
 
 ### Step 2: Run the four removal tests
 
@@ -224,28 +257,6 @@ Deliver:
   unless its activation test is demonstrated.
 ```
 
-This makes an agent optimize for necessary execution semantics instead of
-framework-shaped code.
-
-## The minimum correctness boundary
-
-4C tells you why execution policy changes. It does not make an agent accurate
-or safe. Three checks stay yours no matter which framework you adopt:
-
-- **Epistemic Access:** did the model observe the task-relevant, attributable
-  and sufficiently fresh evidence?
-- **Validity:** do the input, proposed action, output and observed postcondition
-  satisfy the task contract?
-- **Authority:** may this principal cause or expose this effect for this scope
-  and audience?
-
-A tool call can be cheap, compatible, stateful and learned, and still be wrong
-or unauthorized. These three are also the residuals that falsified the original
-version of this theory, which is why they are named separately instead of being
-folded into a C.
-
-## Three worked scopes
-
 | Task | Active 4C | Minimum design |
 |---|---|---|
 | Extract a typed record from one document | Cost only if the document can exceed the envelope; Compatibility only if providers vary | One model call, typed output validation, hard token limit; no agent loop or memory |
@@ -265,18 +276,16 @@ rather than a privileged core.
 | **Continuity** | **Strong** | An append-only session-event log supports reconstruction, persistence, resume, fork and recovery. |
 | **Cognition** | Evidence | Logs, telemetry and benchmarks supply evidence; nothing automatically turns outcomes into a versioned future policy. |
 
-The conclusion a feature list would miss: plugin architecture is a powerful
-answer to Compatibility, not a substitute for Cost policy or Cognition, and for
-a single bounded model/tool path the same plugin tree is unnecessary machinery.
-Its guarded tool pipeline, sandbox and approvals matter, but they satisfy the
-correctness and authority boundary rather than adding a fifth C. See its
+What a feature list would miss: plugin architecture is a powerful answer to
+Compatibility, not a substitute for Cost policy or Cognition, and for a single
+bounded model/tool path the same plugin tree is unnecessary machinery. Its
+guarded tool pipeline, sandbox and approvals matter, but they satisfy the
+boundary you always own rather than adding a fifth C. See its
 [architecture document](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.md)
 for the mechanisms; this assesses a developer preview whose own documentation
 warns that breaking changes are expected.
 
-## Why this isn't another opinion piece
-
-The classifications are checkable, and the theory says what would end it.
+## Why these classifications are worth acting on
 
 Six experiments in [`experiments/`](experiments/README.md) run pinned upstream
 packages and check a claimed policy delta: LiteLLM's own parameter translation,
@@ -296,10 +305,10 @@ Attack found three decisions that survive removing all four, so that claim is
 [rejected in the canonical documents](docs/theory.md) instead of quietly
 renamed, and two published predictions record their own falsification. What
 remains is the part that survived, plus [six kill
-criteria](docs/theory.md#10-kill-criteria) that say how to end it: find a
-recurring Harness decision that survives removing scarcity, difference, time
-and prior experience. One counterexample outranks every mapping in this
-repository, and the [review guide](REVIEW_GUIDE.md) says where to send it.
+criteria](docs/theory.md#10-kill-criteria) stating how to end it: find a
+recurring Harness decision that survives removing scarcity, difference, time and
+prior experience. One counterexample outranks every mapping in this repository,
+and the [review guide](REVIEW_GUIDE.md) says where to send it.
 
 ## Read further
 
