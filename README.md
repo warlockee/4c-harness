@@ -1,6 +1,6 @@
 # The 4C Theory of AI Harness
 
-> **Build the smallest Harness that can execute your task — and see exactly what
+> **Build the smallest Harness that can execute your task, and see exactly what
 > an existing framework will and will not solve for you.**
 
 A model call is not a task. A **Harness** is the engineering layer that turns
@@ -8,8 +8,8 @@ bounded, mostly stateless model calls into task execution across tools, state,
 providers and time.
 
 Most architecture frameworks are published. This one was attacked until it
-broke — and the break is in the repository, along with the executable tests and
-the six conditions that would end it.
+broke. The break is in the repository, with the executable tests and the six
+conditions that would end it.
 
 ## What this changes for you
 
@@ -22,21 +22,21 @@ needed. 4C is a test for telling those apart before you commit.
 
 | Delete this | If nothing changes | Then don't build |
 |---|---|---|
-| Resource scarcity — make it free, instant, unlimited | Cost is inactive | Router, cache, budget optimizer beyond one hard stop |
-| Semantic difference — one provider, one tool schema | Compatibility is inactive | Adapters, capability negotiation, fallback |
-| Time — one call, no history, no resume | Continuity is inactive | Checkpoint store, workflow engine, durable runtime |
-| Prior experience — no past runs to learn from | Cognition is inactive | Optimizer, self-modifying loop, memory system |
+| Resource scarcity: make it free, instant, unlimited | Cost is inactive | Router, cache, budget optimizer beyond one hard stop |
+| Semantic difference: one provider, one tool schema | Compatibility is inactive | Adapters, capability negotiation, fallback |
+| Time: one call, no history, no resume | Continuity is inactive | Checkpoint store, workflow engine, durable runtime |
+| Prior experience: no past runs to learn from | Cognition is inactive | Optimizer, self-modifying loop, memory system |
 
 Worked example. *Extract a typed record from one uploaded invoice.* Free and
-instant? Still fine — Cost inactive. One provider? Still fine — Compatibility
-inactive. One call, no resume? Still fine — Continuity inactive. So the correct
+instant? Still fine: Cost inactive. One provider? Still fine: Compatibility
+inactive. One call, no resume? Still fine: Continuity inactive. So the correct
 build is one model call, typed output validation and a token ceiling. Not an
 agent loop, not memory, not a framework. If the invoice can exceed the context
 window, Cost activates and you add exactly one mechanism: a size check and a
 stop.
 
-That is the whole method. The rest of this repository is the argument for why
-those four questions, and the record of trying to break it.
+That is the whole method. The rest of this repository argues for those four
+questions and records every attempt to break them.
 
 | 4C | Pressure | The decision it governs |
 |---|---|---|
@@ -61,7 +61,7 @@ Two more places it pays off:
   overflow → **Cost**. Provider, tool or schema mismatch → **Compatibility**.
   Lost state, unsafe retry, runaway loop, broken resume → **Continuity**. The
   same failure repeating despite accumulated evidence → **Cognition gap**.
-  Wrong answers and unpermitted actions are deliberately *not* inside a C — see
+  Wrong answers and unpermitted actions are deliberately *not* inside a C; see
   [the minimum correctness boundary](#the-minimum-correctness-boundary).
 
 ## Don't trust it. Run it.
@@ -78,37 +78,36 @@ python3 -m venv .venv
 That runs the credential-free suite against pinned upstream systems: LiteLLM's
 own parameter translation across four providers, LangGraph suspending and
 resuming at a pending decision, an evaluation that changes nothing until an
-adaptation step exists — plus the Codex sandbox actually denying an
-out-of-scope write, if you have the CLI installed. One more command adds the
+adaptation step exists. If you have the Codex CLI installed, it also runs the
+sandbox actually denying an out-of-scope write. One more command adds the
 [ONNX Runtime inference-boundary control](experiments/README.md#run). Each
 experiment varies one proposed cause, checks the observed outcome, and names
 the result that would have falsified it.
 
-**Every claim carries its evidence grade.** Experiments state whether the
-observed behaviour comes from the upstream system, from local instrumentation,
-or from a declared interface — so a strong claim is never quietly propped up by
-a weak reproduction. Three of six reach the top grade; the rest say so
-themselves. The same discipline runs through the [evidence
-matrix](docs/evidence.md), which separates documented facts from inference,
-names the reopening condition for every claim, and records where the corpus is
-still thin.
+Every claim carries its evidence grade. Experiments state whether the observed
+behaviour comes from the upstream system, from local instrumentation, or from a
+declared interface, so a strong claim is never quietly propped up by a weak
+reproduction. Three of six reach the top grade and the rest say so themselves.
+The [evidence matrix](docs/evidence.md) applies the same rule to the written
+claims: documented facts separated from inference, a reopening condition on
+every row, and a record of where the corpus is still thin.
 
-**This theory has already been broken once — publicly.** The original claim was
+This theory has already been broken once, publicly. The original claim was
 that four constraints *exhaust* Harness engineering. Sustained attack found
 three decisions that survive removing all four: whether the model can see the
 facts it needs (**Epistemic Access**), whether a result is actually correct
 (**Validity**), and whether this principal may cause this effect (**Authority**).
 The overclaim was [rejected in the canonical documents](docs/theory.md) instead
 of quietly renamed, and two published predictions record their own
-falsification. What remains is the part that survived — and you can read exactly
-what killed the rest in the [validation ledger](docs/validation/README.md).
+falsification. What remains is the part that survived, and the
+[validation ledger](docs/validation/README.md) records what killed the rest.
 
-**It tells you how to end it.** [Six kill criteria](docs/theory.md#10-kill-criteria)
+The theory also says how to end it. [Six kill criteria](docs/theory.md#10-kill-criteria)
 and per-claim reopening conditions are published up front. The short version:
 find a recurring Harness decision that survives removing scarcity, difference,
 time and prior experience, and the model reopens. One counterexample outranks
-every successful mapping in this repository — bring one, and the
-[review guide](REVIEW_GUIDE.md) tells you where it lands.
+every successful mapping in this repository. Bring one; the
+[review guide](REVIEW_GUIDE.md) says where it lands.
 
 ## Build the minimum viable Harness with 4C
 
@@ -213,7 +212,7 @@ agent accurate or safe. Every effectful Harness still needs three checks:
 These checks are not extra Cs. They are the minimum boundary around the
 execution selected by 4C, and they are exactly the residuals that falsified the
 original exhaustive claim. Keeping them separate prevents a dangerous mistake: a
-tool call can be cheap, compatible, stateful and learned — and still be wrong or
+tool call can be cheap, compatible, stateful and learned, and still be wrong or
 unauthorized.
 
 ## Three example scopes
@@ -227,15 +226,15 @@ unauthorized.
 ## Applied: how high-visibility open-source Harnesses map to 4C
 
 This section demonstrates the lens on real systems. It evaluates documented
-mechanisms — not project quality, popularity or how good the software is to use.
+mechanisms, not project quality, popularity or how good the software is to use.
 
 Grades for Cost, Compatibility and Continuity: `Strong` means substantial
 first-class machinery; `Partial` means mechanisms exist but application policy
 still does most of the work; `External` means bring another component.
-Cognition uses its own three rungs — `Evidence` (records runs), `Adaptive`
-(prior outcomes automatically change live policy) and `Strong` (evidence
-produces a versioned, reusable policy artifact) — defined in the
-[selection audit](docs/validation/popular-harness-selection.md#how-cognition-is-graded).
+Cognition uses its own three rungs, defined in the
+[selection audit](docs/validation/popular-harness-selection.md#how-cognition-is-graded):
+`Evidence` (records runs), `Adaptive` (prior outcomes automatically change live
+policy) and `Strong` (evidence produces a versioned, reusable policy artifact).
 
 ### 1. DeepSeek Harness: the first 4C analysis
 
@@ -253,7 +252,7 @@ privileged core.
 | **Cognition** | Evidence | Logs, telemetry and benchmarks can supply learning evidence; no documented mechanism automatically turns outcomes into a versioned future execution policy. |
 
 Its guarded tool pipeline, sandbox, approvals and validation hooks are also
-important — but they satisfy the correctness and authority boundary around 4C;
+important, but they satisfy the correctness and authority boundary around 4C;
 they are not evidence of a fifth C. The harder conclusion is that plugin
 architecture is a powerful answer to Compatibility and extensibility, not a
 substitute for Cost policy or Cognition. For a single bounded model/tool path,
@@ -299,8 +298,8 @@ How to read both tables:
 - **Gemini CLI is not "better" than Aider** because it exposes more first-class
   machinery. It is better only when your task requires that machinery.
 - **A trace or eval platform does not automatically activate Cognition.** Only
-  two systems here reach `Adaptive`, and none reaches `Strong` — a claim that
-  should be corrected if a project documents otherwise.
+  two systems here reach `Adaptive`, and none reaches `Strong`. Correct that
+  row if a project documents otherwise.
 - **A product can span layers.** vLLM batching, kernels and GPU scheduling
   optimize model computation and remain Infrastructure; task-level model routing
   or retry policy belongs to the Harness.
@@ -325,14 +324,14 @@ mappings, see the [evidence matrix](docs/evidence.md) and
 
 ## Read further
 
-- [Glossary](docs/glossary.md) — every term in one plain sentence; start here if
+- [Glossary](docs/glossary.md): every term in one plain sentence; start here if
   the vocabulary gets heavy
-- [Theory](docs/theory.md) — precise definitions; sections 1–4 are the core
-- [Review guide](REVIEW_GUIDE.md) — 5-minute, 30-minute and adversarial paths
-- [Evidence matrix](docs/evidence.md) — primary sources and reopening conditions
-- [Case studies](docs/case-studies.md) — concrete boundary decisions
-- [Validation ledger](docs/validation/README.md) — full hostile research record
-- [Empirical reproductions](experiments/README.md) — pinned counterfactual tests
+- [Theory](docs/theory.md): precise definitions; sections 1–4 are the core
+- [Review guide](REVIEW_GUIDE.md): 5-minute, 30-minute and adversarial paths
+- [Evidence matrix](docs/evidence.md): primary sources and reopening conditions
+- [Case studies](docs/case-studies.md): concrete boundary decisions
+- [Validation ledger](docs/validation/README.md): full hostile research record
+- [Empirical reproductions](experiments/README.md): pinned counterfactual tests
 
 > **Try to break 4C before promoting 4C.** A recurring Harness-owned policy
 > cause outside scarcity, semantic difference, temporal dependence and reusable

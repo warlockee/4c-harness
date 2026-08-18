@@ -23,7 +23,7 @@ computation, task execution, or user value.
 
 | Term | Plain sentence | It is *not* |
 |---|---|---|
-| **Cost** | Something is finite — tokens, time, money, context, attempts — and that changes what the task may do. | Not "make it cheaper." Kernel optimization saves money and is still Infrastructure. |
+| **Cost** | Something is finite (tokens, time, money, context, attempts) and that changes what the task may do. | Not "make it cheaper." Kernel optimization saves money and is still Infrastructure. |
 | **Compatibility** | Two systems mean different things by the same request, and something must translate or negotiate. | Not any protocol plumbing; only differences that change task meaning or capability. |
 | **Continuity** | The task outlives one model call, so state and lifecycle need explicit semantics. | Not a database. Storage is a substrate; Continuity is what the state *means* and which transitions preserve the task. |
 | **Cognition** | Evidence from past runs changes the policy future runs use. | Not traces, not dashboards, not a score on the current run, not model training. |
@@ -47,11 +47,11 @@ does not. They are the reason the exhaustive claim is rejected.
 |---|---|
 | **Mediated transition system** | A model of execution as: look at state and evidence → propose a next step → check it → do it → observe what happened. The "mediated" part is the checking. |
 | **Counterfactual removal** | Delete a candidate cause from the scenario and see whether a decision still has to be made. If it does, that cause did not explain the decision. |
-| **Residual** | A decision left over after removal — the thing that breaks a theory. |
+| **Residual** | A decision left over after removal: the thing that breaks a theory. |
 | **Kill criterion** | A stated observation that would force this model to change or be abandoned. |
 | **Reopening condition** | The narrower version, attached to one claim. |
 | **Peer constraint / peer category** | A candidate proposed as a fifth C rather than as a mechanism. Most candidates fail here. |
-| **Postcondition** | What is true in the world after an action — as opposed to the action having been dispatched successfully. |
+| **Postcondition** | What is true in the world after an action, as opposed to the action having been dispatched successfully. |
 | **Evidence level** | For experiments: whether the observed behaviour came from the upstream system or from code written here. See [`experiments/README.md`](../experiments/README.md). |
 
 ## What to read, and what to skip

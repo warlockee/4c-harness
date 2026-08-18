@@ -87,9 +87,9 @@ requests.
 This is a first executable reproduction, not empirical closure, and only the
 three third-party rows independently support a classification. The Authority and
 Cognition boundaries therefore rest on desk research plus one genuine
-enforcement observation; upstream systems whose own code makes those
-distinctions observable — Agents SDK tool-approval interruptions, a DSPy compile
-step — are the next candidates.
+enforcement observation. The next candidates are upstream systems whose own code
+makes those distinctions observable: Agents SDK tool-approval interruptions and
+a DSPy compile step.
 
 The ONNX Runtime experiment makes the Infrastructure/Harness controlled-object
 test executable without pretending to reproduce vLLM's GPU-specific kernels or
@@ -101,4 +101,4 @@ One incidental finding is worth recording, since it shapes how the enforcement
 experiment must be written: the Codex `:workspace` profile grants the system
 temporary directory in addition to the `-C` workspace. An unauthorized target
 placed under `$TMPDIR` is written successfully, so the denied path must sit
-outside every granted root — here, a scratch directory inside this repository.
+outside every granted root: here, a scratch directory inside this repository.

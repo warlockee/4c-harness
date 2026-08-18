@@ -104,7 +104,7 @@ surveyed system, which made the column uniform and therefore uninformative.
 | Rung | Test |
 |---|---|
 | `Evidence` | The project records or evaluates runs. Any resulting policy change is authored by a human. |
-| `Adaptive` | Documented mechanisms let prior-run or prior-request outcomes change a live execution policy automatically — routing, cooldowns, retrieval or context assembly — without producing a reviewable, versioned artifact. |
+| `Adaptive` | Documented mechanisms let prior-run or prior-request outcomes change a live execution policy automatically (routing, cooldowns, retrieval, context assembly) without producing a reviewable, versioned artifact. |
 | `Strong` | Prior-run evidence produces a versioned, reusable policy artifact with rollout and rollback. |
 
 Two systems currently reach `Adaptive`:
@@ -124,9 +124,9 @@ No surveyed system reaches `Strong`. That is a claim, not a formality: a project
 documenting evidence-driven, versioned policy artifacts with rollout and
 rollback has a wrong row here and the row should be corrected.
 
-Human-authored context files — `AGENTS.md`, rule files, hand-maintained memory
-banks — do not reach `Adaptive`. The distinction is whether the system closes
-the loop or a person does.
+Human-authored context files do not reach `Adaptive`: `AGENTS.md`, rule files
+and hand-maintained memory banks all leave the loop for a person to close. The
+distinction is whether the system closes it.
 
 ## Notable exclusions
 

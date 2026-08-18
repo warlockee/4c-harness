@@ -85,9 +85,9 @@ reasoning. It is weaker in four ways:
    who defined the categories.
 
 The fourth limit is the structural one and is worth stating plainly rather than
-leaving for a hostile reader to notice. Every rejected peer candidate —
-Reliability, Coordination, Planning, generic Control, Grounding, Uncertainty,
-Identity — was rejected by decomposing it into categories this repository
+leaving for a hostile reader to notice. Every rejected peer candidate
+(Reliability, Coordination, Planning, generic Control, Grounding, Uncertainty,
+Identity) was rejected by decomposing it into categories this repository
 already contains. A framework that could absorb anything would produce exactly
 that record. Three defenses are available, and only the second is strong:
 
