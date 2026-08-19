@@ -33,6 +33,11 @@ verdict separate mechanism coverage from source-predicted path tax and
 task-validated execution yield? A verdict based only on `Strong` / `Partial` is
 invalid by construction.
 
+If a 4C Fit number appears, verify that terrain weights were locked before the
+candidate comparison, inactive Cs received zero weight, every grade follows the
+0–5 evidence ladder, and evidence stage plus boundary status remain beside the
+number. Scores from different terrains must not be sorted into one leaderboard.
+
 For a five-minute Bole review, also ask whether the real terrain, primary claim,
 uplift threshold, trial budget, deadline and falsifier were locked before the
 run. If not, the result is discovery evidence and cannot support a hit-rate

@@ -26,6 +26,56 @@ prospects and two holds:
 information value for the named terrain. `Mapped` is not rejection. No
 candidate becomes `Qualified` without a pinned runtime trace.
 
+## Terrain-specific source scorecards
+
+For an apples-to-apples coding comparison, lock one terrain before looking at
+the candidates: latency- and quota-sensitive interactive coding with on-demand
+local extension. The weights are Cost 45, Compatibility 35, Continuity 20 and
+Cognition 0 for every row.
+
+| Candidate | Cost | Compatibility | Continuity | 4C Fit | Evidence / boundary |
+|---|---:|---:|---:|---:|---|
+| **DeepSeek Harness** | 4 | 4 | 4 | **80** | Source-predicted / Unknown |
+| Aider | 4 | 3 | 4 | **73** | Source-predicted / Unknown |
+| Gemini CLI | 3 | 4 | 4 | **71** | Source-predicted / Unknown |
+| Codex | 3 | 3 | 4 | **64** | Source-predicted / Unknown |
+| Cline | 2 | 3 | 3 | **51** | Mechanism-backed / Unknown |
+| OpenHands | 2 | 3 | 3 | **51** | Mechanism-backed / Unknown |
+
+browser-use and the ecosystem systems are excluded because they do not execute
+the same product unit on this terrain. This fixed-weight card is the actual
+comparison; the following best-fit cards answer a different question—whether
+4C notices quality where each specialized product is designed to win.
+Because this terrain was formalized after the DeepSeek experience was already
+public, the table validates the sensitivity of the scale but cannot count as a
+prospective Bole hit.
+
+These scores apply the same [4C Fit rubric](../harness-scout.md#21-the-4c-fit-score)
+to each candidate's named best-fit terrain. They are not a global leaderboard:
+the weights differ because the tasks differ. Grade 4 is the source-only ceiling;
+no row can receive grade 5 without paired runtime evidence.
+
+| Candidate | Named terrain | Locked active-C weights | Realization grades | 4C Fit | Evidence / boundary |
+|---|---|---|---|---:|---|
+| **DeepSeek Harness** | latency/quota-sensitive interactive coding + on-demand extension | Cost 45 / Compatibility 35 / Continuity 20 | 4 / 4 / 4 | **80** | Source-predicted / Unknown |
+| Codex | high-authority resumable coding | Cost 15 / Compatibility 25 / Continuity 60 | 3 / 4 / 4 | **77** | Source-predicted / Unknown |
+| browser-use | authenticated stateful browser work | Cost 20 / Compatibility 35 / Continuity 45 | 3 / 4 / 4 | **76** | Source-predicted / Unknown |
+| Cline | reversible cross-surface coding sessions | Cost 10 / Compatibility 30 / Continuity 60 | 2 / 4 / 4 | **76** | Source-predicted / Unknown |
+| Gemini CLI | long governed generalist sessions | Cost 25 / Compatibility 35 / Continuity 40 | 3 / 4 / 4 | **75** | Source-predicted / Unknown |
+| Aider | low-amplification repository editing | Cost 50 / Compatibility 20 / Continuity 30 | 4 / 3 / 4 | **76** | Source-predicted / Unknown |
+| OpenHands | isolated concurrent autonomous runs | Cost 10 / Compatibility 30 / Continuity 60 | 2 / 3 / 4 | **70** | Source-predicted / Unknown |
+| LangGraph | durable stateful workflows | Continuity 100 | 4 | **80** | Source-predicted / Unknown |
+| LiteLLM | quota/cost-aware multi-provider gateway | Cost 55 / Compatibility 45 | 4 / 4 | **80** | Source-predicted / Unknown |
+| Langflow | visual workflow composition and deployment | Compatibility 45 / Continuity 55 | 3 / 3 | **60** | Mechanism-backed / Unknown |
+| CrewAI | role-separated multi-agent workflow | Compatibility 40 / Continuity 45 / Cognition 15 | 3 / 3 / 2 | **57** | Mechanism-backed / Unknown |
+
+DeepSeek reaches the source ceiling because every active C exposes a sharp
+default-path yield hypothesis. Gemini exposes broader machinery, but breadth
+does not add points. CrewAI and Langflow remain conditional because their
+machinery has not yet been converted into an equally discriminating edge.
+The machine-readable cards are in [`fit-scores.json`](fit-scores.json), and CI
+recomputes every value with [`tools/fit_score_check.py`](../../tools/fit_score_check.py).
+
 ## 4C activation and realization view
 
 This is the actual 4C pass behind the queue. A named C means removing that

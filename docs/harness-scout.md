@@ -54,6 +54,63 @@ Run the 4C activation test per task class. The same Harness can be a breakout
 candidate for fast interactive extension work and a poor choice for a durable,
 high-authority production workflow. The verdict must carry that scope.
 
+## 2.1 The 4C Fit Score
+
+Mechanism coverage is not a product grade. The **4C Fit Score** grades how well
+a Harness realizes the pressures that a named terrain actually activates.
+
+First lock terrain weights across the active Cs; inactive Cs receive weight
+zero and do not penalize a focused product. Active weights sum to 100. Then
+grade each active C on the same evidence ladder:
+
+| Grade | Required evidence |
+|---:|---|
+| **0** | The active pressure is broken or made materially worse. |
+| **1** | A claim or indirect hook exists, but no reachable execution decision is established. |
+| **2** | A reachable mechanism exists; the application or user still supplies most of the policy. |
+| **3** | The shipped path and executable invariant are visible, but no discriminating yield edge is isolated. |
+| **4** | Source establishes a default-path causal edge, user-visible prediction and falsifier. This is the source-only ceiling. |
+| **5** | Repeated paired trials show higher verified yield under equal limits and boundaries. |
+
+``` text
+4C Fit = Σ(active terrain weight × realization grade / 5)
+```
+
+| Score | Fit reading |
+|---:|---|
+| **80–100** | Excellent fit for this terrain; inspect the evidence stage before acting. |
+| **65–79** | Strong fit with one or more meaningful realization gaps. |
+| **50–64** | Conditional fit; trial only if the named edge is valuable. |
+| **0–49** | Weak fit on this terrain or a broken active pressure. |
+
+Every score must publish four labels beside the number:
+
+``` text
+terrain · exact version · evidence stage · boundary status
+```
+
+The number is therefore useful without pretending to be universal. `80/100 ·
+Source-predicted · Boundary unknown` means excellent inspectable fit that should
+be trialed now; it does not mean an 80% success probability or permission to
+adopt. A `Task-proven` 90 is stronger evidence than a source-predicted 80 even
+when both are attractive.
+
+Anti-gaming rules:
+
+- lock terrain weights before scoring candidates in a comparison;
+- award no points for feature count, optional machinery or inactive Cs;
+- do not grade above 2 unless the trial configuration reaches the mechanism;
+- do not grade above 3 without a discriminating causal edge and falsifier;
+- do not grade 5 from documentation, code shape, testimonials or one demo;
+- report Epistemic Access, Validity and Authority as `Pass`, `Unknown` or
+  `Fail`; a required boundary failure blocks adoption regardless of score;
+- keep trial priority separate from Fit: a famous baseline can fit well while
+  offering little discovery value.
+
+Scores are comparable only when terrain weights, task distribution and boundary
+requirements match. Best-fit scores on different terrains are portfolio cards,
+not a global leaderboard.
+
 ## 3. Source signals that deserve nomination
 
 These are leading indicators, never automatic points:
@@ -106,6 +163,8 @@ Rejected backlog:
 Adjacent probes:
 
 Activated 4C:
+Locked active-C weights and 4C Fit grades:
+4C Fit score / evidence stage / boundary status:
 Boundary requirements:
 
 Source nomination signals:

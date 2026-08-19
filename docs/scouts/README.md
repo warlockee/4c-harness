@@ -12,30 +12,35 @@ ladder](../harness-scout.md#4-the-promotion-ladder).
 
 ## Like-for-like candidates
 
-| Candidate | Stage | Trial queue and terrain |
-|---|---|---|
-| [DeepSeek Harness](deepseek-harness.md) | **Nominated** | **P1:** interactive latency, quota and on-demand extension. |
-| [Aider](2026-08-19-source-sweep.md#aider-p1-nominated) | **Nominated** | **P1:** low-amplification repository editing with Git-native correction. |
-| [browser-use](2026-08-19-source-sweep.md#browser-use-p1-nominated) | **Nominated** | **P1:** stateful browser execution and recovery. |
-| [Codex](2026-08-19-source-sweep.md#codex-p2-nominated) | **Nominated** | **P2:** high-authority, resumable and parallel coding work. |
-| [Gemini CLI](2026-08-19-source-sweep.md#gemini-cli-p2-nominated) | **Nominated** | **P2:** long governed sessions with routing, hooks and extensions. |
-| [OpenHands](2026-08-19-source-sweep.md#openhands-p2-nominated) | **Nominated** | **P2:** supervision of isolated local/remote autonomous runs. |
-| [Cline](2026-08-19-source-sweep.md#cline-p2-nominated) | **Nominated** | **P2:** reversible sessions spanning IDE, CLI, SDK and hub clients. |
+| Candidate | 4C Fit | Stage | Trial queue and terrain |
+|---|---:|---|---|
+| [DeepSeek Harness](deepseek-harness.md) | **80** | **Nominated** | **P1:** interactive latency, quota and on-demand extension. |
+| [Aider](2026-08-19-source-sweep.md#aider-p1-nominated) | **76** | **Nominated** | **P1:** low-amplification repository editing with Git-native correction. |
+| [browser-use](2026-08-19-source-sweep.md#browser-use-p1-nominated) | **76** | **Nominated** | **P1:** stateful browser execution and recovery. |
+| [Codex](2026-08-19-source-sweep.md#codex-p2-nominated) | **77** | **Nominated** | **P2:** high-authority, resumable and parallel coding work. |
+| [Gemini CLI](2026-08-19-source-sweep.md#gemini-cli-p2-nominated) | **75** | **Nominated** | **P2:** long governed sessions with routing, hooks and extensions. |
+| [OpenHands](2026-08-19-source-sweep.md#openhands-p2-nominated) | **70** | **Nominated** | **P2:** supervision of isolated local/remote autonomous runs. |
+| [Cline](2026-08-19-source-sweep.md#cline-p2-nominated) | **76** | **Nominated** | **P2:** reversible sessions spanning IDE, CLI, SDK and hub clients. |
 
 ## Ecosystem candidates
 
 These rows are substrates or adjacent control planes, not drop-in replacements
 for an end-user coding Harness.
 
-| Candidate | Stage | Trial queue and terrain |
-|---|---|---|
-| [LangGraph](2026-08-19-source-sweep.md#langgraph-p1-substrate-trial-nominated) | **Nominated** | **P1:** durable stateful workflows and failure recovery. |
-| [LiteLLM](2026-08-19-source-sweep.md#litellm-p1-infrastructure-trial-nominated) | **Nominated** | **P1:** multi-provider quota, cost and availability policy. |
-| [CrewAI](2026-08-19-source-sweep.md#crewai-hold-mapped) | Mapped | Hold until role separation predicts net yield after handoff amplification. |
-| [Langflow](2026-08-19-source-sweep.md#langflow-hold-mapped) | Mapped | Hold until visual composition shortens a measured idea-to-deployment path. |
+| Candidate | 4C Fit | Stage | Trial queue and terrain |
+|---|---:|---|---|
+| [LangGraph](2026-08-19-source-sweep.md#langgraph-p1-substrate-trial-nominated) | **80** | **Nominated** | **P1:** durable stateful workflows and failure recovery. |
+| [LiteLLM](2026-08-19-source-sweep.md#litellm-p1-infrastructure-trial-nominated) | **80** | **Nominated** | **P1:** multi-provider quota, cost and availability policy. |
+| [CrewAI](2026-08-19-source-sweep.md#crewai-hold-mapped) | **57** | Mapped | Hold until role separation predicts net yield after handoff amplification. |
+| [Langflow](2026-08-19-source-sweep.md#langflow-hold-mapped) | **60** | Mapped | Hold until visual composition shortens a measured idea-to-deployment path. |
 
 No candidate is currently `Qualified`, `Task-proven`, `Frontier-proven`,
 `Adoptable` or `Switch-worthy` in this repository.
+
+Scores above are best-fit source cards on different named terrains. They show
+whether 4C recognizes good realization where a product is designed to win; they
+must not be read as one cross-terrain leaderboard. Every score is
+source-predicted with boundary status `Unknown`.
 
 The exact commits, source signals, predictions and falsifiers are recorded in
 the [2026-08-19 source sweep](2026-08-19-source-sweep.md).

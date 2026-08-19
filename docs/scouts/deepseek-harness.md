@@ -13,6 +13,32 @@ budget and deadline. It does not enter the Bole hit-rate denominator. When those
 fields are locked, append a cohort record to the [calibration
 ledger](calibration-ledger.md) rather than backfilling them after a run.
 
+## 4C Fit Score
+
+**80/100 (Excellent) · Source-predicted · Nominated · Boundary unknown**
+
+Terrain: latency- and quota-sensitive interactive coding with on-demand local
+extension. This is the maximum score available from source evidence alone.
+
+| Active pressure | Terrain weight | Realization grade | Contribution | Why |
+|---|---:|---:|---:|---|
+| **Cost** | 45 | 4/5 | 36 | Direct native streaming, off-hot-path persistence/telemetry, bounded tool overlap and cache accounting predict low Harness path tax. |
+| **Compatibility** | 35 | 4/5 | 28 | Provider-native semantics, replaceable services and the live Cordis plugin path turn differences and missing capabilities into inspectable changes. |
+| **Continuity** | 20 | 4/5 | 16 | Append-only session events and write-behind persistence establish a shipped reconstruction path without putting storage on the response hot path. |
+| **Cognition** | 0 | N/A | 0 | Automatic policy learning is not required by this terrain; stored skills and presets are not mis-scored as Cognition. |
+
+The high score is not awarded for “being plugin-based.” It is awarded because
+three activated pressures have source-visible causal paths to faster, cheaper
+and more adaptable work. Runtime trials can lift the grades to 5 or falsify and
+lower them. User reports affect trial priority, never the score.
+
+On the same terrain and the same `45 / 35 / 20` weights, the current source
+cards score Aider 73, Gemini CLI 71, Codex 64, Cline 51 and OpenHands 51.
+DeepSeek's lead therefore comes from stronger realization grades, not a private
+weighting curve. The comparison is machine-checked in
+[`fit-scores.json`](fit-scores.json).
+It remains retrospective scale validation, not a counted Bole prediction.
+
 ## Terrain
 
 DeepSeek deserves a bounded trial when one or more of these conditions changes

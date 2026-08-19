@@ -29,8 +29,8 @@ body:
     id: source_bet
     attributes:
       label: Source bet
-      description: Link the exact candidate code path and state the user-visible advantage it predicts.
-      placeholder: "Because <linked source path> avoids/adds <mechanism>, the candidate should improve <metric>."
+      description: Lock active-C weights, grade each active C with the 4C Fit rubric, link exact code paths, and state the user-visible advantage they predict.
+      placeholder: "Weights: Cost 45 / Compatibility 35 / Continuity 20. Grades: 4/4/4 = 80. Because <linked path> changes <mechanism>, the candidate should improve <metric>."
     validations:
       required: true
 
@@ -63,4 +63,3 @@ body:
           required: true
         - label: I will close this as Hit, Miss, or Censored and link the evidence without deleting a loss.
           required: true
-

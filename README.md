@@ -26,9 +26,9 @@ beat your current Harness on one real task by a predeclared amount, inside the
 same budget and authority boundary. A shadow sample of rejected candidates
 tracks the winners 4C missed.
 
-The first source sweep found
-promising candidates—including the code paths that can explain DeepSeek
-Harness's speed and extensibility—but happened too late to count as prediction.
+The first source sweep found promising candidates—including the code paths that
+can explain DeepSeek Harness's speed and extensibility—but happened too late to
+count as prediction.
 4C will earn “Bole” only by beating popularity, feature coverage and random
 choice on future public calls. The machine-readable [certification
 status](docs/scouts/bole-status.json) is checked in CI, so the headline cannot
@@ -50,9 +50,11 @@ Hard limit: <money/time/effects + resolution deadline>
 Before running the candidate trial:
 1. Name the one Cost / Compatibility / Continuity / Cognition pressure that
    changes my decision.
-2. Link one exact source path and make one causal bet about the metric it changes.
-3. Lock the minimum win and the observation that loses the bet.
-4. Run a paired trial, then publish HIT, MISS or CENSORED with evidence.
+2. Lock terrain weights across every active C; inactive Cs get zero weight.
+3. Link exact source paths, grade each active C from 0–5 with the 4C Fit rubric,
+   and publish score + evidence stage + boundary status.
+4. Lock the minimum win and the observation that loses the bet.
+5. Run a paired trial, then publish HIT, MISS or CENSORED with evidence.
 ```
 
 That is the public game. The [Scout](docs/harness-scout.md), [execution-yield
@@ -62,6 +64,33 @@ decision deserves deeper evidence.
 
 The ruthless 4C rule is still: **if removing a pressure changes no decision,
 it does not count.**
+
+## DeepSeek Harness: 80/100 where it matters
+
+> **4C Fit: 80/100 (Excellent) · Source-predicted · Nominated · Boundary unknown**
+
+Terrain: latency- and quota-sensitive interactive coding with on-demand local
+extension.
+
+| Active C | Weight | Grade | Contribution | What earns it |
+|---|---:|---:|---:|---|
+| **Cost** | 45 | 4/5 | 36 | Direct native streaming, off-path persistence/telemetry, bounded parallel tools and explicit cache accounting predict low path tax. |
+| **Compatibility** | 35 | 4/5 | 28 | Native DeepSeek semantics plus live, reversible plugin seams shorten the path from a missing capability to a working extension. |
+| **Continuity** | 20 | 4/5 | 16 | Append-only session events and write-behind persistence preserve work without blocking the response path. |
+| **Cognition** | 0 | N/A | 0 | This terrain does not require automatic policy learning, so its absence does not become a fake penalty. |
+
+Same terrain, same weights, same source ceiling:
+
+| DeepSeek | Codex | Gemini CLI | Aider | Cline | OpenHands |
+|---:|---:|---:|---:|---:|---:|
+| **80** | 64 | 71 | 73 | 51 | 51 |
+
+`Strong / Partial` missed this because it counts machinery. The [4C Fit
+rubric](docs/harness-scout.md#21-the-4c-fit-score) grades realized decisions on
+the active task path. DeepSeek reaches the source-only ceiling: excellent
+inspectable fit, immediate trial priority, but not yet a runtime-proven switch.
+The [same rubric applied to all 11 candidates](docs/scouts/2026-08-19-source-sweep.md#terrain-specific-source-scorecards)
+prevents a DeepSeek-only curve.
 
 ### Why the usual signals do not answer the question
 

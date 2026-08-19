@@ -179,12 +179,16 @@ not impose the same kind of current-run constraint: Cognition is the optional
 adaptation operator that turns historical evidence into a reusable policy
 change. This asymmetry is part of the theory, not hidden for naming symmetry.
 
-## 5. Causal coordinates, not a maturity ladder
+## 5. Causal coordinates, not a universal maturity ladder
 
 Real systems can activate one operational pressure without another, and can
 implement Cognition weakly or not at all. The coordinates describe why policy
-varies; they do not rank products. An adapter is not “below” a runtime, and an
-eval platform is not “above” a Harness merely because it supplies feedback.
+varies; by themselves they do not rank products. An adapter is not “below” a
+runtime, and an eval platform is not “above” a Harness merely because it
+supplies feedback. The selection layer may weight the active coordinates for
+one locked terrain and grade realization as a 4C Fit Score; that derived score
+is not part of the causal taxonomy and cannot travel to another terrain
+unchanged.
 
 ### 5.1 Classification is not a product verdict
 
@@ -234,8 +238,10 @@ Execution yield is intentionally a vector: time to first useful output, time
 and money per verified outcome, request/tool amplification, human interventions,
 frontier expansion, time to a validated extension and distribution tails.
 Collapsing those values into one universal score would hide task-specific
-trade-offs and mandatory Validity or Authority costs. The full procedure is in
-the [Execution Yield audit](execution-yield.md).
+trade-offs and mandatory Validity or Authority costs. A terrain-specific 4C Fit
+Score is permitted only after the active-C weights are locked and only when the
+evidence stage, boundaries and underlying vector remain visible. The full
+procedure is in the [Execution Yield audit](execution-yield.md).
 
 ## 6. Cognition as the feedback learning plane
 

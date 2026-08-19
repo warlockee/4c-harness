@@ -52,5 +52,7 @@ For every real system, document:
 9.  map principal, delegation, scope, audience and Authority;
 10. separate documented, observed, inferred and unknown claims.
 
-Use the [validation ledger](validation/README.md) for sourced mappings. Product
-scores are intentionally excluded: 4C is not a maturity ladder.
+Use the [validation ledger](validation/README.md) for sourced mappings. Universal
+product scores are intentionally excluded: the optional [4C Fit
+Score](harness-scout.md#21-the-4c-fit-score) belongs to a locked task terrain,
+not to this mechanism landscape.

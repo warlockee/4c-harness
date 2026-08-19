@@ -56,6 +56,7 @@ does not. They are the reason the exhaustive claim is rejected.
 | **Realization** | The actual source path by which a classified mechanism participates in execution; mechanism presence alone says nothing about the path's quality. |
 | **Path tax** | Serial waits, extra calls/hops, context tokens, blocking work or change touchpoints added by the implementation; the tax is justified only by a named task pressure or boundary obligation. |
 | **Execution yield** | The verified task result produced per unit of time, money, tokens and human attention, reported as a vector rather than one universal score. |
+| **4C Fit Score** | A terrain-specific weighted grade of how well a Harness realizes only the active Cs; it must be shown with evidence stage and boundary status and is never a universal leaderboard. |
 | **Change path** | The supported path from a missing capability through interface discovery and implementation to a validated, rollbackable extension. |
 | **Task frontier** | The set of task classes worth attempting under the user's resource, validity and authority limits; a faster or cheaper product can expand it. |
 | **Model–Harness fit** | How faithfully the Harness preserves and uses one model/provider's reasoning, tools, context, streaming, cache and error semantics. |

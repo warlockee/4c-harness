@@ -161,10 +161,12 @@ For the representative task, report these values separately:
 | Change | time and touchpoints from missing capability to validated extension; restart, upgrade and rollback cost |
 | Distribution | p50/p95/p99 latency and success, cold start, long-session degradation, retry and recovery tails |
 
-Do not collapse the vector into a universal score. An approval that hurts
-interaction yield can be mandatory for Authority; a checkpoint that adds write
-traffic can be required by Continuity. The task contract supplies the weights
-and hard limits.
+Do not collapse the vector into a universal score. The terrain-specific [4C Fit
+Score](harness-scout.md#21-the-4c-fit-score) is allowed only when its weights are
+locked and the vector, evidence stage and boundaries stay visible. An approval
+that hurts interaction yield can be mandatory for Authority; a checkpoint that
+adds write traffic can be required by Continuity. The task contract supplies
+the weights and hard limits.
 
 Do not report only the mean. A five-second median with a five-minute p95 can
 destroy the same human flow that the median appears to enable. Run enough

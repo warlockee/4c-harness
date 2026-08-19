@@ -94,7 +94,9 @@ choices and comparison controls, but breakout credit requires that the
 candidate was selected by a source prediction not already known from the
 outcome evidence.
 
-Within a lane, prefer pairwise dominance over an invented universal score. A
+Within a lane, prefer pairwise dominance over an invented universal score. The
+[4C Fit Score](harness-scout.md#21-the-4c-fit-score) can summarize one locked
+terrain, but cannot compare cards whose weights or task distributions differ. A
 candidate dominates another for the same terrain only when it has at least as
 complete a causal chain, no weaker boundary match, no greater trial cost and a
 strictly better predicted probability or upside on one of those dimensions.
