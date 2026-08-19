@@ -1,0 +1,62 @@
+{
+  "gates": {
+    "beats_all_baselines": false,
+    "enough_calls": false,
+    "enough_cohorts": false,
+    "enough_shadow_calls": false,
+    "enough_terrains": false,
+    "hit_rate": false,
+    "hit_rate_lower_bound": false,
+    "shadow_winner_rate": false,
+    "valid_prospective_data": true
+  },
+  "invalid_records": [],
+  "observed": {
+    "baselines": {
+      "feature_coverage": {
+        "hits": 0,
+        "rate": 0.0,
+        "trials": 0,
+        "wilson_lower_95": 0.0,
+        "wilson_upper_95": 1.0
+      },
+      "popularity": {
+        "hits": 0,
+        "rate": 0.0,
+        "trials": 0,
+        "wilson_lower_95": 0.0,
+        "wilson_upper_95": 1.0
+      },
+      "random": {
+        "hits": 0,
+        "rate": 0.0,
+        "trials": 0,
+        "wilson_lower_95": 0.0,
+        "wilson_upper_95": 1.0
+      }
+    },
+    "cohorts": 0,
+    "hit_rate": 0.0,
+    "hit_rate_wilson_95": [
+      0.0,
+      1.0
+    ],
+    "hits": 0,
+    "resolved_calls": 0,
+    "shadow_calls": 0,
+    "shadow_hits": 0,
+    "shadow_winner_rate": null,
+    "terrains": 0
+  },
+  "schema_version": 1,
+  "status": "UNPROVEN",
+  "thresholds": {
+    "maximum_shadow_winner_rate": 0.2,
+    "minimum_cohorts": 3,
+    "minimum_hit_rate": 0.8,
+    "minimum_hit_rate_wilson_lower_95": 0.6,
+    "minimum_resolved_calls": 20,
+    "minimum_shadow_calls": 5,
+    "minimum_terrains": 3
+  }
+}

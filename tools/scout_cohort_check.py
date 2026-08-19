@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import sys
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -117,6 +118,45 @@ def validate_record(path: Path) -> list[str]:
         errors.append(f"{prefix}: lane_allocation must contain exploit/explore/shadow")
     elif sum(allocation.values()) != 100:
         errors.append(f"{prefix}: lane_allocation percentages must sum to 100")
+
+    if status == "resolved":
+        if record.get("prospective") is not True:
+            errors.append(f"{prefix}: resolved counted cohort must be prospective")
+        resolved_fields = (
+            "terrain_id",
+            "locked_at",
+            "first_trial_at",
+            "resolved_at",
+            "public_lock_url",
+            "selection_baseline_results",
+        )
+        for field in resolved_fields:
+            if not present(record.get(field)):
+                errors.append(f"{prefix}: resolved counted cohort missing {field}")
+        timestamps = []
+        for field in ("locked_at", "first_trial_at", "resolved_at"):
+            try:
+                timestamp = datetime.fromisoformat(
+                    record[field].replace("Z", "+00:00")
+                )
+                if timestamp.utcoffset() is None:
+                    raise ValueError("timestamp needs a UTC offset")
+                timestamps.append(timestamp)
+            except (KeyError, AttributeError, TypeError, ValueError):
+                errors.append(f"{prefix}: {field} must be an ISO-8601 timestamp")
+        if len(timestamps) == 3 and not (
+            timestamps[0] < timestamps[1] <= timestamps[2]
+        ):
+            errors.append(
+                f"{prefix}: timestamps must satisfy locked < first trial <= resolved"
+            )
+        lock_url = record.get("public_lock_url", "")
+        if present(lock_url) and not lock_url.startswith("https://"):
+            errors.append(f"{prefix}: public_lock_url must be HTTPS")
+        if record.get("decision_owner") == record.get("outcome_adjudicator"):
+            errors.append(
+                f"{prefix}: outcome adjudicator must be independent of decision owner"
+            )
 
     for index, candidate in enumerate(record["candidates"]):
         candidate_prefix = f"{prefix}: candidate[{index}]"

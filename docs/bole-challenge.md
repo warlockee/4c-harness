@@ -46,6 +46,18 @@ post-hoc explanation do not count.
 **Counted calls: 0. Proven hits: 0.** The challenge is open; the repository does
 not claim a Bole success rate yet.
 
+The v1 certification gate is intentionally hard and finite: at least 20
+resolved prospective calls across three cohorts and three task terrains, at
+least five shadow Holds, at least 80% hits with a 95% Wilson lower bound of 60%,
+no more than 20% shadow winners, and a confidence interval that clears the
+popularity, feature-coverage and random baselines at equal budget. CI derives
+the public `CERTIFIED` / `UNPROVEN` status from the cohort records with
+[`tools/bole_certify.py`](../tools/bole_certify.py).
+
+Counted cohorts also need a public lock timestamped before the first run and an
+outcome adjudicator different from the decision owner. That makes retrospective
+case studies useful for discovery but unusable for certification.
+
 The [2026-08-19 source sweep](scouts/2026-08-19-source-sweep.md) produced a
 trial queue, but it was performed after the products and public reactions were
 visible. It is discovery evidence, not a prediction.

@@ -36,6 +36,10 @@ valuable discovery evidence and becomes an input to future locked cohorts.
 ``` text
 Cohort id:
 Information cutoff:
+Prospective: true
+Terrain id:
+Locked at / first trial at / resolved at:
+Public pre-run lock URL:
 Decision owner:
 Real terrain and external postconditions:
 Eligible set and exclusion rule:
@@ -43,6 +47,7 @@ Baseline Harness/configuration:
 Popularity baseline ranking:
 Feature-coverage baseline ranking:
 Random seed and shadow sample:
+Equal-budget baseline outcomes:
 Exploit / explore / shadow allocation:
 
 For every selected candidate:

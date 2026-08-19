@@ -15,6 +15,10 @@ jobs:
           python-version: "3.12"
       - name: Reject incomplete counted Scout cohorts
         run: python tools/scout_cohort_check.py
+      - name: Verify the public Bole certification status
+        run: python tools/bole_certify.py
+      - name: Test the certification gate
+        run: python tools/test_bole_certify.py
 
   reproduce:
     runs-on: ubuntu-latest

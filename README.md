@@ -10,6 +10,8 @@
 [Scout board](docs/scouts/README.md) ·
 [Full method](docs/harness-scout.md)
 
+> **Bole status: UNPROVEN** — 0/20 prospective calls resolved, 0 hits; 0/5 shadow calls.
+
 ## Call it. Race it. Publish it.
 
 Most Harness comparisons start after the winner is already famous. 4C makes a
@@ -24,11 +26,13 @@ beat your current Harness on one real task by a predeclared amount, inside the
 same budget and authority boundary. A shadow sample of rejected candidates
 tracks the winners 4C missed.
 
-**Live score: 0 counted calls, 0 proven hits.** The first source sweep found
+The first source sweep found
 promising candidates—including the code paths that can explain DeepSeek
 Harness's speed and extensibility—but happened too late to count as prediction.
 4C will earn “Bole” only by beating popularity, feature coverage and random
-choice on future public calls.
+choice on future public calls. The machine-readable [certification
+status](docs/scouts/bole-status.json) is checked in CI, so the headline cannot
+advance ahead of the evidence.
 
 ## Run one in five minutes
 
