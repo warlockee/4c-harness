@@ -1,0 +1,55 @@
+{
+  "snapshot_date": "2026-08-19",
+  "scope_id": "active-general-purpose-coding-harness-v1",
+  "scope": {
+    "product_gate": "A general-purpose coding Harness must be able to inspect an existing repository, change code, and run commands, tests, or a pull-request workflow.",
+    "activity_gate": "An official repository or first-party product page must be active on the snapshot date. Archived products and public repositories with no activity in the prior 180 days are excluded.",
+    "market_presence_gate": "Include a public implementation with at least 10,000 GitHub stars, or a first-party commercial product with maintained official documentation.",
+    "unit": "One named Harness product, not every IDE, CLI, web, mobile, or cloud surface of the same product.",
+    "exclusions": "Models and APIs without a Harness, autocomplete-only assistants, app builders that cannot operate on an arbitrary existing repository, libraries/frameworks, archived products, and duplicate product surfaces."
+  },
+  "status_definitions": {
+    "ranked": "Pinned implementation evidence has been graded on interactive-coding-v1 and is included in the visible ladder.",
+    "source-audit-queued": "A substantial public implementation is available, but its 4C evidence ledger is not complete. No score is published.",
+    "runtime-evidence-needed": "The product is active, but public source is absent or too thin for source scoring. A controlled runtime trial is required. No score is published."
+  },
+  "products": [
+    {"name": "DeepSeek Harness", "status": "ranked", "official_url": "https://github.com/deepseek-ai/deepseek-harness"},
+    {"name": "Aider", "status": "ranked", "official_url": "https://github.com/Aider-AI/aider"},
+    {"name": "Gemini CLI", "status": "ranked", "official_url": "https://github.com/google-gemini/gemini-cli", "note": "Still supported for enterprise and API-key users; Google transitioned individual subscription authentication to Antigravity CLI in June 2026."},
+    {"name": "Codex", "status": "ranked", "official_url": "https://github.com/openai/codex"},
+    {"name": "Cline", "status": "ranked", "official_url": "https://github.com/cline/cline"},
+    {"name": "OpenHands", "status": "ranked", "official_url": "https://github.com/OpenHands/OpenHands"},
+
+    {"name": "Qwen Code", "status": "source-audit-queued", "official_url": "https://github.com/QwenLM/qwen-code", "pinned_commit": "39fc769d3a49a883d250914d8f705b6b3735720c", "stars_at_snapshot": 27200},
+    {"name": "OpenCode", "status": "source-audit-queued", "official_url": "https://github.com/anomalyco/opencode", "pinned_commit": "e2505d434a6d78904ecfe546c4a1980d26bd8cd1", "stars_at_snapshot": 199224},
+    {"name": "Goose", "status": "source-audit-queued", "official_url": "https://github.com/aaif-goose/goose", "pinned_commit": "af016f0a80a2d34c78009e0e00fdcc24e42b4ea0", "stars_at_snapshot": 53012},
+    {"name": "Kilo Code", "status": "source-audit-queued", "official_url": "https://github.com/Kilo-Org/kilocode", "pinned_commit": "9a6e081e4855e2e6a934bda519c1bef84e14d4b5", "stars_at_snapshot": 26937},
+    {"name": "Continue", "status": "source-audit-queued", "official_url": "https://github.com/continuedev/continue", "pinned_commit": "5522c6f44ca0ac3528b37244818fbfa39b5af470", "stars_at_snapshot": 35546},
+    {"name": "Pi", "status": "source-audit-queued", "official_url": "https://github.com/earendil-works/pi", "pinned_commit": "b7bb00b936dbe21b8e160b3e89efdec361846699", "stars_at_snapshot": 93773},
+    {"name": "Crush", "status": "source-audit-queued", "official_url": "https://github.com/charmbracelet/crush", "pinned_commit": "7d78d7422a92918441a68d01d96d48fa3b9fd9db", "stars_at_snapshot": 27503},
+    {"name": "Zed Agent", "status": "source-audit-queued", "official_url": "https://github.com/zed-industries/zed", "product_url": "https://zed.dev/docs/ai/zed-agent", "pinned_commit": "6e0a0835755ea57c1db4e0057f1a30ddba554706", "stars_at_snapshot": 88896},
+    {"name": "SWE-agent", "status": "source-audit-queued", "official_url": "https://github.com/SWE-agent/SWE-agent", "pinned_commit": "3ea751c087f32b16e039a2233dd6eefecef325d5", "stars_at_snapshot": 20081},
+
+    {"name": "Antigravity CLI", "status": "runtime-evidence-needed", "official_url": "https://github.com/google-antigravity/antigravity-cli", "note": "The official repository contains documentation, examples, and releases, but not a substantial public implementation."},
+    {"name": "GitHub Copilot CLI", "status": "runtime-evidence-needed", "official_url": "https://github.com/github/copilot-cli", "note": "The official repository contains documentation, installers, and a changelog, but not a substantial public implementation."},
+    {"name": "Claude Code", "status": "runtime-evidence-needed", "official_url": "https://docs.anthropic.com/en/docs/claude-code/getting-started"},
+    {"name": "Cursor", "status": "runtime-evidence-needed", "official_url": "https://cursor.com/docs"},
+    {"name": "Windsurf", "status": "runtime-evidence-needed", "official_url": "https://docs.windsurf.com/windsurf/cascade/cascade"},
+    {"name": "Kiro", "status": "runtime-evidence-needed", "official_url": "https://kiro.dev/docs/"},
+    {"name": "Amp", "status": "runtime-evidence-needed", "official_url": "https://ampcode.com/manual"},
+    {"name": "Factory Droid", "status": "runtime-evidence-needed", "official_url": "https://factory.ai/product/droids"},
+    {"name": "Devin", "status": "runtime-evidence-needed", "official_url": "https://docs.devin.ai/get-started/devin-intro"},
+    {"name": "Replit Agent", "status": "runtime-evidence-needed", "official_url": "https://docs.replit.com/learn/build-with-agent"},
+    {"name": "Augment Code", "status": "runtime-evidence-needed", "official_url": "https://docs.augmentcode.com/using-augment/agent"},
+    {"name": "JetBrains Junie", "status": "runtime-evidence-needed", "official_url": "https://www.jetbrains.com/help/ai-assistant/junie-agent.html"},
+    {"name": "Warp", "status": "runtime-evidence-needed", "official_url": "https://docs.warp.dev/"},
+    {"name": "Qoder", "status": "runtime-evidence-needed", "official_url": "https://docs.qoder.com/"},
+    {"name": "CodeBuddy", "status": "runtime-evidence-needed", "official_url": "https://www.codebuddy.ai/docs/ide/User-guide/Agent-Mode/Quickstart"},
+    {"name": "Jules", "status": "runtime-evidence-needed", "official_url": "https://jules.google/docs/"}
+  ],
+  "excluded_products": [
+    {"name": "Roo Code", "reason": "The official repository is archived; the active-market snapshot excludes retired products.", "official_url": "https://github.com/RooCodeInc/Roo-Code"},
+    {"name": "Plandex", "reason": "The public repository had no activity in the 180 days before the snapshot.", "official_url": "https://github.com/plandex-ai/plandex"}
+  ]
+}

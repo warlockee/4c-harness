@@ -1,0 +1,48 @@
+name: "🌐 Add a missing Harness"
+description: Propose an active coding Harness missing from the market universe.
+title: "[Market Coverage] <candidate>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The ladder should cover the market without manufacturing scores. Show that the product passes the published scope, activity, and market-presence gates; 4C will add it as ranked, source-audit-queued, or runtime-evidence-needed according to the evidence available.
+
+  - type: input
+    id: candidate
+    attributes:
+      label: Harness product
+      placeholder: "Product name"
+    validations:
+      required: true
+
+  - type: input
+    id: official
+    attributes:
+      label: First-party product or repository URL
+      placeholder: "https://..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: product_gate
+    attributes:
+      label: Product-scope evidence
+      description: Link first-party evidence that it can inspect an existing repository, change code, and run commands, tests, or a pull-request workflow.
+    validations:
+      required: true
+
+  - type: textarea
+    id: presence_gate
+    attributes:
+      label: Activity and market-presence evidence
+      description: For public implementations, link the active repository and current star count. For commercial products, link maintained first-party documentation.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: score_boundary
+    attributes:
+      label: Evidence boundary
+      options:
+        - label: I understand that inclusion does not create a score; a score requires the full source ledger or controlled runtime evidence.
+          required: true

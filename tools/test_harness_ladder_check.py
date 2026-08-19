@@ -44,6 +44,20 @@ class HarnessLadderTests(unittest.TestCase):
             with patch.object(ladder, "LADDER", path), redirect_stderr(io.StringIO()):
                 self.assertEqual(ladder.main(), 1)
 
+    def test_missing_market_candidate_is_rejected(self) -> None:
+        source = ladder.LADDER.read_text()
+        altered = source.replace(
+            'data-candidate="Qwen Code" data-status="source-audit-queued"',
+            'data-candidate="Missing Product" data-status="source-audit-queued"',
+            1,
+        )
+        self.assertNotEqual(source, altered)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "ladder.svg"
+            path.write_text(altered)
+            with patch.object(ladder, "LADDER", path), redirect_stderr(io.StringIO()):
+                self.assertEqual(ladder.main(), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

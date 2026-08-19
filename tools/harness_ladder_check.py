@@ -11,6 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCORES = ROOT / "docs" / "scouts" / "fit-scores.json"
+MARKET = ROOT / "docs" / "scouts" / "market-universe.json"
 LADDER = ROOT / "assets" / "4c-harness-ladder.svg"
 COMPARISON_ID = "interactive-coding-v1"
 SVG_NS = "{http://www.w3.org/2000/svg}"
@@ -52,6 +53,7 @@ def competition_ranks(candidates: list[dict]) -> list[int]:
 
 def main() -> int:
     payload = json.loads(SCORES.read_text())
+    market = json.loads(MARKET.read_text())
     comparison = next(
         item
         for item in payload["comparisons"]
@@ -68,6 +70,8 @@ def main() -> int:
     errors: list[str] = []
     if svg.get("data-comparison-id") != COMPARISON_ID:
         errors.append("SVG comparison id does not match the fixed comparison")
+    if svg.get("data-market-snapshot") != market["snapshot_date"]:
+        errors.append("SVG market snapshot does not match the market universe")
     pixels_per_point = float(svg.get("data-pixels-per-point", "nan"))
     global_bar_origin = float(svg.get("data-bar-origin", "nan"))
 
@@ -164,12 +168,71 @@ def main() -> int:
     except ValueError as error:
         errors.append(str(error))
 
+    products = market.get("products", [])
+    product_names = [product.get("name") for product in products]
+    if len(product_names) != len(set(product_names)):
+        errors.append("market universe contains duplicate product names")
+
+    allowed_statuses = {"ranked", "source-audit-queued", "runtime-evidence-needed"}
+    for product in products:
+        name = product.get("name", "<unnamed>")
+        status = product.get("status")
+        if status not in allowed_statuses:
+            errors.append(f"{name}: unsupported market status {status!r}")
+        if not str(product.get("official_url", "")).startswith("https://"):
+            errors.append(f"{name}: official_url must be HTTPS")
+        if status == "source-audit-queued":
+            commit = str(product.get("pinned_commit", ""))
+            if len(commit) != 40 or any(character not in "0123456789abcdef" for character in commit):
+                errors.append(f"{name}: source audit queue requires a 40-character commit")
+            if int(product.get("stars_at_snapshot", 0)) < 10_000:
+                errors.append(f"{name}: source audit queue misses the market-presence gate")
+
+    ranked_names = {product["name"] for product in products if product["status"] == "ranked"}
+    scorecard_names = {candidate["candidate"] for candidate in candidates}
+    if ranked_names != scorecard_names:
+        errors.append("ranked market products differ from the fixed comparison")
+
+    expected_unranked = [
+        product for product in products if product["status"] != "ranked"
+    ]
+    market_rows = elements_with_class(svg, "market-candidate")
+    if len(market_rows) != len(expected_unranked):
+        errors.append(
+            f"SVG has {len(market_rows)} unranked market products; "
+            f"expected {len(expected_unranked)}"
+        )
+    else:
+        for row, product in zip(market_rows, expected_unranked):
+            name = product["name"]
+            if row.get("data-candidate") != name:
+                errors.append(f"{name}: market row order/name differs from universe")
+            if row.get("data-status") != product["status"]:
+                errors.append(f"{name}: market row status differs from universe")
+            try:
+                label = one_with_class(row, "market-candidate-label").text or ""
+                if label != name:
+                    errors.append(f"{name}: visible market label is stale")
+            except ValueError as error:
+                errors.append(f"{name}: {error}")
+
+    expected_count = (
+        f"{len(products)} ACTIVE PRODUCTS / {len(expected_unranked)} AWAITING EVIDENCE"
+    )
+    try:
+        visible_count = one_with_class(svg, "market-count").text or ""
+        if visible_count != expected_count:
+            errors.append("visible market count is stale")
+    except ValueError as error:
+        errors.append(str(error))
+
     if errors:
         for error in errors:
             print(f"FAIL {error}", file=sys.stderr)
         return 1
     print(
-        f"PASS 4C Harness Ladder: {len(candidates)} candidates, "
+        f"PASS 4C Harness Ladder: {len(candidates)} ranked, "
+        f"{len(expected_unranked)} awaiting evidence, "
         f"{leader['candidate']} leads at {display_number(float(leader['score']))}"
     )
     return 0

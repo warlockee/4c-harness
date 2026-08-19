@@ -3,16 +3,19 @@
 > **See a Harness. Ask four questions: Cost, Compatibility, Continuity,
 > Cognition.**
 
-[![4C Harness Ladder: DeepSeek Harness leads the fixed interactive-coding source-fit comparison at 80.](assets/4c-harness-ladder.svg)](docs/scouts/2026-08-19-source-sweep.md#terrain-specific-source-scorecards)
+[![4C Harness Ladder: DeepSeek Harness leads six audited products at 80, with 25 additional active Harness products tracked without fabricated scores.](assets/4c-harness-ladder.svg)](docs/validation/market-universe.md)
 
 **Current source-fit leader: DeepSeek Harness — 80/100.** This opening ladder
-ranks six comparable coding Harnesses on one fixed terrain with the same
-weights and source ceiling. It is an auditable source-fit comparison, not yet a
-runtime task benchmark; every bar segment is machine-checked against the
-[scorecards](docs/scouts/fit-scores.json).
+ranks six audited Harnesses on one fixed terrain and tracks 25 more active
+products without inventing scores. `Unranked` means **unknown, not worse**.
+Every scored bar is machine-checked against the
+[scorecards](docs/scouts/fit-scores.json), and every visible name is checked
+against the dated, rule-based [market universe](docs/validation/market-universe.md).
 
 [**Run the 4C Check ↓**](#run-the-4c-check-in-five-minutes) ·
 [Scorecards](docs/scouts/2026-08-19-source-sweep.md#terrain-specific-source-scorecards) ·
+[Market coverage](docs/validation/market-universe.md) ·
+[Add a missing Harness](https://github.com/warlockee/4c-harness/issues/new?template=market-coverage.yml) ·
 [Challenge a score](https://github.com/warlockee/4c-harness/issues/new?template=score-challenge.yml) ·
 [Full method](docs/harness-scout.md)
 
@@ -179,6 +182,10 @@ Harness that I would silently lose.
 These pre-computed rows tell you which mechanisms deserve inspection. They do
 **not** let you skip the source-path and yield audit: `Strong` / `Partial` /
 `Evidence` are coverage labels, never performance grades.
+
+This older mechanism-validation cohort is deliberately narrower than the
+opening [market universe](docs/validation/market-universe.md): it admits only
+high-visibility open implementations and also samples adjacent architectures.
 
 The coverage columns below remain mechanism maps, not product grades. A pinned
 source rerun now advances nine terrain-specific prospects to `Nominated` while
