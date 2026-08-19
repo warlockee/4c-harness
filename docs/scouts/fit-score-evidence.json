@@ -1,0 +1,293 @@
+{
+  "schema_version": 1,
+  "claim_types": {
+    "source-observed": "Behavior directly established by pinned code and an executable invariant; no product outcome is claimed.",
+    "source-inferred": "A user-visible prediction derived from a pinned source path and paired with a falsifier; not a measured result.",
+    "runtime-observed": "A product outcome established by a reproducible runtime trace."
+  },
+  "evidence": {
+    "DeepSeek Harness": {
+      "Cost": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "The direct DeepSeek fetch/SSE adapter on the shipped agent path predicts lower provider-seam latency and exposes cache-token amplification.",
+        "implementation": "https://github.com/deepseek-ai/deepseek-harness/blob/141eb6fef83422698aef7a981029e843e8161534/packages/llm/llm-deepseek/src/adapter.ts",
+        "invariant": "https://github.com/deepseek-ai/deepseek-harness/blob/141eb6fef83422698aef7a981029e843e8161534/packages/llm/llm-deepseek/tests/adapter.spec.ts",
+        "reachability": "https://github.com/deepseek-ai/deepseek-harness/blob/141eb6fef83422698aef7a981029e843e8161534/packages/core/agent-loop/src/agent.ts",
+        "falsifier": "A same-model trace shows extra blocking calls or no meaningful latency, token or request advantage."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Native DeepSeek translation plus the agent-operable Cordis seam predict less semantic loss and a shorter extension path.",
+        "implementation": "https://github.com/deepseek-ai/deepseek-harness/blob/141eb6fef83422698aef7a981029e843e8161534/packages/llm/llm-deepseek/src/translate.ts",
+        "invariant": "https://github.com/deepseek-ai/deepseek-harness/blob/141eb6fef83422698aef7a981029e843e8161534/packages/llm/llm-deepseek/tests/translate.spec.ts",
+        "reachability": "https://github.com/deepseek-ai/deepseek-harness/blob/141eb6fef83422698aef7a981029e843e8161534/apps/cli/config/agent-presets/cordis/agent.cordis.yml",
+        "falsifier": "Same-model substitution loses no useful semantics, or a representative extension still needs core edits, restart or manual cleanup."
+      },
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Write-behind coordination on the default JSONL persistence path predicts resumability without putting every storage operation on the response hot path.",
+        "implementation": "https://github.com/deepseek-ai/deepseek-harness/blob/141eb6fef83422698aef7a981029e843e8161534/packages/session/session-persistence/src/write-behind.ts",
+        "invariant": "https://github.com/deepseek-ai/deepseek-harness/blob/141eb6fef83422698aef7a981029e843e8161534/packages/session/session-persistence/tests/write-behind.spec.ts",
+        "reachability": "https://github.com/deepseek-ai/deepseek-harness/blob/141eb6fef83422698aef7a981029e843e8161534/apps/cli/composition.md",
+        "falsifier": "Persistence blocks useful output, loses required events on recovery, or creates unacceptable crash-loss tails."
+      }
+    },
+    "Aider": {
+      "Cost": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "A dependency-ranked repository map with an explicit token budget predicts lower context and orchestration tax on repository edits.",
+        "implementation": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/aider/repomap.py",
+        "invariant": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/tests/basic/test_repomap.py",
+        "reachability": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/aider/coders/base_coder.py",
+        "falsifier": "Representative cross-file tasks need more repair turns or tokens because decisive context is omitted."
+      },
+      "Compatibility": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "Model configuration and command surfaces expose provider and model differences on the shipped CLI path.",
+        "implementation": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/aider/models.py",
+        "invariant": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/tests/basic/test_models.py",
+        "reachability": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/aider/main.py",
+        "falsifier": "The required model or edit-format differences still require application-side adapters."
+      },
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Git commits, guarded undo and lint/test feedback predict a short and reversible correction loop.",
+        "implementation": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/aider/commands.py",
+        "invariant": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/tests/basic/test_commands.py",
+        "reachability": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/aider/repo.py",
+        "falsifier": "Git mediation loses user edits or costs more correction time than it saves."
+      }
+    },
+    "browser-use": {
+      "Cost": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "The DOM serializer emits a compact interactive representation instead of raw page HTML.",
+        "implementation": "https://github.com/browser-use/browser-use/blob/85ddbfedf609166b2d2c76c3d80506649fee82a9/browser_use/dom/serializer/serializer.py",
+        "invariant": "https://github.com/browser-use/browser-use/blob/85ddbfedf609166b2d2c76c3d80506649fee82a9/tests/ci/browser/test_dom_serializer.py",
+        "reachability": "https://github.com/browser-use/browser-use/blob/85ddbfedf609166b2d2c76c3d80506649fee82a9/browser_use/agent/service.py",
+        "falsifier": "Serialization consumes as many tokens or as much time as the generic browser representation it replaces."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "DOM-to-model serialization predicts fewer grounding failures than a generic screen or raw-HTML path.",
+        "implementation": "https://github.com/browser-use/browser-use/blob/85ddbfedf609166b2d2c76c3d80506649fee82a9/browser_use/dom/serializer/serializer.py",
+        "invariant": "https://github.com/browser-use/browser-use/blob/85ddbfedf609166b2d2c76c3d80506649fee82a9/tests/ci/browser/test_dom_serializer_session_identity.py",
+        "reachability": "https://github.com/browser-use/browser-use/blob/85ddbfedf609166b2d2c76c3d80506649fee82a9/browser_use/agent/message_manager/service.py",
+        "falsifier": "Matched tasks show no reduction in stale, ambiguous or ungrounded browser actions."
+      },
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "A persistent browser session with reconnect/watchdog behavior and serializable agent state predicts fewer lost-session failures.",
+        "implementation": "https://github.com/browser-use/browser-use/blob/85ddbfedf609166b2d2c76c3d80506649fee82a9/browser_use/browser/session.py",
+        "invariant": "https://github.com/browser-use/browser-use/blob/85ddbfedf609166b2d2c76c3d80506649fee82a9/tests/ci/browser/test_session_start.py",
+        "reachability": "https://github.com/browser-use/browser-use/blob/85ddbfedf609166b2d2c76c3d80506649fee82a9/browser_use/agent/views.py",
+        "falsifier": "Recovery loses browser or agent state, or watchdog/reconnect work worsens success and tail latency."
+      }
+    },
+    "Codex": {
+      "Cost": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "Parallel-safe tool calls can overlap while preserving model-visible result order.",
+        "implementation": "https://github.com/openai/codex/blob/3b45c29062ff0e76e71c91b6753290400e7fa8da/codex-rs/core/src/tools/parallel.rs",
+        "invariant": "https://github.com/openai/codex/blob/3b45c29062ff0e76e71c91b6753290400e7fa8da/codex-rs/core/tests/suite/tool_parallelism.rs",
+        "reachability": "https://github.com/openai/codex/blob/3b45c29062ff0e76e71c91b6753290400e7fa8da/codex-rs/core/src/tools/parallel.rs",
+        "falsifier": "Representative tasks contain no safe overlap or scheduling adds more delay than it removes."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "First-class MCP session and exposure machinery predict lower tool-integration friction on governed repository work.",
+        "implementation": "https://github.com/openai/codex/blob/3b45c29062ff0e76e71c91b6753290400e7fa8da/codex-rs/core/src/mcp.rs",
+        "invariant": "https://github.com/openai/codex/blob/3b45c29062ff0e76e71c91b6753290400e7fa8da/codex-rs/core/src/session/mcp_tests.rs",
+        "reachability": "https://github.com/openai/codex/blob/3b45c29062ff0e76e71c91b6753290400e7fa8da/codex-rs/core/src/session/mcp.rs",
+        "falsifier": "Required tools still need bespoke mediation or MCP lifecycle overhead dominates the task."
+      },
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Rollout reconstruction and session state predict lower recovery loss across long coding work.",
+        "implementation": "https://github.com/openai/codex/blob/3b45c29062ff0e76e71c91b6753290400e7fa8da/codex-rs/core/src/session/rollout_reconstruction.rs",
+        "invariant": "https://github.com/openai/codex/blob/3b45c29062ff0e76e71c91b6753290400e7fa8da/codex-rs/core/src/session/rollout_reconstruction_tests.rs",
+        "reachability": "https://github.com/openai/codex/blob/3b45c29062ff0e76e71c91b6753290400e7fa8da/codex-rs/core/src/rollout.rs",
+        "falsifier": "Resume loses decisive state or reconstruction costs more than rerunning the bounded task."
+      }
+    },
+    "Gemini CLI": {
+      "Cost": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "Routing and compression are shipped policy paths with executable tests.",
+        "implementation": "https://github.com/google-gemini/gemini-cli/blob/eaa30429a72a2a76c173ced853e9a15b14d92a64/packages/core/src/routing/modelRouterService.ts",
+        "invariant": "https://github.com/google-gemini/gemini-cli/blob/eaa30429a72a2a76c173ced853e9a15b14d92a64/packages/core/src/routing/modelRouterService.test.ts",
+        "reachability": "https://github.com/google-gemini/gemini-cli/blob/eaa30429a72a2a76c173ced853e9a15b14d92a64/packages/core/src/context/contextCompressionService.ts",
+        "falsifier": "Routing and compression add context churn or latency without lowering task cost."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Live extension loading and policy-aware integration predict safer customization with fewer restarts.",
+        "implementation": "https://github.com/google-gemini/gemini-cli/blob/eaa30429a72a2a76c173ced853e9a15b14d92a64/packages/core/src/utils/extensionLoader.ts",
+        "invariant": "https://github.com/google-gemini/gemini-cli/blob/eaa30429a72a2a76c173ced853e9a15b14d92a64/packages/core/src/utils/extensionLoader.test.ts",
+        "reachability": "https://github.com/google-gemini/gemini-cli/blob/eaa30429a72a2a76c173ced853e9a15b14d92a64/integration-tests/extensions-reload.test.ts",
+        "falsifier": "Representative extensions still need restart/manual repair or can bypass required policy."
+      },
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Checkpoint utilities and an integration-tested recovery path predict lower edit loss after interruption.",
+        "implementation": "https://github.com/google-gemini/gemini-cli/blob/eaa30429a72a2a76c173ced853e9a15b14d92a64/packages/core/src/utils/checkpointUtils.ts",
+        "invariant": "https://github.com/google-gemini/gemini-cli/blob/eaa30429a72a2a76c173ced853e9a15b14d92a64/packages/core/src/utils/checkpointUtils.test.ts",
+        "reachability": "https://github.com/google-gemini/gemini-cli/blob/eaa30429a72a2a76c173ced853e9a15b14d92a64/integration-tests/checkpointing.test.ts",
+        "falsifier": "Checkpoint recovery loses user edits or adds more repair work than it prevents."
+      }
+    },
+    "OpenHands": {
+      "Cost": {
+        "grade": 2,
+        "claim_type": "source-observed",
+        "claim": "The launcher exposes explicit local/cloud provisioning paths, but no default-path yield edge is established.",
+        "implementation": "https://github.com/OpenHands/OpenHands/blob/f2dd33090592f8777e3f2d1a519ddb44866e595e/src/services/child-conversation-launch.ts",
+        "invariant": null,
+        "reachability": "https://github.com/OpenHands/OpenHands/blob/f2dd33090592f8777e3f2d1a519ddb44866e595e/src/api/launch-child-conversation-client-tool.ts",
+        "falsifier": "Provisioning and frontend/server hops dominate useful work."
+      },
+      "Compatibility": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "One launch service selects and mediates local and cloud conversation backends.",
+        "implementation": "https://github.com/OpenHands/OpenHands/blob/f2dd33090592f8777e3f2d1a519ddb44866e595e/src/services/child-conversation-launch.ts",
+        "invariant": "https://github.com/OpenHands/OpenHands/blob/f2dd33090592f8777e3f2d1a519ddb44866e595e/__tests__/services/child-conversation-launch.test.ts",
+        "reachability": "https://github.com/OpenHands/OpenHands/blob/f2dd33090592f8777e3f2d1a519ddb44866e595e/src/api/launch-child-conversation-client-tool.ts",
+        "falsifier": "Backend differences leak into manual operator repair or prevent comparable task execution."
+      },
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Claim-before-network launch, lineage and workspace isolation predict fewer duplicate launches and cross-agent conflicts.",
+        "implementation": "https://github.com/OpenHands/OpenHands/blob/f2dd33090592f8777e3f2d1a519ddb44866e595e/src/services/child-conversation-launch.ts",
+        "invariant": "https://github.com/OpenHands/OpenHands/blob/f2dd33090592f8777e3f2d1a519ddb44866e595e/__tests__/services/child-conversation-launch.test.ts",
+        "reachability": "https://github.com/OpenHands/OpenHands/blob/f2dd33090592f8777e3f2d1a519ddb44866e595e/src/api/launch-child-conversation-client-tool.ts",
+        "falsifier": "Lineage cannot reconstruct outcomes or shared-workspace fallback causes unacceptable conflicts."
+      }
+    },
+    "Cline": {
+      "Cost": {
+        "grade": 2,
+        "claim_type": "source-observed",
+        "claim": "The layered runtime exposes orchestration control but no isolated low-amplification edge for the named terrain.",
+        "implementation": "https://github.com/cline/cline/blob/d9bb22883daa3df2c917a73b6af911f2551f68b0/sdk/packages/core/src/runtime/orchestration/session-runtime-orchestrator.ts",
+        "invariant": null,
+        "reachability": "https://github.com/cline/cline/blob/d9bb22883daa3df2c917a73b6af911f2551f68b0/sdk/ARCHITECTURE.md",
+        "falsifier": "Runtime layers add more calls, tokens or repair work than they remove."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "A shared session client and structured events predict lower friction when moving among IDE, CLI, SDK and remote clients.",
+        "implementation": "https://github.com/cline/cline/blob/d9bb22883daa3df2c917a73b6af911f2551f68b0/sdk/packages/core/src/hub/client/session-client.ts",
+        "invariant": "https://github.com/cline/cline/blob/d9bb22883daa3df2c917a73b6af911f2551f68b0/sdk/packages/core/src/hub/client/session-client.test.ts",
+        "reachability": "https://github.com/cline/cline/blob/d9bb22883daa3df2c917a73b6af911f2551f68b0/sdk/ARCHITECTURE.md",
+        "falsifier": "Cross-surface transport creates stale UI, duplicate state or manual migration."
+      },
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Checkpoint restore and a stateful orchestration runtime predict reversible sessions across interruption and client changes.",
+        "implementation": "https://github.com/cline/cline/blob/d9bb22883daa3df2c917a73b6af911f2551f68b0/sdk/packages/core/src/session/checkpoint-restore.ts",
+        "invariant": "https://github.com/cline/cline/blob/d9bb22883daa3df2c917a73b6af911f2551f68b0/sdk/packages/core/src/session/checkpoint-restore.test.ts",
+        "reachability": "https://github.com/cline/cline/blob/d9bb22883daa3df2c917a73b6af911f2551f68b0/sdk/packages/core/src/runtime/orchestration/session-runtime-orchestrator.ts",
+        "falsifier": "Restore loses user edits or the live session diverges across clients."
+      }
+    },
+    "LangGraph": {
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Pending writes and checkpoint conformance predict less repeated work after a peer node fails.",
+        "implementation": "https://github.com/langchain-ai/langgraph/blob/837212b9699bc4c3400b97714988344d348598f8/libs/checkpoint/README.md#pending-writes",
+        "invariant": "https://github.com/langchain-ai/langgraph/blob/837212b9699bc4c3400b97714988344d348598f8/libs/checkpoint-conformance/langgraph/checkpoint/conformance/spec/test_put_writes.py",
+        "reachability": "https://github.com/langchain-ai/langgraph/tree/837212b9699bc4c3400b97714988344d348598f8/libs/checkpoint-conformance",
+        "falsifier": "Resume repeats completed effects or checkpoint overhead dominates the representative workflow."
+      }
+    },
+    "LiteLLM": {
+      "Cost": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Pre-call budget, cache-affinity and routing policy predict more verified outcomes per constrained dollar or quota.",
+        "implementation": "https://github.com/BerriAI/litellm/blob/4bb3152cc52415cf19a5d43eba2158718e924239/litellm/router.py",
+        "invariant": "https://github.com/BerriAI/litellm/blob/4bb3152cc52415cf19a5d43eba2158718e924239/tests/local_testing/test_budget_manager.py",
+        "reachability": "https://github.com/BerriAI/litellm/blob/4bb3152cc52415cf19a5d43eba2158718e924239/litellm/router.py",
+        "falsifier": "Routing raises total cost or TTFT without improving externally verified completion."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Exception-specific retry/fallback and provider translation predict fewer quota and availability failures across providers.",
+        "implementation": "https://github.com/BerriAI/litellm/blob/4bb3152cc52415cf19a5d43eba2158718e924239/litellm/router.py",
+        "invariant": "https://github.com/BerriAI/litellm/blob/4bb3152cc52415cf19a5d43eba2158718e924239/tests/llm_translation/test_router_llm_translation_tests.py",
+        "reachability": "https://github.com/BerriAI/litellm/blob/4bb3152cc52415cf19a5d43eba2158718e924239/litellm/router.py",
+        "falsifier": "Fallback loses decisive provider semantics or hides task failure behind a successful response."
+      }
+    },
+    "Langflow": {
+      "Compatibility": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "The bundle contract and graph runtime provide shipped extension and composition mechanisms.",
+        "implementation": "https://github.com/langflow-ai/langflow/blob/09ef6b2b7119e35a6787fc249f916f8b47b28615/BUNDLE_API.md",
+        "invariant": "https://github.com/langflow-ai/langflow/blob/09ef6b2b7119e35a6787fc249f916f8b47b28615/scripts/ci/test_bundle_profiles.py",
+        "reachability": "https://github.com/langflow-ai/langflow/blob/09ef6b2b7119e35a6787fc249f916f8b47b28615/src/lfx/src/lfx/graph/graph/base.py",
+        "falsifier": "A representative component still requires core edits or bespoke deployment glue."
+      },
+      "Continuity": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "Checkpoint construction, storage and resume paths exist with an executable durable-store test.",
+        "implementation": "https://github.com/langflow-ai/langflow/blob/09ef6b2b7119e35a6787fc249f916f8b47b28615/src/lfx/src/lfx/graph/checkpoint/builder.py",
+        "invariant": "https://github.com/langflow-ai/langflow/blob/09ef6b2b7119e35a6787fc249f916f8b47b28615/src/backend/tests/unit/background_execution/test_durable_checkpoint_store.py",
+        "reachability": "https://github.com/langflow-ai/langflow/blob/09ef6b2b7119e35a6787fc249f916f8b47b28615/src/lfx/src/lfx/graph/graph/base.py",
+        "falsifier": "Resume repeats effects, loses graph state or remains unavailable on the default deployment path."
+      }
+    },
+    "CrewAI": {
+      "Compatibility": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "The A2A wrapper and integration tests establish a reachable remote-agent mediation path.",
+        "implementation": "https://github.com/crewAIInc/crewAI/blob/4dfd074fae84fc287af9f9e8cce7e74096c4f626/lib/crewai/src/crewai/a2a/wrapper.py",
+        "invariant": "https://github.com/crewAIInc/crewAI/blob/4dfd074fae84fc287af9f9e8cce7e74096c4f626/lib/crewai/tests/a2a/test_a2a_integration.py",
+        "reachability": "https://github.com/crewAIInc/crewAI/blob/4dfd074fae84fc287af9f9e8cce7e74096c4f626/lib/crewai/src/crewai/flow/flow.py",
+        "falsifier": "Role or remote-agent differences still require custom orchestration and duplicated context."
+      },
+      "Continuity": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "Flow persistence and resumability are implemented and exercised, without yet establishing a net yield edge.",
+        "implementation": "https://github.com/crewAIInc/crewAI/blob/4dfd074fae84fc287af9f9e8cce7e74096c4f626/lib/crewai/src/crewai/flow/flow.py",
+        "invariant": "https://github.com/crewAIInc/crewAI/blob/4dfd074fae84fc287af9f9e8cce7e74096c4f626/lib/crewai/tests/test_flow_persistence.py",
+        "reachability": "https://github.com/crewAIInc/crewAI/blob/4dfd074fae84fc287af9f9e8cce7e74096c4f626/lib/crewai/src/crewai/flow/flow_config.py",
+        "falsifier": "Resume loses flow state or role handoffs amplify calls and failure edges beyond recovered work."
+      },
+      "Cognition": {
+        "grade": 2,
+        "claim_type": "source-observed",
+        "claim": "Unified memory is reachable, but automatic policy improvement and rollout/rollback are not established.",
+        "implementation": "https://github.com/crewAIInc/crewAI/blob/4dfd074fae84fc287af9f9e8cce7e74096c4f626/lib/crewai/src/crewai/memory/unified_memory.py",
+        "invariant": "https://github.com/crewAIInc/crewAI/blob/4dfd074fae84fc287af9f9e8cce7e74096c4f626/lib/crewai/tests/memory/test_unified_memory.py",
+        "reachability": "https://github.com/crewAIInc/crewAI/tree/4dfd074fae84fc287af9f9e8cce7e74096c4f626/lib/crewai/src/crewai/memory",
+        "falsifier": "Stored memory does not affect later execution, or it changes behavior without attributable policy control."
+      }
+    }
+  }
+}

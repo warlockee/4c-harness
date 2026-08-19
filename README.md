@@ -92,6 +92,14 @@ inspectable fit, immediate trial priority, but not yet a runtime-proven switch.
 The [same rubric applied to all 11 candidates](docs/scouts/2026-08-19-source-sweep.md#terrain-specific-source-scorecards)
 prevents a DeepSeek-only curve.
 
+Every non-zero grade has a public, commit-pinned evidence row: the
+[implementation, executable invariant, shipped reachability and
+falsifier](docs/scouts/fit-score-evidence.json). `source-observed` means the
+row states only what the code or test establishes; `source-inferred` means the
+user-visible effect is a prediction, never a measured result. Think a grade is
+wrong? [Challenge that exact score](https://github.com/warlockee/4c-harness/issues/new?template=score-challenge.yml)—counterevidence can lower it as readily as
+new evidence can raise it.
+
 ### Why the usual signals do not answer the question
 
 | Signal you have today | What it answers | What it leaves open |

@@ -1,0 +1,72 @@
+name: "⚖️ Challenge a 4C Fit score"
+description: Dispute one active-C grade with exact-version evidence.
+title: "[Score Challenge] <candidate> / <active C>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Challenge the evidence, not the horse. One issue should dispute one grade on one locked terrain and version. Counterevidence can lower a score as readily as new evidence can raise it.
+
+  - type: input
+    id: candidate
+    attributes:
+      label: Candidate and exact version
+      description: Name the Harness and the exact commit or immutable release used by the scorecard.
+      placeholder: "DeepSeek Harness @ 141eb6f..."
+    validations:
+      required: true
+
+  - type: input
+    id: terrain
+    attributes:
+      label: Locked terrain
+      description: Copy the terrain from the disputed scorecard; a different terrain is a new comparison, not a correction.
+      placeholder: "latency- and quota-sensitive interactive coding with on-demand local extension"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: active_c
+    attributes:
+      label: Disputed active C
+      options:
+        - Cost
+        - Compatibility
+        - Continuity
+        - Cognition
+    validations:
+      required: true
+
+  - type: input
+    id: grade_change
+    attributes:
+      label: Current grade → proposed grade
+      placeholder: "4 → 3"
+    validations:
+      required: true
+
+  - type: textarea
+    id: counterevidence
+    attributes:
+      label: Pinned evidence and reasoning
+      description: Link exact-commit implementation, test or runtime trace; explain which rubric requirement is met or broken.
+      placeholder: "At <immutable link>, the scored path is optional rather than default, so grade 4's causal-edge requirement is not met. The falsifying test/trace is ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: falsifier
+    attributes:
+      label: What would disprove your challenge?
+      description: State the code path, invariant or trace that would show the current score is correct.
+      placeholder: "Close this challenge if ..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: I am disputing one grade on the published terrain and exact version, not making a universal product claim.
+          required: true

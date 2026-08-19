@@ -73,8 +73,16 @@ DeepSeek reaches the source ceiling because every active C exposes a sharp
 default-path yield hypothesis. Gemini exposes broader machinery, but breadth
 does not add points. CrewAI and Langflow remain conditional because their
 machinery has not yet been converted into an equally discriminating edge.
-The machine-readable cards are in [`fit-scores.json`](fit-scores.json), and CI
-recomputes every value with [`tools/fit_score_check.py`](../../tools/fit_score_check.py).
+The machine-readable cards are in [`fit-scores.json`](fit-scores.json), their
+per-C claims, implementation paths, executable invariants, shipped paths and
+falsifiers are in [`fit-score-evidence.json`](fit-score-evidence.json), and CI
+recomputes and cross-checks both with
+[`tools/fit_score_check.py`](../../tools/fit_score_check.py).
+On 2026-08-19, a GitHub Contents API audit resolved all 71 unique pinned
+implementation, invariant and reachability paths in that ledger. Path existence
+does not prove the prediction; that is why every grade 4 remains explicitly
+`source-inferred` and carries a falsifier. CI repeats the live audit with
+[`tools/evidence_link_check.py`](../../tools/evidence_link_check.py).
 
 ## 4C activation and realization view
 
@@ -89,8 +97,8 @@ feature count. Boundary columns remain obligations, not extra points.
 | browser-use | Cost, Compatibility, Continuity | Model-fit, continuity/recovery | Epistemic Access, Validity, Authority |
 | Codex | Cost, Compatibility, Continuity | execution, human-control | Validity, Authority |
 | Gemini CLI | Cost, Compatibility, Continuity | Model-fit, human-control, change | Validity, Authority |
-| OpenHands | Compatibility, Continuity | onboarding, human-control | Validity, Authority |
-| Cline | Compatibility, Continuity | human-control, continuity/recovery | Validity, Authority |
+| OpenHands | Cost, Compatibility, Continuity | onboarding, human-control | Validity, Authority |
+| Cline | Cost, Compatibility, Continuity | human-control, continuity/recovery | Validity, Authority |
 | LangGraph | Continuity | execution, continuity/recovery | Validity, Authority |
 | LiteLLM | Cost, Compatibility; adaptive routing can activate Cognition | Model-fit, execution | Validity |
 | CrewAI | Compatibility, Continuity; memory may activate Cognition | execution, change not yet discriminating | Validity, Authority |

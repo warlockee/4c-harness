@@ -4,9 +4,10 @@
 from __future__ import annotations
 
 import copy
+import json
 import unittest
 
-from fit_score_check import validate_card
+from fit_score_check import EVIDENCE_PATH, validate_card, validate_evidence
 
 
 BASE_CARD = {
@@ -41,6 +42,30 @@ class FitScoreTests(unittest.TestCase):
         card = copy.deepcopy(BASE_CARD)
         card["score"] = 95
         self.assertTrue(any("calculated 80" in error for error in validate_card(card)))
+
+    def test_evidence_urls_must_pin_the_scored_commit(self) -> None:
+        ledger = json.loads(EVIDENCE_PATH.read_text())["evidence"]
+        evidence = copy.deepcopy(ledger["DeepSeek Harness"])
+        evidence["Cost"]["implementation"] = "https://github.com/example/main.py"
+        errors = validate_evidence(BASE_CARD, evidence)
+        self.assertTrue(any("Cost: implementation is not pinned" in error for error in errors))
+
+    def test_commit_text_outside_the_revision_segment_does_not_count(self) -> None:
+        ledger = json.loads(EVIDENCE_PATH.read_text())["evidence"]
+        evidence = copy.deepcopy(ledger["DeepSeek Harness"])
+        commit = BASE_CARD["exact_commit"]
+        evidence["Cost"]["implementation"] = (
+            f"https://github.com/example/repo/blob/main/{commit}/implementation.py"
+        )
+        errors = validate_evidence(BASE_CARD, evidence)
+        self.assertTrue(any("Cost: implementation is not pinned" in error for error in errors))
+
+    def test_observed_source_fact_cannot_claim_predictive_grade(self) -> None:
+        ledger = json.loads(EVIDENCE_PATH.read_text())["evidence"]
+        evidence = copy.deepcopy(ledger["DeepSeek Harness"])
+        evidence["Cost"]["claim_type"] = "source-observed"
+        errors = validate_evidence(BASE_CARD, evidence)
+        self.assertTrue(any("source-observed evidence ceiling" in error for error in errors))
 
 
 if __name__ == "__main__":

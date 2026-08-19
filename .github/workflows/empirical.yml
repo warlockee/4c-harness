@@ -23,6 +23,10 @@ jobs:
         run: python tools/fit_score_check.py
       - name: Test the 4C Fit contract
         run: python tools/test_fit_score_check.py
+      - name: Resolve every pinned upstream evidence path
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/evidence_link_check.py
 
   reproduce:
     runs-on: ubuntu-latest

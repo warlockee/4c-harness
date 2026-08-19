@@ -11,6 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCORE_PATH = ROOT / "docs" / "scouts" / "fit-scores.json"
+EVIDENCE_PATH = ROOT / "docs" / "scouts" / "fit-score-evidence.json"
 COHORT_PATH = ROOT / "docs" / "scouts" / "cohorts" / "2026-08-19-source-sweep.json"
 CS = {"Cost", "Compatibility", "Continuity", "Cognition"}
 KNOWN_COMMITS = json.loads(COHORT_PATH.read_text())["exact_commits"]
@@ -24,6 +25,12 @@ EVIDENCE_CEILINGS = {
     "Adoptable": 5,
 }
 BOUNDARY_STATUSES = {"Pass", "Unknown", "Fail"}
+CLAIM_TYPES = {"source-observed", "source-inferred", "runtime-observed"}
+CLAIM_TYPE_CEILINGS = {
+    "source-observed": 3,
+    "source-inferred": 4,
+    "runtime-observed": 5,
+}
 
 
 def validate_card(card: dict) -> list[str]:
@@ -74,7 +81,46 @@ def validate_card(card: dict) -> list[str]:
     return errors
 
 
-def validate_comparison(comparison: dict) -> list[str]:
+def validate_evidence(card: dict, evidence: dict) -> list[str]:
+    name = card.get("candidate", "<unnamed>")
+    commit = card.get("exact_commit", "")
+    active = {pressure for pressure, weight in card.get("weights", {}).items() if weight > 0}
+    errors: list[str] = []
+    if set(evidence) != active:
+        return [f"{name}: evidence must contain exactly the active Cs"]
+    for pressure in active:
+        grade = card["grades"][pressure]
+        item = evidence[pressure]
+        prefix = f"{name}/{pressure}"
+        if item.get("grade") != grade:
+            errors.append(f"{prefix}: evidence grade differs from scorecard grade")
+        claim_type = item.get("claim_type")
+        if claim_type not in CLAIM_TYPES:
+            errors.append(f"{prefix}: invalid claim_type {claim_type!r}")
+        elif grade > CLAIM_TYPE_CEILINGS[claim_type]:
+            errors.append(
+                f"{prefix}: grade {grade} exceeds the {claim_type} evidence ceiling"
+            )
+        for field in ("claim", "implementation", "reachability", "falsifier"):
+            if not isinstance(item.get(field), str) or not item[field].strip():
+                errors.append(f"{prefix}: missing {field}")
+        if grade >= 3 and not item.get("invariant"):
+            errors.append(f"{prefix}: grade {grade} requires an executable invariant")
+        for field in ("implementation", "invariant", "reachability"):
+            url = item.get(field)
+            if url is None and field == "invariant" and grade < 3:
+                continue
+            pinned_pattern = (
+                r"https://github\.com/[^/?#]+/[^/?#]+/(?:blob|tree)/"
+                + re.escape(commit)
+                + r"/[^?#]+(?:#[A-Za-z0-9_.:+-]+)?"
+            )
+            if not isinstance(url, str) or not re.fullmatch(pinned_pattern, url):
+                errors.append(f"{prefix}: {field} is not pinned to {commit}")
+    return errors
+
+
+def validate_comparison(comparison: dict, evidence_ledger: dict) -> list[str]:
     comparison_id = comparison.get("comparison_id", "<unnamed comparison>")
     weights = comparison.get("weights", {})
     terrain = comparison.get("terrain")
@@ -99,22 +145,41 @@ def validate_comparison(comparison: dict) -> list[str]:
         errors.extend(
             f"{comparison_id}: {error}" for error in validate_card(card)
         )
+        candidate_evidence = evidence_ledger.get(candidate.get("candidate"), {})
+        for pressure, weight in weights.items():
+            if weight == 0:
+                continue
+            supported = candidate_evidence.get(pressure, {}).get("grade", -1)
+            if candidate.get("grades", {}).get(pressure, -1) > supported:
+                errors.append(
+                    f"{comparison_id}: {candidate.get('candidate')}/{pressure} "
+                    "exceeds its evidence-supported grade"
+                )
     return errors
 
 
 def main() -> int:
     payload = json.loads(SCORE_PATH.read_text())
+    evidence_payload = json.loads(EVIDENCE_PATH.read_text())
+    evidence_ledger = evidence_payload.get("evidence", {})
     cards = payload.get("scorecards", [])
     errors = [error for card in cards for error in validate_card(card)]
+    errors.extend(
+        error
+        for card in cards
+        for error in validate_evidence(card, evidence_ledger.get(card.get("candidate"), {}))
+    )
     comparisons = payload.get("comparisons", [])
     errors.extend(
         error
         for comparison in comparisons
-        for error in validate_comparison(comparison)
+        for error in validate_comparison(comparison, evidence_ledger)
     )
     names = [card.get("candidate") for card in cards]
     if len(names) != len(set(names)):
         errors.append("candidate names must be unique")
+    if set(names) != set(evidence_ledger):
+        errors.append("evidence ledger candidates must exactly match scorecard candidates")
     if not cards:
         errors.append("at least one scorecard is required")
     if errors:

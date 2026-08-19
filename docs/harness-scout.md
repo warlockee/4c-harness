@@ -111,6 +111,30 @@ Scores are comparable only when terrain weights, task distribution and boundary
 requirements match. Best-fit scores on different terrains are portfolio cards,
 not a global leaderboard.
 
+### 2.2 Every grade must be challengeable
+
+A public score is an audit record, not editorial opinion. Every active-C grade
+must have one row in the machine-readable [evidence
+ledger](scouts/fit-score-evidence.json) containing:
+
+``` text
+claim type · exact-commit implementation · executable invariant
+· shipped reachability · user-visible claim · falsifier
+```
+
+`source-observed` is limited to behavior directly established by code and its
+test. `source-inferred` labels a predicted user effect and can never be worded
+as a measured result. `runtime-observed` requires a reproducible trace. Source
+evidence is capped at grade 4; only repeated paired task trials can earn grade
+5.
+
+Anyone can [challenge one exact
+grade](https://github.com/warlockee/4c-harness/issues/new?template=score-challenge.yml).
+A challenge must name the terrain, version, active C, disputed grade and pinned
+counterevidence. Resolution changes the evidence row and scorecard together,
+with the reason left in public history. Popularity, testimonials and an
+unlinked benchmark number are not scoring evidence.
+
 ## 3. Source signals that deserve nomination
 
 These are leading indicators, never automatic points:
