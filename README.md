@@ -3,7 +3,13 @@
 > **See a Harness. Ask four questions: Cost, Compatibility, Continuity,
 > Cognition.**
 
-[![See a Harness. Ask 4C. The evaluation standard for AI Harnesses.](assets/4c-harness-standard.png)](docs/harness-scout.md)
+[![4C Harness Ladder: DeepSeek Harness leads the fixed interactive-coding source-fit comparison at 80.](assets/4c-harness-ladder.svg)](docs/scouts/2026-08-19-source-sweep.md#terrain-specific-source-scorecards)
+
+**Current source-fit leader: DeepSeek Harness — 80/100.** This opening ladder
+ranks six comparable coding Harnesses on one fixed terrain with the same
+weights and source ceiling. It is an auditable source-fit comparison, not yet a
+runtime task benchmark; every bar segment is machine-checked against the
+[scorecards](docs/scouts/fit-scores.json).
 
 [**Run the 4C Check ↓**](#run-the-4c-check-in-five-minutes) ·
 [Scorecards](docs/scouts/2026-08-19-source-sweep.md#terrain-specific-source-scorecards) ·
