@@ -3,9 +3,10 @@
 Snapshot: **2026-08-19**  
 Scope: `active-general-purpose-coding-harness-v1`
 
-The opening ladder tracks **31 active Harness products**. Six have auditable
-source-fit scores on the fixed `interactive-coding-v1` terrain; 25 are visible
-without a score until their evidence reaches the required ceiling.
+The market universe tracks **31 active Harness products**. The opening ladder
+ranks all **15 open-source products** that pass the public-implementation and
+10,000-star gates on the fixed `interactive-coding-v1` terrain. The remaining
+16 need runtime evidence and are not given fabricated source scores.
 
 ## Inclusion rule
 
@@ -32,18 +33,16 @@ be proposed with the
 [market-coverage issue](https://github.com/warlockee/4c-harness/issues/new?template=market-coverage.yml)
 or a pull request; the same published rule must admit or reject them.
 
-## Why 25 products have no score
+## Why 16 products have no score
 
 `Unranked` means **unknown, not worse**.
 
-- **Source audit queued** means a substantial public implementation exists,
-  but 4C has not yet pinned and falsified every active-C grade.
 - **Runtime evidence needed** means the product is closed-source or its public
   repository is too thin to support source scoring. It needs a controlled,
   same-terrain task trial.
 
 Publishing placeholder scores would turn market coverage into fabrication.
-The chart therefore exposes the queue and the gap instead.
+The market universe exposes that evidence gap separately from the source ladder.
 
 ## Transition notes
 

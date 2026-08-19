@@ -6,8 +6,18 @@
       "candidate": "DeepSeek Harness",
       "exact_commit": "141eb6fef83422698aef7a981029e843e8161534",
       "terrain": "latency/quota-sensitive interactive coding and on-demand extension",
-      "weights": {"Cost": 45, "Compatibility": 35, "Continuity": 20, "Cognition": 0},
-      "grades": {"Cost": 4, "Compatibility": 4, "Continuity": 4, "Cognition": null},
+      "weights": {
+        "Cost": 45,
+        "Compatibility": 35,
+        "Continuity": 20,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 4,
+        "Compatibility": 4,
+        "Continuity": 4,
+        "Cognition": null
+      },
       "score": 80,
       "evidence_stage": "Source-predicted",
       "boundary_status": "Unknown",
@@ -17,8 +27,18 @@
       "candidate": "Codex",
       "exact_commit": "3b45c29062ff0e76e71c91b6753290400e7fa8da",
       "terrain": "high-authority resumable coding",
-      "weights": {"Cost": 15, "Compatibility": 25, "Continuity": 60, "Cognition": 0},
-      "grades": {"Cost": 3, "Compatibility": 4, "Continuity": 4, "Cognition": null},
+      "weights": {
+        "Cost": 15,
+        "Compatibility": 25,
+        "Continuity": 60,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 3,
+        "Compatibility": 4,
+        "Continuity": 4,
+        "Cognition": null
+      },
       "score": 77,
       "evidence_stage": "Source-predicted",
       "boundary_status": "Unknown",
@@ -28,8 +48,18 @@
       "candidate": "browser-use",
       "exact_commit": "85ddbfedf609166b2d2c76c3d80506649fee82a9",
       "terrain": "authenticated stateful browser work",
-      "weights": {"Cost": 20, "Compatibility": 35, "Continuity": 45, "Cognition": 0},
-      "grades": {"Cost": 3, "Compatibility": 4, "Continuity": 4, "Cognition": null},
+      "weights": {
+        "Cost": 20,
+        "Compatibility": 35,
+        "Continuity": 45,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 3,
+        "Compatibility": 4,
+        "Continuity": 4,
+        "Cognition": null
+      },
       "score": 76,
       "evidence_stage": "Source-predicted",
       "boundary_status": "Unknown",
@@ -39,8 +69,18 @@
       "candidate": "Cline",
       "exact_commit": "d9bb22883daa3df2c917a73b6af911f2551f68b0",
       "terrain": "reversible cross-surface coding sessions",
-      "weights": {"Cost": 10, "Compatibility": 30, "Continuity": 60, "Cognition": 0},
-      "grades": {"Cost": 2, "Compatibility": 4, "Continuity": 4, "Cognition": null},
+      "weights": {
+        "Cost": 10,
+        "Compatibility": 30,
+        "Continuity": 60,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 2,
+        "Compatibility": 4,
+        "Continuity": 4,
+        "Cognition": null
+      },
       "score": 76,
       "evidence_stage": "Source-predicted",
       "boundary_status": "Unknown",
@@ -50,8 +90,18 @@
       "candidate": "Gemini CLI",
       "exact_commit": "eaa30429a72a2a76c173ced853e9a15b14d92a64",
       "terrain": "long governed generalist sessions",
-      "weights": {"Cost": 25, "Compatibility": 35, "Continuity": 40, "Cognition": 0},
-      "grades": {"Cost": 3, "Compatibility": 4, "Continuity": 4, "Cognition": null},
+      "weights": {
+        "Cost": 25,
+        "Compatibility": 35,
+        "Continuity": 40,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 3,
+        "Compatibility": 4,
+        "Continuity": 4,
+        "Cognition": null
+      },
       "score": 75,
       "evidence_stage": "Source-predicted",
       "boundary_status": "Unknown",
@@ -61,8 +111,18 @@
       "candidate": "Aider",
       "exact_commit": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
       "terrain": "low-amplification repository editing",
-      "weights": {"Cost": 50, "Compatibility": 20, "Continuity": 30, "Cognition": 0},
-      "grades": {"Cost": 4, "Compatibility": 3, "Continuity": 4, "Cognition": null},
+      "weights": {
+        "Cost": 50,
+        "Compatibility": 20,
+        "Continuity": 30,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 4,
+        "Compatibility": 3,
+        "Continuity": 4,
+        "Cognition": null
+      },
       "score": 76,
       "evidence_stage": "Source-predicted",
       "boundary_status": "Unknown",
@@ -72,8 +132,18 @@
       "candidate": "OpenHands",
       "exact_commit": "f2dd33090592f8777e3f2d1a519ddb44866e595e",
       "terrain": "isolated concurrent autonomous runs",
-      "weights": {"Cost": 10, "Compatibility": 30, "Continuity": 60, "Cognition": 0},
-      "grades": {"Cost": 2, "Compatibility": 3, "Continuity": 4, "Cognition": null},
+      "weights": {
+        "Cost": 10,
+        "Compatibility": 30,
+        "Continuity": 60,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 2,
+        "Compatibility": 3,
+        "Continuity": 4,
+        "Cognition": null
+      },
       "score": 70,
       "evidence_stage": "Source-predicted",
       "boundary_status": "Unknown",
@@ -83,8 +153,18 @@
       "candidate": "LangGraph",
       "exact_commit": "837212b9699bc4c3400b97714988344d348598f8",
       "terrain": "durable stateful workflows",
-      "weights": {"Cost": 0, "Compatibility": 0, "Continuity": 100, "Cognition": 0},
-      "grades": {"Cost": null, "Compatibility": null, "Continuity": 4, "Cognition": null},
+      "weights": {
+        "Cost": 0,
+        "Compatibility": 0,
+        "Continuity": 100,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": null,
+        "Compatibility": null,
+        "Continuity": 4,
+        "Cognition": null
+      },
       "score": 80,
       "evidence_stage": "Source-predicted",
       "boundary_status": "Unknown",
@@ -94,8 +174,18 @@
       "candidate": "LiteLLM",
       "exact_commit": "4bb3152cc52415cf19a5d43eba2158718e924239",
       "terrain": "quota/cost-aware multi-provider gateway",
-      "weights": {"Cost": 55, "Compatibility": 45, "Continuity": 0, "Cognition": 0},
-      "grades": {"Cost": 4, "Compatibility": 4, "Continuity": null, "Cognition": null},
+      "weights": {
+        "Cost": 55,
+        "Compatibility": 45,
+        "Continuity": 0,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 4,
+        "Compatibility": 4,
+        "Continuity": null,
+        "Cognition": null
+      },
       "score": 80,
       "evidence_stage": "Source-predicted",
       "boundary_status": "Unknown",
@@ -105,8 +195,18 @@
       "candidate": "Langflow",
       "exact_commit": "09ef6b2b7119e35a6787fc249f916f8b47b28615",
       "terrain": "visual workflow composition and deployment",
-      "weights": {"Cost": 0, "Compatibility": 45, "Continuity": 55, "Cognition": 0},
-      "grades": {"Cost": null, "Compatibility": 3, "Continuity": 3, "Cognition": null},
+      "weights": {
+        "Cost": 0,
+        "Compatibility": 45,
+        "Continuity": 55,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": null,
+        "Compatibility": 3,
+        "Continuity": 3,
+        "Cognition": null
+      },
       "score": 60,
       "evidence_stage": "Mechanism-backed",
       "boundary_status": "Unknown",
@@ -116,57 +216,403 @@
       "candidate": "CrewAI",
       "exact_commit": "4dfd074fae84fc287af9f9e8cce7e74096c4f626",
       "terrain": "role-separated multi-agent workflows",
-      "weights": {"Cost": 0, "Compatibility": 40, "Continuity": 45, "Cognition": 15},
-      "grades": {"Cost": null, "Compatibility": 3, "Continuity": 3, "Cognition": 2},
+      "weights": {
+        "Cost": 0,
+        "Compatibility": 40,
+        "Continuity": 45,
+        "Cognition": 15
+      },
+      "grades": {
+        "Cost": null,
+        "Compatibility": 3,
+        "Continuity": 3,
+        "Cognition": 2
+      },
       "score": 57,
       "evidence_stage": "Mechanism-backed",
       "boundary_status": "Unknown",
       "source_report": "docs/scouts/2026-08-19-source-sweep.md"
+    },
+    {
+      "candidate": "Qwen Code",
+      "exact_commit": "39fc769d3a49a883d250914d8f705b6b3735720c",
+      "terrain": "latency/quota-sensitive interactive coding and on-demand extension",
+      "weights": {
+        "Cost": 45,
+        "Compatibility": 35,
+        "Continuity": 20,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 3,
+        "Compatibility": 4,
+        "Continuity": 4,
+        "Cognition": null
+      },
+      "score": 71,
+      "evidence_stage": "Source-predicted",
+      "boundary_status": "Unknown",
+      "source_report": "docs/scouts/2026-08-19-open-source-ladder.md"
+    },
+    {
+      "candidate": "OpenCode",
+      "exact_commit": "e2505d434a6d78904ecfe546c4a1980d26bd8cd1",
+      "terrain": "latency/quota-sensitive interactive coding and on-demand extension",
+      "weights": {
+        "Cost": 45,
+        "Compatibility": 35,
+        "Continuity": 20,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 4,
+        "Compatibility": 4,
+        "Continuity": 4,
+        "Cognition": null
+      },
+      "score": 80,
+      "evidence_stage": "Source-predicted",
+      "boundary_status": "Unknown",
+      "source_report": "docs/scouts/2026-08-19-open-source-ladder.md"
+    },
+    {
+      "candidate": "Goose",
+      "exact_commit": "af016f0a80a2d34c78009e0e00fdcc24e42b4ea0",
+      "terrain": "latency/quota-sensitive interactive coding and on-demand extension",
+      "weights": {
+        "Cost": 45,
+        "Compatibility": 35,
+        "Continuity": 20,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 4,
+        "Compatibility": 4,
+        "Continuity": 4,
+        "Cognition": null
+      },
+      "score": 80,
+      "evidence_stage": "Source-predicted",
+      "boundary_status": "Unknown",
+      "source_report": "docs/scouts/2026-08-19-open-source-ladder.md"
+    },
+    {
+      "candidate": "Kilo Code",
+      "exact_commit": "9a6e081e4855e2e6a934bda519c1bef84e14d4b5",
+      "terrain": "latency/quota-sensitive interactive coding and on-demand extension",
+      "weights": {
+        "Cost": 45,
+        "Compatibility": 35,
+        "Continuity": 20,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 3,
+        "Compatibility": 4,
+        "Continuity": 4,
+        "Cognition": null
+      },
+      "score": 71,
+      "evidence_stage": "Source-predicted",
+      "boundary_status": "Unknown",
+      "source_report": "docs/scouts/2026-08-19-open-source-ladder.md"
+    },
+    {
+      "candidate": "Continue",
+      "exact_commit": "5522c6f44ca0ac3528b37244818fbfa39b5af470",
+      "terrain": "latency/quota-sensitive interactive coding and on-demand extension",
+      "weights": {
+        "Cost": 45,
+        "Compatibility": 35,
+        "Continuity": 20,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 3,
+        "Compatibility": 4,
+        "Continuity": 3,
+        "Cognition": null
+      },
+      "score": 67,
+      "evidence_stage": "Source-predicted",
+      "boundary_status": "Unknown",
+      "source_report": "docs/scouts/2026-08-19-open-source-ladder.md"
+    },
+    {
+      "candidate": "Pi",
+      "exact_commit": "b7bb00b936dbe21b8e160b3e89efdec361846699",
+      "terrain": "latency/quota-sensitive interactive coding and on-demand extension",
+      "weights": {
+        "Cost": 45,
+        "Compatibility": 35,
+        "Continuity": 20,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 4,
+        "Compatibility": 4,
+        "Continuity": 4,
+        "Cognition": null
+      },
+      "score": 80,
+      "evidence_stage": "Source-predicted",
+      "boundary_status": "Unknown",
+      "source_report": "docs/scouts/2026-08-19-open-source-ladder.md"
+    },
+    {
+      "candidate": "Crush",
+      "exact_commit": "7d78d7422a92918441a68d01d96d48fa3b9fd9db",
+      "terrain": "latency/quota-sensitive interactive coding and on-demand extension",
+      "weights": {
+        "Cost": 45,
+        "Compatibility": 35,
+        "Continuity": 20,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 3,
+        "Compatibility": 4,
+        "Continuity": 3,
+        "Cognition": null
+      },
+      "score": 67,
+      "evidence_stage": "Source-predicted",
+      "boundary_status": "Unknown",
+      "source_report": "docs/scouts/2026-08-19-open-source-ladder.md"
+    },
+    {
+      "candidate": "Zed Agent",
+      "exact_commit": "6e0a0835755ea57c1db4e0057f1a30ddba554706",
+      "terrain": "latency/quota-sensitive interactive coding and on-demand extension",
+      "weights": {
+        "Cost": 45,
+        "Compatibility": 35,
+        "Continuity": 20,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 4,
+        "Compatibility": 4,
+        "Continuity": 4,
+        "Cognition": null
+      },
+      "score": 80,
+      "evidence_stage": "Source-predicted",
+      "boundary_status": "Unknown",
+      "source_report": "docs/scouts/2026-08-19-open-source-ladder.md"
+    },
+    {
+      "candidate": "SWE-agent",
+      "exact_commit": "3ea751c087f32b16e039a2233dd6eefecef325d5",
+      "terrain": "latency/quota-sensitive interactive coding and on-demand extension",
+      "weights": {
+        "Cost": 45,
+        "Compatibility": 35,
+        "Continuity": 20,
+        "Cognition": 0
+      },
+      "grades": {
+        "Cost": 3,
+        "Compatibility": 3,
+        "Continuity": 2,
+        "Cognition": null
+      },
+      "score": 56,
+      "evidence_stage": "Mechanism-backed",
+      "boundary_status": "Unknown",
+      "source_report": "docs/scouts/2026-08-19-open-source-ladder.md"
     }
   ],
   "comparisons": [
     {
       "comparison_id": "interactive-coding-v1",
       "terrain": "latency- and quota-sensitive interactive coding with on-demand local extension",
-      "weights": {"Cost": 45, "Compatibility": 35, "Continuity": 20, "Cognition": 0},
-      "source_report": "docs/scouts/2026-08-19-source-sweep.md",
+      "weights": {
+        "Cost": 45,
+        "Compatibility": 35,
+        "Continuity": 20,
+        "Cognition": 0
+      },
+      "source_report": "docs/scouts/2026-08-19-open-source-ladder.md",
       "candidates": [
         {
           "candidate": "DeepSeek Harness",
           "exact_commit": "141eb6fef83422698aef7a981029e843e8161534",
-          "grades": {"Cost": 4, "Compatibility": 4, "Continuity": 4, "Cognition": null},
+          "grades": {
+            "Cost": 4,
+            "Compatibility": 4,
+            "Continuity": 4,
+            "Cognition": null
+          },
           "score": 80,
           "evidence_stage": "Source-predicted",
           "boundary_status": "Unknown"
         },
         {
-          "candidate": "Codex",
-          "exact_commit": "3b45c29062ff0e76e71c91b6753290400e7fa8da",
-          "grades": {"Cost": 3, "Compatibility": 3, "Continuity": 4, "Cognition": null},
-          "score": 64,
+          "candidate": "OpenCode",
+          "exact_commit": "e2505d434a6d78904ecfe546c4a1980d26bd8cd1",
+          "grades": {
+            "Cost": 4,
+            "Compatibility": 4,
+            "Continuity": 4,
+            "Cognition": null
+          },
+          "score": 80,
           "evidence_stage": "Source-predicted",
           "boundary_status": "Unknown"
         },
         {
-          "candidate": "Gemini CLI",
-          "exact_commit": "eaa30429a72a2a76c173ced853e9a15b14d92a64",
-          "grades": {"Cost": 3, "Compatibility": 4, "Continuity": 4, "Cognition": null},
-          "score": 71,
+          "candidate": "Goose",
+          "exact_commit": "af016f0a80a2d34c78009e0e00fdcc24e42b4ea0",
+          "grades": {
+            "Cost": 4,
+            "Compatibility": 4,
+            "Continuity": 4,
+            "Cognition": null
+          },
+          "score": 80,
+          "evidence_stage": "Source-predicted",
+          "boundary_status": "Unknown"
+        },
+        {
+          "candidate": "Pi",
+          "exact_commit": "b7bb00b936dbe21b8e160b3e89efdec361846699",
+          "grades": {
+            "Cost": 4,
+            "Compatibility": 4,
+            "Continuity": 4,
+            "Cognition": null
+          },
+          "score": 80,
+          "evidence_stage": "Source-predicted",
+          "boundary_status": "Unknown"
+        },
+        {
+          "candidate": "Zed Agent",
+          "exact_commit": "6e0a0835755ea57c1db4e0057f1a30ddba554706",
+          "grades": {
+            "Cost": 4,
+            "Compatibility": 4,
+            "Continuity": 4,
+            "Cognition": null
+          },
+          "score": 80,
           "evidence_stage": "Source-predicted",
           "boundary_status": "Unknown"
         },
         {
           "candidate": "Aider",
           "exact_commit": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
-          "grades": {"Cost": 4, "Compatibility": 3, "Continuity": 4, "Cognition": null},
+          "grades": {
+            "Cost": 4,
+            "Compatibility": 3,
+            "Continuity": 4,
+            "Cognition": null
+          },
           "score": 73,
           "evidence_stage": "Source-predicted",
           "boundary_status": "Unknown"
         },
         {
+          "candidate": "Gemini CLI",
+          "exact_commit": "eaa30429a72a2a76c173ced853e9a15b14d92a64",
+          "grades": {
+            "Cost": 3,
+            "Compatibility": 4,
+            "Continuity": 4,
+            "Cognition": null
+          },
+          "score": 71,
+          "evidence_stage": "Source-predicted",
+          "boundary_status": "Unknown"
+        },
+        {
+          "candidate": "Qwen Code",
+          "exact_commit": "39fc769d3a49a883d250914d8f705b6b3735720c",
+          "grades": {
+            "Cost": 3,
+            "Compatibility": 4,
+            "Continuity": 4,
+            "Cognition": null
+          },
+          "score": 71,
+          "evidence_stage": "Source-predicted",
+          "boundary_status": "Unknown"
+        },
+        {
+          "candidate": "Kilo Code",
+          "exact_commit": "9a6e081e4855e2e6a934bda519c1bef84e14d4b5",
+          "grades": {
+            "Cost": 3,
+            "Compatibility": 4,
+            "Continuity": 4,
+            "Cognition": null
+          },
+          "score": 71,
+          "evidence_stage": "Source-predicted",
+          "boundary_status": "Unknown"
+        },
+        {
+          "candidate": "Continue",
+          "exact_commit": "5522c6f44ca0ac3528b37244818fbfa39b5af470",
+          "grades": {
+            "Cost": 3,
+            "Compatibility": 4,
+            "Continuity": 3,
+            "Cognition": null
+          },
+          "score": 67,
+          "evidence_stage": "Source-predicted",
+          "boundary_status": "Unknown"
+        },
+        {
+          "candidate": "Crush",
+          "exact_commit": "7d78d7422a92918441a68d01d96d48fa3b9fd9db",
+          "grades": {
+            "Cost": 3,
+            "Compatibility": 4,
+            "Continuity": 3,
+            "Cognition": null
+          },
+          "score": 67,
+          "evidence_stage": "Source-predicted",
+          "boundary_status": "Unknown"
+        },
+        {
+          "candidate": "Codex",
+          "exact_commit": "3b45c29062ff0e76e71c91b6753290400e7fa8da",
+          "grades": {
+            "Cost": 3,
+            "Compatibility": 3,
+            "Continuity": 4,
+            "Cognition": null
+          },
+          "score": 64,
+          "evidence_stage": "Source-predicted",
+          "boundary_status": "Unknown"
+        },
+        {
+          "candidate": "SWE-agent",
+          "exact_commit": "3ea751c087f32b16e039a2233dd6eefecef325d5",
+          "grades": {
+            "Cost": 3,
+            "Compatibility": 3,
+            "Continuity": 2,
+            "Cognition": null
+          },
+          "score": 56,
+          "evidence_stage": "Mechanism-backed",
+          "boundary_status": "Unknown"
+        },
+        {
           "candidate": "Cline",
           "exact_commit": "d9bb22883daa3df2c917a73b6af911f2551f68b0",
-          "grades": {"Cost": 2, "Compatibility": 3, "Continuity": 3, "Cognition": null},
+          "grades": {
+            "Cost": 2,
+            "Compatibility": 3,
+            "Continuity": 3,
+            "Cognition": null
+          },
           "score": 51,
           "evidence_stage": "Mechanism-backed",
           "boundary_status": "Unknown"
@@ -174,7 +620,12 @@
         {
           "candidate": "OpenHands",
           "exact_commit": "f2dd33090592f8777e3f2d1a519ddb44866e595e",
-          "grades": {"Cost": 2, "Compatibility": 3, "Continuity": 3, "Cognition": null},
+          "grades": {
+            "Cost": 2,
+            "Compatibility": 3,
+            "Continuity": 3,
+            "Cognition": null
+          },
           "score": 51,
           "evidence_stage": "Mechanism-backed",
           "boundary_status": "Unknown"

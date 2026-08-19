@@ -3,17 +3,18 @@
 > **See a Harness. Ask four questions: Cost, Compatibility, Continuity,
 > Cognition.**
 
-[![4C Harness Ladder: DeepSeek Harness leads six audited products at 80, with 25 additional active Harness products tracked without fabricated scores.](assets/4c-harness-ladder.svg)](docs/validation/market-universe.md)
+[![4C Open-Source Harness Ladder: five source-fit leaders tie at 80 across 15 pinned code audits.](assets/4c-harness-ladder.svg)](docs/scouts/2026-08-19-open-source-ladder.md)
 
-**Current source-fit leader: DeepSeek Harness — 80/100.** This opening ladder
-ranks six audited Harnesses on one fixed terrain and tracks 25 more active
-products without inventing scores. `Unranked` means **unknown, not worse**.
-Every scored bar is machine-checked against the
-[scorecards](docs/scouts/fit-scores.json), and every visible name is checked
-against the dated, rule-based [market universe](docs/validation/market-universe.md).
+**Current source-fit leaders: DeepSeek Harness, OpenCode, Goose, Pi, and Zed
+Agent — 80/100.** The opening ladder ranks all 15 active open-source coding
+Harnesses that pass the dated 10k-star scope rule. Every bar is generated from
+one fixed terrain and machine-checked against exact-commit
+[scorecards](docs/scouts/fit-scores.json). Commercial and source-insufficient
+products remain tracked—without invented scores—in the rule-based
+[market universe](docs/validation/market-universe.md).
 
 [**Run the 4C Check ↓**](#run-the-4c-check-in-five-minutes) ·
-[Scorecards](docs/scouts/2026-08-19-source-sweep.md#terrain-specific-source-scorecards) ·
+[Scorecards](docs/scouts/2026-08-19-open-source-ladder.md) ·
 [Market coverage](docs/validation/market-universe.md) ·
 [Add a missing Harness](https://github.com/warlockee/4c-harness/issues/new?template=market-coverage.yml) ·
 [Challenge a score](https://github.com/warlockee/4c-harness/issues/new?template=score-challenge.yml) ·

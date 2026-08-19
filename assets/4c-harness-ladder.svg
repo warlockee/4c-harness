@@ -1,184 +1,255 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1792" height="1168" viewBox="0 0 1792 1168" role="img" aria-labelledby="title desc" data-comparison-id="interactive-coding-v1" data-market-snapshot="2026-08-19" data-bar-origin="470" data-pixels-per-point="9">
-  <title id="title">4C Harness Ladder for interactive coding</title>
-  <desc id="desc">DeepSeek Harness leads six audited coding Harnesses on a fixed source-fit terrain. Twenty-five additional active products are tracked without fabricated scores. Longer bars mean better fit, not higher price.</desc>
-  <defs>
-    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M32 0H0V32" fill="none" stroke="#B8C5D6" stroke-width="1" opacity="0.3"/>
-    </pattern>
-  </defs>
-
-  <rect width="1792" height="1168" fill="#EEF3F9"/>
-  <rect width="1792" height="1168" fill="url(#grid)"/>
-  <rect width="1792" height="44" fill="#101826"/>
-  <text x="52" y="29" fill="#FFFFFF" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="700" letter-spacing="3">4C // HARNESS EVALUATION STANDARD</text>
-  <rect x="1490" y="8" width="250" height="28" fill="#FF5A36"/>
-  <text x="1615" y="28" text-anchor="middle" fill="#FFFFFF" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="700" letter-spacing="2">PINNED · AUDITABLE</text>
-
-  <text x="56" y="112" fill="#2457FF" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="19" font-weight="700" letter-spacing="3">4C HARNESS LADDER / INTERACTIVE CODING</text>
-  <text x="52" y="174" fill="#101826" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="66" font-weight="900" letter-spacing="-2">WHO'S BUILT BEST FOR THIS JOB?</text>
-  <text x="56" y="207" fill="#53657A" font-family="Helvetica Neue, Arial, sans-serif" font-size="20">31 active products tracked · 6 audited scores · Same terrain · Pinned versions</text>
-
-  <g transform="translate(1286 72)">
-    <rect width="450" height="128" fill="#101826"/>
-    <text x="26" y="31" fill="#8FA3BC" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="13" letter-spacing="2">CURRENT SOURCE-FIT #1</text>
-    <text class="leader-candidate" x="26" y="73" fill="#FFFFFF" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="31" font-weight="900">DeepSeek Harness</text>
-    <text class="leader-score" x="424" y="104" text-anchor="end" fill="#FDBD2E" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="44" font-weight="900">80</text>
-    <text x="366" y="103" text-anchor="end" fill="#8FA3BC" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="13">4C FIT</text>
-  </g>
-
-  <g font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#6D7E92">
-    <text x="920" y="237" text-anchor="middle">50</text>
-    <text x="1055" y="237" text-anchor="middle">65</text>
-    <text x="1190" y="237" text-anchor="middle">80</text>
-    <text x="1370" y="237" text-anchor="middle">100</text>
-    <text x="920" y="253" text-anchor="middle">CONDITIONAL</text>
-    <text x="1055" y="253" text-anchor="middle">STRONG</text>
-    <text x="1190" y="253" text-anchor="middle">EXCELLENT</text>
-  </g>
-
-  <g stroke="#8393A7" stroke-width="1" stroke-dasharray="4 6" opacity="0.5">
-    <line class="score-threshold" data-score="50" x1="920" y1="260" x2="920" y2="756"/>
-    <line class="score-threshold" data-score="65" x1="1055" y1="260" x2="1055" y2="756"/>
-    <line class="score-threshold" data-score="80" x1="1190" y1="260" x2="1190" y2="756"/>
-    <line class="score-threshold" data-score="100" x1="1370" y1="260" x2="1370" y2="756"/>
-  </g>
-
-  <!-- DeepSeek Harness -->
-  <g class="candidate-row" data-candidate="DeepSeek Harness" data-score="80" data-rank="1" transform="translate(56 270)">
-    <rect width="1680" height="72" fill="#101826" stroke="#2457FF" stroke-width="3"/>
-    <rect x="0" width="12" height="72" fill="#2457FF"/>
-    <text class="rank-label" x="34" y="47" fill="#FFFFFF" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="37" font-weight="900">01</text>
-    <text class="candidate-label" x="102" y="34" fill="#FFFFFF" font-family="Helvetica Neue, Arial, sans-serif" font-size="25" font-weight="800">DeepSeek Harness</text>
-    <text class="stage-label" x="102" y="56" fill="#8FA3BC" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="11">SOURCE-PREDICTED</text>
-    <rect x="414" y="20" width="900" height="32" fill="#27354A"/>
-    <rect class="score-segment" data-pressure="Cost" x="414" y="20" width="324" height="32" fill="#FDBD2E"/>
-    <rect class="score-segment" data-pressure="Compatibility" x="738" y="20" width="252" height="32" fill="#2CC6B7"/>
-    <rect class="score-segment" data-pressure="Continuity" x="990" y="20" width="144" height="32" fill="#8B7CFF"/>
-    <text x="576" y="41" text-anchor="middle" fill="#101826" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700">EFFICIENCY +36</text>
-    <text x="864" y="41" text-anchor="middle" fill="#101826" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700">COMPAT 28</text>
-    <text x="1062" y="41" text-anchor="middle" fill="#FFFFFF" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700">CONT 16</text>
-    <rect x="1350" y="17" width="106" height="38" fill="#2457FF"/>
-    <text x="1403" y="43" text-anchor="middle" fill="#FFFFFF" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700">LEADER</text>
-    <text class="score-label" x="1632" y="49" text-anchor="end" fill="#FFFFFF" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="43" font-weight="900">80</text>
-  </g>
-
-  <!-- Aider -->
-  <g class="candidate-row" data-candidate="Aider" data-score="73" data-rank="2" transform="translate(56 354)">
-    <rect width="1680" height="72" fill="#FFFFFF" stroke="#C7D2E0"/>
-    <text class="rank-label" x="34" y="47" fill="#53657A" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="37" font-weight="900">02</text>
-    <text class="candidate-label" x="102" y="34" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="25" font-weight="800">Aider</text>
-    <text class="stage-label" x="102" y="56" fill="#718196" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="11">SOURCE-PREDICTED</text>
-    <rect x="414" y="20" width="900" height="32" fill="#D9E1EB"/>
-    <rect class="score-segment" data-pressure="Cost" x="414" y="20" width="324" height="32" fill="#FDBD2E"/>
-    <rect class="score-segment" data-pressure="Compatibility" x="738" y="20" width="189" height="32" fill="#2CC6B7"/>
-    <rect class="score-segment" data-pressure="Continuity" x="927" y="20" width="144" height="32" fill="#8B7CFF"/>
-    <text class="score-label" x="1632" y="49" text-anchor="end" fill="#101826" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="43" font-weight="900">73</text>
-  </g>
-
-  <!-- Gemini CLI -->
-  <g class="candidate-row" data-candidate="Gemini CLI" data-score="71" data-rank="3" transform="translate(56 438)">
-    <rect width="1680" height="72" fill="#FFFFFF" stroke="#C7D2E0"/>
-    <text class="rank-label" x="34" y="47" fill="#53657A" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="37" font-weight="900">03</text>
-    <text class="candidate-label" x="102" y="34" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="25" font-weight="800">Gemini CLI</text>
-    <text class="stage-label" x="102" y="56" fill="#718196" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="11">SOURCE-PREDICTED</text>
-    <rect x="414" y="20" width="900" height="32" fill="#D9E1EB"/>
-    <rect class="score-segment" data-pressure="Cost" x="414" y="20" width="243" height="32" fill="#FDBD2E"/>
-    <rect class="score-segment" data-pressure="Compatibility" x="657" y="20" width="252" height="32" fill="#2CC6B7"/>
-    <rect class="score-segment" data-pressure="Continuity" x="909" y="20" width="144" height="32" fill="#8B7CFF"/>
-    <text class="score-label" x="1632" y="49" text-anchor="end" fill="#101826" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="43" font-weight="900">71</text>
-  </g>
-
-  <!-- Codex -->
-  <g class="candidate-row" data-candidate="Codex" data-score="64" data-rank="4" transform="translate(56 522)">
-    <rect width="1680" height="72" fill="#FFFFFF" stroke="#C7D2E0"/>
-    <text class="rank-label" x="34" y="47" fill="#53657A" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="37" font-weight="900">04</text>
-    <text class="candidate-label" x="102" y="34" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="25" font-weight="800">Codex</text>
-    <text class="stage-label" x="102" y="56" fill="#718196" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="11">SOURCE-PREDICTED</text>
-    <rect x="414" y="20" width="900" height="32" fill="#D9E1EB"/>
-    <rect class="score-segment" data-pressure="Cost" x="414" y="20" width="243" height="32" fill="#FDBD2E"/>
-    <rect class="score-segment" data-pressure="Compatibility" x="657" y="20" width="189" height="32" fill="#2CC6B7"/>
-    <rect class="score-segment" data-pressure="Continuity" x="846" y="20" width="144" height="32" fill="#8B7CFF"/>
-    <text class="score-label" x="1632" y="49" text-anchor="end" fill="#101826" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="43" font-weight="900">64</text>
-  </g>
-
-  <!-- Cline -->
-  <g class="candidate-row" data-candidate="Cline" data-score="51" data-rank="5" transform="translate(56 606)">
-    <rect width="1680" height="72" fill="#FFFFFF" stroke="#C7D2E0"/>
-    <text class="rank-label" x="34" y="47" fill="#53657A" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="37" font-weight="900">05</text>
-    <text class="candidate-label" x="102" y="34" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="25" font-weight="800">Cline</text>
-    <text class="stage-label" x="102" y="56" fill="#718196" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="11">MECHANISM-BACKED</text>
-    <rect x="414" y="20" width="900" height="32" fill="#D9E1EB"/>
-    <rect class="score-segment" data-pressure="Cost" x="414" y="20" width="162" height="32" fill="#FDBD2E"/>
-    <rect class="score-segment" data-pressure="Compatibility" x="576" y="20" width="189" height="32" fill="#2CC6B7"/>
-    <rect class="score-segment" data-pressure="Continuity" x="765" y="20" width="108" height="32" fill="#8B7CFF"/>
-    <text class="score-label" x="1632" y="49" text-anchor="end" fill="#101826" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="43" font-weight="900">51</text>
-  </g>
-
-  <!-- OpenHands -->
-  <g class="candidate-row" data-candidate="OpenHands" data-score="51" data-rank="5" transform="translate(56 690)">
-    <rect width="1680" height="72" fill="#FFFFFF" stroke="#C7D2E0"/>
-    <text class="rank-label" x="34" y="47" fill="#53657A" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="37" font-weight="900">05</text>
-    <text class="candidate-label" x="102" y="34" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="25" font-weight="800">OpenHands</text>
-    <text class="stage-label" x="102" y="56" fill="#718196" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="11">MECHANISM-BACKED</text>
-    <rect x="414" y="20" width="900" height="32" fill="#D9E1EB"/>
-    <rect class="score-segment" data-pressure="Cost" x="414" y="20" width="162" height="32" fill="#FDBD2E"/>
-    <rect class="score-segment" data-pressure="Compatibility" x="576" y="20" width="189" height="32" fill="#2CC6B7"/>
-    <rect class="score-segment" data-pressure="Continuity" x="765" y="20" width="108" height="32" fill="#8B7CFF"/>
-    <text class="score-label" x="1632" y="49" text-anchor="end" fill="#101826" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="43" font-weight="900">51</text>
-  </g>
-
-  <g transform="translate(56 790)" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="700">
-    <g class="legend-item" data-pressure="Cost" data-weight="45"><rect width="18" height="18" fill="#FDBD2E"/><text x="28" y="15" fill="#101826">COST EFFICIENCY 45%</text></g>
-    <g class="legend-item" data-pressure="Compatibility" data-weight="35"><rect x="268" width="18" height="18" fill="#2CC6B7"/><text x="296" y="15" fill="#101826">COMPATIBILITY 35%</text></g>
-    <g class="legend-item" data-pressure="Continuity" data-weight="20"><rect x="548" width="18" height="18" fill="#8B7CFF"/><text x="576" y="15" fill="#101826">CONTINUITY 20%</text></g>
-    <g class="legend-item" data-pressure="Cognition" data-weight="0"><text x="818" y="15" fill="#718196">COGNITION 0% / INACTIVE</text></g>
-    <text x="28" y="39" fill="#718196" font-size="11">TIME · MONEY · TOKENS · ATTENTION</text>
-    <text x="1632" y="26" text-anchor="end" fill="#2457FF">LONGER = MORE VERIFIED OUTPUT PER LIMIT →</text>
-  </g>
-
-  <g transform="translate(56 842)">
-    <rect width="1680" height="256" fill="#FFFFFF" stroke="#C7D2E0" stroke-width="2"/>
-    <rect width="1680" height="46" fill="#DCE6F2"/>
-    <text x="20" y="30" fill="#101826" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" font-size="24" font-weight="900">TRACKED, NOT YET RANKED</text>
-    <text x="421" y="29" fill="#53657A" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="12">UNRANKED = UNKNOWN, NOT WORSE</text>
-    <text class="market-count" x="1656" y="30" text-anchor="end" fill="#2457FF" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="700">31 ACTIVE PRODUCTS / 25 AWAITING EVIDENCE</text>
-
-    <line x1="620" y1="46" x2="620" y2="256" stroke="#C7D2E0" stroke-width="2"/>
-    <text x="20" y="72" fill="#2457FF" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1.5">SOURCE AUDIT QUEUE · 9</text>
-    <text x="640" y="72" fill="#FF5A36" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1.5">RUNTIME EVIDENCE NEEDED · 16</text>
-
-    <g class="market-candidate" data-candidate="Qwen Code" data-status="source-audit-queued" transform="translate(20 86)"><rect width="184" height="42" fill="#EDF3FF" stroke="#9AB2FF"/><circle cx="15" cy="21" r="5" fill="#2457FF"/><text class="market-candidate-label" x="28" y="26" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700">Qwen Code</text></g>
-    <g class="market-candidate" data-candidate="OpenCode" data-status="source-audit-queued" transform="translate(212 86)"><rect width="184" height="42" fill="#EDF3FF" stroke="#9AB2FF"/><circle cx="15" cy="21" r="5" fill="#2457FF"/><text class="market-candidate-label" x="28" y="26" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700">OpenCode</text></g>
-    <g class="market-candidate" data-candidate="Goose" data-status="source-audit-queued" transform="translate(404 86)"><rect width="184" height="42" fill="#EDF3FF" stroke="#9AB2FF"/><circle cx="15" cy="21" r="5" fill="#2457FF"/><text class="market-candidate-label" x="28" y="26" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700">Goose</text></g>
-    <g class="market-candidate" data-candidate="Kilo Code" data-status="source-audit-queued" transform="translate(20 136)"><rect width="184" height="42" fill="#EDF3FF" stroke="#9AB2FF"/><circle cx="15" cy="21" r="5" fill="#2457FF"/><text class="market-candidate-label" x="28" y="26" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700">Kilo Code</text></g>
-    <g class="market-candidate" data-candidate="Continue" data-status="source-audit-queued" transform="translate(212 136)"><rect width="184" height="42" fill="#EDF3FF" stroke="#9AB2FF"/><circle cx="15" cy="21" r="5" fill="#2457FF"/><text class="market-candidate-label" x="28" y="26" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700">Continue</text></g>
-    <g class="market-candidate" data-candidate="Pi" data-status="source-audit-queued" transform="translate(404 136)"><rect width="184" height="42" fill="#EDF3FF" stroke="#9AB2FF"/><circle cx="15" cy="21" r="5" fill="#2457FF"/><text class="market-candidate-label" x="28" y="26" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700">Pi</text></g>
-    <g class="market-candidate" data-candidate="Crush" data-status="source-audit-queued" transform="translate(20 186)"><rect width="184" height="42" fill="#EDF3FF" stroke="#9AB2FF"/><circle cx="15" cy="21" r="5" fill="#2457FF"/><text class="market-candidate-label" x="28" y="26" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700">Crush</text></g>
-    <g class="market-candidate" data-candidate="Zed Agent" data-status="source-audit-queued" transform="translate(212 186)"><rect width="184" height="42" fill="#EDF3FF" stroke="#9AB2FF"/><circle cx="15" cy="21" r="5" fill="#2457FF"/><text class="market-candidate-label" x="28" y="26" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700">Zed Agent</text></g>
-    <g class="market-candidate" data-candidate="SWE-agent" data-status="source-audit-queued" transform="translate(404 186)"><rect width="184" height="42" fill="#EDF3FF" stroke="#9AB2FF"/><circle cx="15" cy="21" r="5" fill="#2457FF"/><text class="market-candidate-label" x="28" y="26" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700">SWE-agent</text></g>
-
-    <g class="market-candidate" data-candidate="Antigravity CLI" data-status="runtime-evidence-needed" transform="translate(640 86)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Antigravity CLI</text></g>
-    <g class="market-candidate" data-candidate="GitHub Copilot CLI" data-status="runtime-evidence-needed" transform="translate(892 86)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">GitHub Copilot CLI</text></g>
-    <g class="market-candidate" data-candidate="Claude Code" data-status="runtime-evidence-needed" transform="translate(1144 86)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Claude Code</text></g>
-    <g class="market-candidate" data-candidate="Cursor" data-status="runtime-evidence-needed" transform="translate(1396 86)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Cursor</text></g>
-    <g class="market-candidate" data-candidate="Windsurf" data-status="runtime-evidence-needed" transform="translate(640 122)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Windsurf</text></g>
-    <g class="market-candidate" data-candidate="Kiro" data-status="runtime-evidence-needed" transform="translate(892 122)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Kiro</text></g>
-    <g class="market-candidate" data-candidate="Amp" data-status="runtime-evidence-needed" transform="translate(1144 122)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Amp</text></g>
-    <g class="market-candidate" data-candidate="Factory Droid" data-status="runtime-evidence-needed" transform="translate(1396 122)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Factory Droid</text></g>
-    <g class="market-candidate" data-candidate="Devin" data-status="runtime-evidence-needed" transform="translate(640 158)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Devin</text></g>
-    <g class="market-candidate" data-candidate="Replit Agent" data-status="runtime-evidence-needed" transform="translate(892 158)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Replit Agent</text></g>
-    <g class="market-candidate" data-candidate="Augment Code" data-status="runtime-evidence-needed" transform="translate(1144 158)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Augment Code</text></g>
-    <g class="market-candidate" data-candidate="JetBrains Junie" data-status="runtime-evidence-needed" transform="translate(1396 158)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">JetBrains Junie</text></g>
-    <g class="market-candidate" data-candidate="Warp" data-status="runtime-evidence-needed" transform="translate(640 194)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Warp</text></g>
-    <g class="market-candidate" data-candidate="Qoder" data-status="runtime-evidence-needed" transform="translate(892 194)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Qoder</text></g>
-    <g class="market-candidate" data-candidate="CodeBuddy" data-status="runtime-evidence-needed" transform="translate(1144 194)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">CodeBuddy</text></g>
-    <g class="market-candidate" data-candidate="Jules" data-status="runtime-evidence-needed" transform="translate(1396 194)"><rect width="244" height="30" fill="#FFF3EF" stroke="#F3B09E"/><text class="market-candidate-label" x="12" y="20" fill="#101826" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Jules</text></g>
-
-    <text x="640" y="244" fill="#718196" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="11">NO PUBLIC SCORE UNTIL THE EVIDENCE CEILING IS MET</text>
-    <text x="1640" y="244" text-anchor="end" fill="#718196" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="11">SNAPSHOT · 2026-08-19</text>
-  </g>
-
-  <rect x="0" y="1118" width="1792" height="50" fill="#101826"/>
-  <text x="52" y="1150" fill="#FFFFFF" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700">SEE A HARNESS. ASK 4C.</text>
-  <text x="1740" y="1150" text-anchor="end" fill="#8FA3BC" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="14">SOURCE FIT · NOT A PRICE CHART · NOT A RUNTIME BENCHMARK</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1792" height="1528" viewBox="0 0 1792 1528" role="img" aria-labelledby="title desc" data-comparison-id="interactive-coding-v1" data-market-snapshot="2026-08-19" data-bar-origin="470" data-pixels-per-point="9">
+<title id="title">4C open-source Harness ladder for interactive coding</title>
+<desc id="desc">Fifteen active open-source coding Harnesses ranked from pinned code evidence. Five source-fit leaders tie at 80. Longer bars mean better fit, not higher price.</desc>
+<defs><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#B8C5D6" stroke-width="1" opacity=".28"/></pattern></defs>
+<rect width="1792" height="1528" fill="#EEF3F9"/><rect width="1792" height="1528" fill="url(#grid)"/>
+<rect width="1792" height="44" fill="#101826"/>
+<text x="52" y="29" fill="#fff" font-family="SFMono-Regular,Menlo,monospace" font-size="15" font-weight="700" letter-spacing="3">4C // THE HARNESS EVALUATION STANDARD</text>
+<rect x="1480" y="8" width="260" height="28" fill="#FF5A36"/><text x="1610" y="28" text-anchor="middle" fill="#fff" font-family="SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700" letter-spacing="2">PINNED · AUDITABLE</text>
+<text x="56" y="105" fill="#2457FF" font-family="SFMono-Regular,Menlo,monospace" font-size="18" font-weight="700" letter-spacing="3">4C OPEN-SOURCE HARNESS LADDER / 2026-08-19</text>
+<text x="52" y="163" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="62" font-weight="900" letter-spacing="-2">SEE A HARNESS. THINK 4C.</text>
+<text x="56" y="198" fill="#53657A" font-family="Helvetica Neue,Arial,sans-serif" font-size="19">One terrain · One formula · Exact commits · Source-fit predictions, not runtime claims</text>
+<text class="coverage-count" x="56" y="232" fill="#101826" font-family="SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">15 OPEN-SOURCE PRODUCTS · 15 PINNED CODE AUDITS</text>
+<g transform="translate(1160 70)"><rect width="576" height="174" fill="#101826"/>
+<text x="24" y="29" fill="#8FA3BC" font-family="SFMono-Regular,Menlo,monospace" font-size="12" letter-spacing="2">SOURCE-FIT LEADERS · TIED BY EVIDENCE</text>
+<text class="leader-candidate" x="24" y="61" fill="#fff" font-family="Helvetica Neue,Arial,sans-serif" font-size="18" font-weight="800">DeepSeek Harness</text>
+<text class="leader-candidate" x="24" y="82" fill="#fff" font-family="Helvetica Neue,Arial,sans-serif" font-size="18" font-weight="800">OpenCode</text>
+<text class="leader-candidate" x="24" y="103" fill="#fff" font-family="Helvetica Neue,Arial,sans-serif" font-size="18" font-weight="800">Goose</text>
+<text class="leader-candidate" x="24" y="124" fill="#fff" font-family="Helvetica Neue,Arial,sans-serif" font-size="18" font-weight="800">Pi</text>
+<text class="leader-candidate" x="24" y="145" fill="#fff" font-family="Helvetica Neue,Arial,sans-serif" font-size="18" font-weight="800">Zed Agent</text>
+<text class="leader-score" x="546" y="144" text-anchor="end" fill="#FDBD2E" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="58" font-weight="900">80</text>
+<text x="546" y="163" text-anchor="end" fill="#8FA3BC" font-family="SFMono-Regular,Menlo,monospace" font-size="11">4C FIT / 100</text></g>
+<text x="56" y="284" fill="#6D7E92" font-family="SFMono-Regular,Menlo,monospace" font-size="11">RANK</text><text x="158" y="284" fill="#6D7E92" font-family="SFMono-Regular,Menlo,monospace" font-size="11">HARNESS / EVIDENCE</text>
+<text x="920" y="272" text-anchor="middle" fill="#6D7E92" font-family="SFMono-Regular,Menlo,monospace" font-size="11">50</text>
+<text x="920" y="289" text-anchor="middle" fill="#6D7E92" font-family="SFMono-Regular,Menlo,monospace" font-size="10">CONDITIONAL</text>
+<line class="score-threshold" data-score="50" x1="920" y1="298" x2="920" y2="1298" stroke="#8393A7" stroke-width="1" stroke-dasharray="4 6" opacity=".5"/>
+<text x="1055" y="272" text-anchor="middle" fill="#6D7E92" font-family="SFMono-Regular,Menlo,monospace" font-size="11">65</text>
+<text x="1055" y="289" text-anchor="middle" fill="#6D7E92" font-family="SFMono-Regular,Menlo,monospace" font-size="10">STRONG</text>
+<line class="score-threshold" data-score="65" x1="1055" y1="298" x2="1055" y2="1298" stroke="#8393A7" stroke-width="1" stroke-dasharray="4 6" opacity=".5"/>
+<text x="1190" y="272" text-anchor="middle" fill="#6D7E92" font-family="SFMono-Regular,Menlo,monospace" font-size="11">80</text>
+<text x="1190" y="289" text-anchor="middle" fill="#6D7E92" font-family="SFMono-Regular,Menlo,monospace" font-size="10">EXCELLENT</text>
+<line class="score-threshold" data-score="80" x1="1190" y1="298" x2="1190" y2="1298" stroke="#8393A7" stroke-width="1" stroke-dasharray="4 6" opacity=".5"/>
+<text x="1370" y="272" text-anchor="middle" fill="#6D7E92" font-family="SFMono-Regular,Menlo,monospace" font-size="11">100</text>
+<text x="1370" y="289" text-anchor="middle" fill="#6D7E92" font-family="SFMono-Regular,Menlo,monospace" font-size="10">100</text>
+<line class="score-threshold" data-score="100" x1="1370" y1="298" x2="1370" y2="1298" stroke="#8393A7" stroke-width="1" stroke-dasharray="4 6" opacity=".5"/>
+<!-- DeepSeek Harness -->
+<g class="candidate-row" data-candidate="DeepSeek Harness" data-score="80" data-rank="1" transform="translate(56 318)">
+<rect width="1680" height="56" fill="#101826" stroke="#2457FF" stroke-width="2"/>
+<text class="rank-label" x="18" y="38" fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">01</text>
+<text class="candidate-label" x="98" y="25" fill="#FFFFFF" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">DeepSeek Harness</text>
+<text class="stage-label" x="98" y="44" fill="#8FA3BC" font-family="SFMono-Regular,Menlo,monospace" font-size="9">SOURCE-PREDICTED</text>
+<rect x="414" y="15" width="900" height="27" fill="#27354A"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="324" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="738" y="15" width="252" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="990" y="15" width="144" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#8FA3BC" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D4 · K4 · N4</text>
+<text x="1360" y="41" fill="#FFFFFF" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">141eb6f</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">80</text>
+</g>
+<!-- OpenCode -->
+<g class="candidate-row" data-candidate="OpenCode" data-score="80" data-rank="1" transform="translate(56 384)">
+<rect width="1680" height="56" fill="#101826" stroke="#2457FF" stroke-width="2"/>
+<text class="rank-label" x="18" y="38" fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">01</text>
+<text class="candidate-label" x="98" y="25" fill="#FFFFFF" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">OpenCode</text>
+<text class="stage-label" x="98" y="44" fill="#8FA3BC" font-family="SFMono-Regular,Menlo,monospace" font-size="9">SOURCE-PREDICTED</text>
+<rect x="414" y="15" width="900" height="27" fill="#27354A"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="324" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="738" y="15" width="252" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="990" y="15" width="144" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#8FA3BC" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D4 · K4 · N4</text>
+<text x="1360" y="41" fill="#FFFFFF" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">e2505d4</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">80</text>
+</g>
+<!-- Goose -->
+<g class="candidate-row" data-candidate="Goose" data-score="80" data-rank="1" transform="translate(56 450)">
+<rect width="1680" height="56" fill="#101826" stroke="#2457FF" stroke-width="2"/>
+<text class="rank-label" x="18" y="38" fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">01</text>
+<text class="candidate-label" x="98" y="25" fill="#FFFFFF" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">Goose</text>
+<text class="stage-label" x="98" y="44" fill="#8FA3BC" font-family="SFMono-Regular,Menlo,monospace" font-size="9">SOURCE-PREDICTED</text>
+<rect x="414" y="15" width="900" height="27" fill="#27354A"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="324" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="738" y="15" width="252" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="990" y="15" width="144" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#8FA3BC" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D4 · K4 · N4</text>
+<text x="1360" y="41" fill="#FFFFFF" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">af016f0</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">80</text>
+</g>
+<!-- Pi -->
+<g class="candidate-row" data-candidate="Pi" data-score="80" data-rank="1" transform="translate(56 516)">
+<rect width="1680" height="56" fill="#101826" stroke="#2457FF" stroke-width="2"/>
+<text class="rank-label" x="18" y="38" fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">01</text>
+<text class="candidate-label" x="98" y="25" fill="#FFFFFF" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">Pi</text>
+<text class="stage-label" x="98" y="44" fill="#8FA3BC" font-family="SFMono-Regular,Menlo,monospace" font-size="9">SOURCE-PREDICTED</text>
+<rect x="414" y="15" width="900" height="27" fill="#27354A"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="324" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="738" y="15" width="252" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="990" y="15" width="144" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#8FA3BC" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D4 · K4 · N4</text>
+<text x="1360" y="41" fill="#FFFFFF" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">b7bb00b</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">80</text>
+</g>
+<!-- Zed Agent -->
+<g class="candidate-row" data-candidate="Zed Agent" data-score="80" data-rank="1" transform="translate(56 582)">
+<rect width="1680" height="56" fill="#101826" stroke="#2457FF" stroke-width="2"/>
+<text class="rank-label" x="18" y="38" fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">01</text>
+<text class="candidate-label" x="98" y="25" fill="#FFFFFF" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">Zed Agent</text>
+<text class="stage-label" x="98" y="44" fill="#8FA3BC" font-family="SFMono-Regular,Menlo,monospace" font-size="9">SOURCE-PREDICTED</text>
+<rect x="414" y="15" width="900" height="27" fill="#27354A"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="324" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="738" y="15" width="252" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="990" y="15" width="144" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#8FA3BC" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D4 · K4 · N4</text>
+<text x="1360" y="41" fill="#FFFFFF" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">6e0a083</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">80</text>
+</g>
+<!-- Aider -->
+<g class="candidate-row" data-candidate="Aider" data-score="73" data-rank="6" transform="translate(56 648)">
+<rect width="1680" height="56" fill="#FFFFFF" stroke="#C7D2E0" stroke-width="1"/>
+<text class="rank-label" x="18" y="38" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">06</text>
+<text class="candidate-label" x="98" y="25" fill="#101826" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">Aider</text>
+<text class="stage-label" x="98" y="44" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">SOURCE-PREDICTED</text>
+<rect x="414" y="15" width="900" height="27" fill="#D9E1EB"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="324" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="738" y="15" width="189" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="927" y="15" width="144" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D4 · K3 · N4</text>
+<text x="1360" y="41" fill="#101826" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">5dc9490</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">73</text>
+</g>
+<!-- Gemini CLI -->
+<g class="candidate-row" data-candidate="Gemini CLI" data-score="71" data-rank="7" transform="translate(56 714)">
+<rect width="1680" height="56" fill="#FFFFFF" stroke="#C7D2E0" stroke-width="1"/>
+<text class="rank-label" x="18" y="38" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">07</text>
+<text class="candidate-label" x="98" y="25" fill="#101826" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">Gemini CLI</text>
+<text class="stage-label" x="98" y="44" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">SOURCE-PREDICTED</text>
+<rect x="414" y="15" width="900" height="27" fill="#D9E1EB"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="243" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="657" y="15" width="252" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="909" y="15" width="144" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D3 · K4 · N4</text>
+<text x="1360" y="41" fill="#101826" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">eaa3042</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">71</text>
+</g>
+<!-- Qwen Code -->
+<g class="candidate-row" data-candidate="Qwen Code" data-score="71" data-rank="7" transform="translate(56 780)">
+<rect width="1680" height="56" fill="#FFFFFF" stroke="#C7D2E0" stroke-width="1"/>
+<text class="rank-label" x="18" y="38" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">07</text>
+<text class="candidate-label" x="98" y="25" fill="#101826" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">Qwen Code</text>
+<text class="stage-label" x="98" y="44" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">SOURCE-PREDICTED</text>
+<rect x="414" y="15" width="900" height="27" fill="#D9E1EB"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="243" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="657" y="15" width="252" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="909" y="15" width="144" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D3 · K4 · N4</text>
+<text x="1360" y="41" fill="#101826" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">39fc769</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">71</text>
+</g>
+<!-- Kilo Code -->
+<g class="candidate-row" data-candidate="Kilo Code" data-score="71" data-rank="7" transform="translate(56 846)">
+<rect width="1680" height="56" fill="#FFFFFF" stroke="#C7D2E0" stroke-width="1"/>
+<text class="rank-label" x="18" y="38" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">07</text>
+<text class="candidate-label" x="98" y="25" fill="#101826" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">Kilo Code</text>
+<text class="stage-label" x="98" y="44" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">SOURCE-PREDICTED</text>
+<rect x="414" y="15" width="900" height="27" fill="#D9E1EB"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="243" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="657" y="15" width="252" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="909" y="15" width="144" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D3 · K4 · N4</text>
+<text x="1360" y="41" fill="#101826" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">9a6e081</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">71</text>
+</g>
+<!-- Continue -->
+<g class="candidate-row" data-candidate="Continue" data-score="67" data-rank="10" transform="translate(56 912)">
+<rect width="1680" height="56" fill="#FFFFFF" stroke="#C7D2E0" stroke-width="1"/>
+<text class="rank-label" x="18" y="38" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">10</text>
+<text class="candidate-label" x="98" y="25" fill="#101826" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">Continue</text>
+<text class="stage-label" x="98" y="44" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">SOURCE-PREDICTED</text>
+<rect x="414" y="15" width="900" height="27" fill="#D9E1EB"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="243" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="657" y="15" width="252" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="909" y="15" width="108" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D3 · K4 · N3</text>
+<text x="1360" y="41" fill="#101826" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">5522c6f</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">67</text>
+</g>
+<!-- Crush -->
+<g class="candidate-row" data-candidate="Crush" data-score="67" data-rank="10" transform="translate(56 978)">
+<rect width="1680" height="56" fill="#FFFFFF" stroke="#C7D2E0" stroke-width="1"/>
+<text class="rank-label" x="18" y="38" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">10</text>
+<text class="candidate-label" x="98" y="25" fill="#101826" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">Crush</text>
+<text class="stage-label" x="98" y="44" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">SOURCE-PREDICTED</text>
+<rect x="414" y="15" width="900" height="27" fill="#D9E1EB"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="243" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="657" y="15" width="252" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="909" y="15" width="108" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D3 · K4 · N3</text>
+<text x="1360" y="41" fill="#101826" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">7d78d74</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">67</text>
+</g>
+<!-- Codex -->
+<g class="candidate-row" data-candidate="Codex" data-score="64" data-rank="12" transform="translate(56 1044)">
+<rect width="1680" height="56" fill="#FFFFFF" stroke="#C7D2E0" stroke-width="1"/>
+<text class="rank-label" x="18" y="38" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">12</text>
+<text class="candidate-label" x="98" y="25" fill="#101826" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">Codex</text>
+<text class="stage-label" x="98" y="44" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">SOURCE-PREDICTED</text>
+<rect x="414" y="15" width="900" height="27" fill="#D9E1EB"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="243" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="657" y="15" width="189" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="846" y="15" width="144" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D3 · K3 · N4</text>
+<text x="1360" y="41" fill="#101826" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">3b45c29</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">64</text>
+</g>
+<!-- SWE-agent -->
+<g class="candidate-row" data-candidate="SWE-agent" data-score="56" data-rank="13" transform="translate(56 1110)">
+<rect width="1680" height="56" fill="#FFFFFF" stroke="#C7D2E0" stroke-width="1"/>
+<text class="rank-label" x="18" y="38" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">13</text>
+<text class="candidate-label" x="98" y="25" fill="#101826" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">SWE-agent</text>
+<text class="stage-label" x="98" y="44" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">MECHANISM-BACKED</text>
+<rect x="414" y="15" width="900" height="27" fill="#D9E1EB"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="243" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="657" y="15" width="189" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="846" y="15" width="72" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D3 · K3 · N2</text>
+<text x="1360" y="41" fill="#101826" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">3ea751c</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">56</text>
+</g>
+<!-- Cline -->
+<g class="candidate-row" data-candidate="Cline" data-score="51" data-rank="14" transform="translate(56 1176)">
+<rect width="1680" height="56" fill="#FFFFFF" stroke="#C7D2E0" stroke-width="1"/>
+<text class="rank-label" x="18" y="38" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">14</text>
+<text class="candidate-label" x="98" y="25" fill="#101826" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">Cline</text>
+<text class="stage-label" x="98" y="44" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">MECHANISM-BACKED</text>
+<rect x="414" y="15" width="900" height="27" fill="#D9E1EB"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="162" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="576" y="15" width="189" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="765" y="15" width="108" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D2 · K3 · N3</text>
+<text x="1360" y="41" fill="#101826" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">d9bb228</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">51</text>
+</g>
+<!-- OpenHands -->
+<g class="candidate-row" data-candidate="OpenHands" data-score="51" data-rank="14" transform="translate(56 1242)">
+<rect width="1680" height="56" fill="#FFFFFF" stroke="#C7D2E0" stroke-width="1"/>
+<text class="rank-label" x="18" y="38" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">14</text>
+<text class="candidate-label" x="98" y="25" fill="#101826" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">OpenHands</text>
+<text class="stage-label" x="98" y="44" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">MECHANISM-BACKED</text>
+<rect x="414" y="15" width="900" height="27" fill="#D9E1EB"/>
+<rect class="score-segment" data-pressure="Cost" x="414" y="15" width="162" height="27" fill="#FDBD2E"/>
+<rect class="score-segment" data-pressure="Compatibility" x="576" y="15" width="189" height="27" fill="#2CC6B7"/>
+<rect class="score-segment" data-pressure="Continuity" x="765" y="15" width="108" height="27" fill="#8B7CFF"/>
+<text x="1360" y="23" fill="#718196" font-family="SFMono-Regular,Menlo,monospace" font-size="9">D2 · K3 · N3</text>
+<text x="1360" y="41" fill="#101826" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">f2dd330</text>
+<text class="score-label" x="1632" y="41" text-anchor="end" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">51</text>
+</g>
+<g transform="translate(56 1350)" font-family="SFMono-Regular,Menlo,monospace">
+<g class="legend-item" data-pressure="Cost" data-weight="45"><rect x="0" width="18" height="18" fill="#FDBD2E"/><text x="28" y="15" fill="#101826" font-size="13" font-weight="700">DOLLAR EFFICIENCY 45%</text></g>
+<g class="legend-item" data-pressure="Compatibility" data-weight="35"><rect x="340" width="18" height="18" fill="#2CC6B7"/><text x="368" y="15" fill="#101826" font-size="13" font-weight="700">COMPATIBILITY 35%</text></g>
+<g class="legend-item" data-pressure="Continuity" data-weight="20"><rect x="640" width="18" height="18" fill="#8B7CFF"/><text x="668" y="15" fill="#101826" font-size="13" font-weight="700">CONTINUITY 20%</text></g>
+<g class="legend-item" data-pressure="Cognition" data-weight="0"><text x="1120" y="17" fill="#718196" font-size="12">COGNITION 0% / INACTIVE</text></g>
+<text x="0" y="52" fill="#2457FF" font-size="13" font-weight="700">LONGER BAR = MORE VERIFIED OUTPUT PER LIMIT. DOLLAR EFFICIENCY IS BETTER WHEN LONGER.</text>
+<line x1="0" y1="74" x2="1680" y2="74" stroke="#C7D2E0"/>
+<text x="0" y="102" fill="#101826" font-size="12">SCOPE  Active general-purpose open-source coding Harnesses with ≥10k GitHub stars</text>
+<text x="0" y="126" fill="#53657A" font-size="11">GRADE  Source ceiling = 4/5 · Every 3+ requires implementation + executable invariant + reachability + falsifier</text>
+<text x="0" y="150" fill="#53657A" font-size="11">BOUNDARY  Source-fit prediction only. Paired runtime trials may overturn this order. Equal evidence stays tied.</text>
+</g></svg>

@@ -157,13 +157,17 @@ def main() -> int:
             if abs(float(element.get("x1", "nan")) - expected_x) > 1e-9:
                 errors.append(f"threshold {threshold} is not aligned to the score scale")
 
-    leader = candidates[0]
+    leader_score_value = float(candidates[0]["score"])
+    leaders = [
+        candidate for candidate in candidates
+        if float(candidate["score"]) == leader_score_value
+    ]
+    leader_names = [(item.text or "") for item in elements_with_class(svg, "leader-candidate")]
+    if leader_names != [item["candidate"] for item in leaders]:
+        errors.append("leader callout candidates are stale")
     try:
-        leader_name = one_with_class(svg, "leader-candidate").text or ""
         leader_score = one_with_class(svg, "leader-score").text or ""
-        if leader_name != leader["candidate"]:
-            errors.append("leader callout candidate is stale")
-        if leader_score != display_number(float(leader["score"])):
+        if leader_score != display_number(leader_score_value):
             errors.append("leader callout score is stale")
     except ValueError as error:
         errors.append(str(error))
@@ -181,48 +185,24 @@ def main() -> int:
             errors.append(f"{name}: unsupported market status {status!r}")
         if not str(product.get("official_url", "")).startswith("https://"):
             errors.append(f"{name}: official_url must be HTTPS")
-        if status == "source-audit-queued":
+        if status in {"source-audit-queued", "ranked"} and "pinned_commit" in product:
             commit = str(product.get("pinned_commit", ""))
             if len(commit) != 40 or any(character not in "0123456789abcdef" for character in commit):
-                errors.append(f"{name}: source audit queue requires a 40-character commit")
+                errors.append(f"{name}: public source entry requires a 40-character commit")
             if int(product.get("stars_at_snapshot", 0)) < 10_000:
-                errors.append(f"{name}: source audit queue misses the market-presence gate")
+                errors.append(f"{name}: public source entry misses the market-presence gate")
 
     ranked_names = {product["name"] for product in products if product["status"] == "ranked"}
     scorecard_names = {candidate["candidate"] for candidate in candidates}
     if ranked_names != scorecard_names:
         errors.append("ranked market products differ from the fixed comparison")
 
-    expected_unranked = [
-        product for product in products if product["status"] != "ranked"
-    ]
-    market_rows = elements_with_class(svg, "market-candidate")
-    if len(market_rows) != len(expected_unranked):
-        errors.append(
-            f"SVG has {len(market_rows)} unranked market products; "
-            f"expected {len(expected_unranked)}"
-        )
-    else:
-        for row, product in zip(market_rows, expected_unranked):
-            name = product["name"]
-            if row.get("data-candidate") != name:
-                errors.append(f"{name}: market row order/name differs from universe")
-            if row.get("data-status") != product["status"]:
-                errors.append(f"{name}: market row status differs from universe")
-            try:
-                label = one_with_class(row, "market-candidate-label").text or ""
-                if label != name:
-                    errors.append(f"{name}: visible market label is stale")
-            except ValueError as error:
-                errors.append(f"{name}: {error}")
-
-    expected_count = (
-        f"{len(products)} ACTIVE PRODUCTS / {len(expected_unranked)} AWAITING EVIDENCE"
-    )
+    expected_unranked = [product for product in products if product["status"] != "ranked"]
+    expected_count = f"{len(candidates)} OPEN-SOURCE PRODUCTS · {len(candidates)} PINNED CODE AUDITS"
     try:
-        visible_count = one_with_class(svg, "market-count").text or ""
+        visible_count = one_with_class(svg, "coverage-count").text or ""
         if visible_count != expected_count:
-            errors.append("visible market count is stale")
+            errors.append("visible source coverage count is stale")
     except ValueError as error:
         errors.append(str(error))
 
@@ -232,8 +212,8 @@ def main() -> int:
         return 1
     print(
         f"PASS 4C Harness Ladder: {len(candidates)} ranked, "
-        f"{len(expected_unranked)} awaiting evidence, "
-        f"{leader['candidate']} leads at {display_number(float(leader['score']))}"
+        f"{len(expected_unranked)} runtime-only tracked, "
+        f"{len(leaders)} leaders tied at {display_number(leader_score_value)}"
     )
     return 0
 

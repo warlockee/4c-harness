@@ -29,12 +29,12 @@ class HarnessLadderTests(unittest.TestCase):
     def test_changed_visible_score_is_rejected(self) -> None:
         source = ladder.LADDER.read_text()
         altered = source.replace(
-            'class="score-label" x="1632" y="49" text-anchor="end" '
-            'fill="#FFFFFF" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" '
-            'font-size="43" font-weight="900">80</text>',
-            'class="score-label" x="1632" y="49" text-anchor="end" '
-            'fill="#FFFFFF" font-family="Arial Narrow, Helvetica Neue, Arial, sans-serif" '
-            'font-size="43" font-weight="900">81</text>',
+            'class="score-label" x="1632" y="41" text-anchor="end" '
+            'fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" '
+            'font-size="37" font-weight="900">80</text>',
+            'class="score-label" x="1632" y="41" text-anchor="end" '
+            'fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" '
+            'font-size="37" font-weight="900">81</text>',
             1,
         )
         self.assertNotEqual(source, altered)
@@ -44,11 +44,11 @@ class HarnessLadderTests(unittest.TestCase):
             with patch.object(ladder, "LADDER", path), redirect_stderr(io.StringIO()):
                 self.assertEqual(ladder.main(), 1)
 
-    def test_missing_market_candidate_is_rejected(self) -> None:
+    def test_changed_ranked_candidate_is_rejected(self) -> None:
         source = ladder.LADDER.read_text()
         altered = source.replace(
-            'data-candidate="Qwen Code" data-status="source-audit-queued"',
-            'data-candidate="Missing Product" data-status="source-audit-queued"',
+            'data-candidate="Qwen Code" data-score="71"',
+            'data-candidate="Missing Product" data-score="71"',
             1,
         )
         self.assertNotEqual(source, altered)

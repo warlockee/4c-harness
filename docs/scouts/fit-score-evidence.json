@@ -288,6 +288,267 @@
         "reachability": "https://github.com/crewAIInc/crewAI/tree/4dfd074fae84fc287af9f9e8cce7e74096c4f626/lib/crewai/src/crewai/memory",
         "falsifier": "Stored memory does not affect later execution, or it changes behavior without attributable policy control."
       }
+    },
+    "Qwen Code": {
+      "Cost": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "Bounded workflow dispatch can overlap independent work without exceeding the configured concurrency limit.",
+        "implementation": "https://github.com/QwenLM/qwen-code/blob/39fc769d3a49a883d250914d8f705b6b3735720c/packages/core/src/agents/runtime/workflow-dispatch-scheduler.ts",
+        "invariant": "https://github.com/QwenLM/qwen-code/blob/39fc769d3a49a883d250914d8f705b6b3735720c/packages/core/src/agents/runtime/workflow-dispatch-scheduler.test.ts",
+        "reachability": "https://github.com/QwenLM/qwen-code/blob/39fc769d3a49a883d250914d8f705b6b3735720c/packages/core/src/agents/runtime/workflow-runner.ts",
+        "falsifier": "Representative tasks expose no safe overlap, or orchestration overhead dominates."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Runtime refresh updates MCP, LSP, skills, subagents, hooks and memory without requiring a process restart.",
+        "implementation": "https://github.com/QwenLM/qwen-code/blob/39fc769d3a49a883d250914d8f705b6b3735720c/packages/core/src/extension/extension-runtime-refresh.ts",
+        "invariant": "https://github.com/QwenLM/qwen-code/blob/39fc769d3a49a883d250914d8f705b6b3735720c/packages/core/src/extension/extension-runtime-refresh.test.ts",
+        "reachability": "https://github.com/QwenLM/qwen-code/blob/39fc769d3a49a883d250914d8f705b6b3735720c/packages/core/src/extension/extensionManager.ts",
+        "falsifier": "Extension changes still require restart or partial refresh leaves inconsistent runtime state."
+      },
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Recovery classifies interrupted histories and repairs orphaned tool calls before continuation.",
+        "implementation": "https://github.com/QwenLM/qwen-code/blob/39fc769d3a49a883d250914d8f705b6b3735720c/packages/core/src/core/session-recovery.ts",
+        "invariant": "https://github.com/QwenLM/qwen-code/blob/39fc769d3a49a883d250914d8f705b6b3735720c/packages/core/src/core/session-recovery.test.ts",
+        "reachability": "https://github.com/QwenLM/qwen-code/blob/39fc769d3a49a883d250914d8f705b6b3735720c/packages/cli/src/nonInteractive/session.ts",
+        "falsifier": "Interrupted sessions lose decisive state or resume duplicated unsafe effects."
+      }
+    },
+    "OpenCode": {
+      "Cost": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Token-budgeted compaction and protected recent turns predict lower context tax without orphaning tool output.",
+        "implementation": "https://github.com/anomalyco/opencode/blob/e2505d434a6d78904ecfe546c4a1980d26bd8cd1/packages/opencode/src/session/compaction.ts",
+        "invariant": "https://github.com/anomalyco/opencode/blob/e2505d434a6d78904ecfe546c4a1980d26bd8cd1/packages/opencode/test/session/compaction.test.ts",
+        "reachability": "https://github.com/anomalyco/opencode/blob/e2505d434a6d78904ecfe546c4a1980d26bd8cd1/packages/opencode/src/session/prompt.ts",
+        "falsifier": "Compaction omits decisive context and creates more repair work than it saves."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Provider adapters preserve tested provider-specific reasoning fields, aliases and model semantics.",
+        "implementation": "https://github.com/anomalyco/opencode/blob/e2505d434a6d78904ecfe546c4a1980d26bd8cd1/packages/opencode/src/provider/provider.ts",
+        "invariant": "https://github.com/anomalyco/opencode/blob/e2505d434a6d78904ecfe546c4a1980d26bd8cd1/packages/opencode/test/provider/provider.test.ts",
+        "reachability": "https://github.com/anomalyco/opencode/blob/e2505d434a6d78904ecfe546c4a1980d26bd8cd1/packages/opencode/src/session/llm.ts",
+        "falsifier": "A required provider semantic is dropped or requires application-side translation."
+      },
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Snapshot-backed reverse patches and message cleanup predict reversible session recovery.",
+        "implementation": "https://github.com/anomalyco/opencode/blob/e2505d434a6d78904ecfe546c4a1980d26bd8cd1/packages/opencode/src/session/revert.ts",
+        "invariant": "https://github.com/anomalyco/opencode/blob/e2505d434a6d78904ecfe546c4a1980d26bd8cd1/packages/opencode/test/session/revert-compact.test.ts",
+        "reachability": "https://github.com/anomalyco/opencode/blob/e2505d434a6d78904ecfe546c4a1980d26bd8cd1/packages/opencode/src/session/prompt.ts",
+        "falsifier": "Revert loses user work, leaves later state attached, or cannot reconstruct the prior state."
+      }
+    },
+    "Goose": {
+      "Cost": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Provider-aware cache breakpoints preserve exact reusable prefixes and predict lower repeated-context cost.",
+        "implementation": "https://github.com/aaif-goose/goose/blob/af016f0a80a2d34c78009e0e00fdcc24e42b4ea0/crates/goose-provider-types/src/cache_semantics.rs",
+        "invariant": "https://github.com/aaif-goose/goose/blob/af016f0a80a2d34c78009e0e00fdcc24e42b4ea0/crates/goose-provider-types/tests/prefix_invariance.rs",
+        "reachability": "https://github.com/aaif-goose/goose/blob/af016f0a80a2d34c78009e0e00fdcc24e42b4ea0/crates/goose/src/providers/openrouter.rs",
+        "falsifier": "Matched traces show no cache reuse or cache mediation increases total cost."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "The shipped extension manager exposes native MCP transports and tool capabilities on the agent path.",
+        "implementation": "https://github.com/aaif-goose/goose/blob/af016f0a80a2d34c78009e0e00fdcc24e42b4ea0/crates/goose/src/agents/extension_manager.rs",
+        "invariant": "https://github.com/aaif-goose/goose/blob/af016f0a80a2d34c78009e0e00fdcc24e42b4ea0/crates/goose/src/agents/state_machine/tests/calculator_extension.rs",
+        "reachability": "https://github.com/aaif-goose/goose/blob/af016f0a80a2d34c78009e0e00fdcc24e42b4ea0/crates/goose/src/agents/agent.rs",
+        "falsifier": "Representative extensions require core edits or lose required tool semantics."
+      },
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "SQLite session storage and prefix-preserving fork behavior predict durable, non-destructive continuation.",
+        "implementation": "https://github.com/aaif-goose/goose/blob/af016f0a80a2d34c78009e0e00fdcc24e42b4ea0/crates/goose/src/session/session_manager.rs",
+        "invariant": "https://github.com/aaif-goose/goose/blob/af016f0a80a2d34c78009e0e00fdcc24e42b4ea0/crates/goose/tests/acp_fork_session_test.rs",
+        "reachability": "https://github.com/aaif-goose/goose/blob/af016f0a80a2d34c78009e0e00fdcc24e42b4ea0/crates/goose/src/acp/server/manage_sessions.rs",
+        "falsifier": "Fork or resume mutates the source session, drops messages, or repeats effects."
+      }
+    },
+    "Kilo Code": {
+      "Cost": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "Automatic threshold compaction and bounded tool output are shipped on the LLM runner path.",
+        "implementation": "https://github.com/Kilo-Org/kilocode/blob/9a6e081e4855e2e6a934bda519c1bef84e14d4b5/packages/core/src/session/compaction.ts",
+        "invariant": "https://github.com/Kilo-Org/kilocode/blob/9a6e081e4855e2e6a934bda519c1bef84e14d4b5/packages/core/test/session-compaction.test.ts",
+        "reachability": "https://github.com/Kilo-Org/kilocode/blob/9a6e081e4855e2e6a934bda519c1bef84e14d4b5/packages/core/src/session/runner/llm.ts",
+        "falsifier": "Compaction calls or missing context cost more than the context they save."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Provider plugins preserve tested provider-specific options and custom provider identities.",
+        "implementation": "https://github.com/Kilo-Org/kilocode/blob/9a6e081e4855e2e6a934bda519c1bef84e14d4b5/packages/core/src/plugin/provider.ts",
+        "invariant": "https://github.com/Kilo-Org/kilocode/blob/9a6e081e4855e2e6a934bda519c1bef84e14d4b5/packages/core/test/plugin/provider-anthropic.test.ts",
+        "reachability": "https://github.com/Kilo-Org/kilocode/blob/9a6e081e4855e2e6a934bda519c1bef84e14d4b5/packages/core/src/plugin/internal.ts",
+        "falsifier": "Required provider controls are normalized away or need core changes."
+      },
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Ordered projection and staged revert state predict reconstructable, reversible sessions.",
+        "implementation": "https://github.com/Kilo-Org/kilocode/blob/9a6e081e4855e2e6a934bda519c1bef84e14d4b5/packages/core/src/session/projector.ts",
+        "invariant": "https://github.com/Kilo-Org/kilocode/blob/9a6e081e4855e2e6a934bda519c1bef84e14d4b5/packages/core/test/session-projector.test.ts",
+        "reachability": "https://github.com/Kilo-Org/kilocode/blob/9a6e081e4855e2e6a934bda519c1bef84e14d4b5/packages/core/src/session/runner/llm.ts",
+        "falsifier": "Projection reorders events or committed reverts cannot restore coherent state."
+      }
+    },
+    "Continue": {
+      "Cost": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "Budget-aware message compilation preserves system, tools and recent tool sequences while pruning older context.",
+        "implementation": "https://github.com/continuedev/continue/blob/5522c6f44ca0ac3528b37244818fbfa39b5af470/core/llm/countTokens.ts",
+        "invariant": "https://github.com/continuedev/continue/blob/5522c6f44ca0ac3528b37244818fbfa39b5af470/core/llm/countTokens.test.ts",
+        "reachability": "https://github.com/continuedev/continue/blob/5522c6f44ca0ac3528b37244818fbfa39b5af470/core/llm/index.ts",
+        "falsifier": "Pruning drops decisive context or increases repair turns and total tokens."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Tested stdio, SSE, HTTP and WebSocket MCP transports predict broad extension compatibility.",
+        "implementation": "https://github.com/continuedev/continue/blob/5522c6f44ca0ac3528b37244818fbfa39b5af470/core/context/mcp/MCPConnection.ts",
+        "invariant": "https://github.com/continuedev/continue/blob/5522c6f44ca0ac3528b37244818fbfa39b5af470/core/context/mcp/MCPConnection.vitest.ts",
+        "reachability": "https://github.com/continuedev/continue/blob/5522c6f44ca0ac3528b37244818fbfa39b5af470/core/tools/callTool.ts",
+        "falsifier": "A representative MCP server needs bespoke mediation or loses required semantics."
+      },
+      "Continuity": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "Session history save, load, list and delete behavior is implemented and executable-tested.",
+        "implementation": "https://github.com/continuedev/continue/blob/5522c6f44ca0ac3528b37244818fbfa39b5af470/core/util/history.ts",
+        "invariant": "https://github.com/continuedev/continue/blob/5522c6f44ca0ac3528b37244818fbfa39b5af470/core/util/history.test.ts",
+        "reachability": "https://github.com/continuedev/continue/blob/5522c6f44ca0ac3528b37244818fbfa39b5af470/core/core.ts",
+        "falsifier": "Interrupted writes corrupt history or resume omits decisive session state."
+      }
+    },
+    "Pi": {
+      "Cost": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Token-estimated automatic compaction preserves recent context and file operations under tested budgets.",
+        "implementation": "https://github.com/earendil-works/pi/blob/b7bb00b936dbe21b8e160b3e89efdec361846699/packages/agent/src/harness/compaction/compaction.ts",
+        "invariant": "https://github.com/earendil-works/pi/blob/b7bb00b936dbe21b8e160b3e89efdec361846699/packages/agent/test/harness/compaction.test.ts",
+        "reachability": "https://github.com/earendil-works/pi/blob/b7bb00b936dbe21b8e160b3e89efdec361846699/packages/coding-agent/src/core/agent-session.ts",
+        "falsifier": "Compaction loses decisive state or its extra request increases total time and token cost."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Cross-provider handoff tests preserve reasoning, tool identifiers and message transformations.",
+        "implementation": "https://github.com/earendil-works/pi/blob/b7bb00b936dbe21b8e160b3e89efdec361846699/packages/ai/src/models.ts",
+        "invariant": "https://github.com/earendil-works/pi/blob/b7bb00b936dbe21b8e160b3e89efdec361846699/packages/ai/test/cross-provider-handoff.test.ts",
+        "reachability": "https://github.com/earendil-works/pi/blob/b7bb00b936dbe21b8e160b3e89efdec361846699/packages/coding-agent/src/core/agent-session.ts",
+        "falsifier": "Provider switching drops reasoning or tool semantics in representative sessions."
+      },
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Atomic repair and fork writes plus torn-tail recovery predict robust JSONL session continuity.",
+        "implementation": "https://github.com/earendil-works/pi/blob/b7bb00b936dbe21b8e160b3e89efdec361846699/packages/agent/src/harness/session/jsonl/storage.ts",
+        "invariant": "https://github.com/earendil-works/pi/blob/b7bb00b936dbe21b8e160b3e89efdec361846699/packages/agent/test/harness/session/jsonl.test.ts",
+        "reachability": "https://github.com/earendil-works/pi/blob/b7bb00b936dbe21b8e160b3e89efdec361846699/packages/coding-agent/src/core/session-manager.ts",
+        "falsifier": "A crash loses committed events, corrupts the source session, or makes resume unsafe."
+      }
+    },
+    "Crush": {
+      "Cost": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "The agent executes multiple same-turn tool calls concurrently and has bounded summarization paths.",
+        "implementation": "https://github.com/charmbracelet/crush/blob/7d78d7422a92918441a68d01d96d48fa3b9fd9db/internal/agent/agent.go",
+        "invariant": "https://github.com/charmbracelet/crush/blob/7d78d7422a92918441a68d01d96d48fa3b9fd9db/internal/agent/agent_test.go",
+        "reachability": "https://github.com/charmbracelet/crush/blob/7d78d7422a92918441a68d01d96d48fa3b9fd9db/internal/agent/coordinator.go",
+        "falsifier": "Tasks contain no safe overlap or coordination and summarization cost more than they save."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Single-flight MCP renewal and hot configuration reconciliation preserve a shared healthy tool session.",
+        "implementation": "https://github.com/charmbracelet/crush/blob/7d78d7422a92918441a68d01d96d48fa3b9fd9db/internal/agent/tools/mcp/lifecycle.go",
+        "invariant": "https://github.com/charmbracelet/crush/blob/7d78d7422a92918441a68d01d96d48fa3b9fd9db/internal/agent/tools/mcp/lifecycle_test.go",
+        "reachability": "https://github.com/charmbracelet/crush/blob/7d78d7422a92918441a68d01d96d48fa3b9fd9db/internal/agent/tools/mcp/init.go",
+        "falsifier": "Concurrent refresh duplicates sessions or config changes require restart/manual repair."
+      },
+      "Continuity": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "Database-backed sessions persist messages, usage and mutable session state on the workspace path.",
+        "implementation": "https://github.com/charmbracelet/crush/blob/7d78d7422a92918441a68d01d96d48fa3b9fd9db/internal/session/session.go",
+        "invariant": "https://github.com/charmbracelet/crush/blob/7d78d7422a92918441a68d01d96d48fa3b9fd9db/internal/session/session_test.go",
+        "reachability": "https://github.com/charmbracelet/crush/blob/7d78d7422a92918441a68d01d96d48fa3b9fd9db/internal/workspace/workspace.go",
+        "falsifier": "Resume loses required messages or persisted state diverges from the visible session."
+      }
+    },
+    "Zed Agent": {
+      "Cost": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Automatic token-threshold compaction is tested across disabled, small-context and output-limit cases.",
+        "implementation": "https://github.com/zed-industries/zed/blob/6e0a0835755ea57c1db4e0057f1a30ddba554706/crates/agent/src/thread.rs",
+        "invariant": "https://github.com/zed-industries/zed/blob/6e0a0835755ea57c1db4e0057f1a30ddba554706/crates/agent/src/thread.rs",
+        "reachability": "https://github.com/zed-industries/zed/blob/6e0a0835755ea57c1db4e0057f1a30ddba554706/crates/agent/src/agent.rs",
+        "falsifier": "Compaction overhead or omitted context increases end-to-end task cost."
+      },
+      "Compatibility": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Live context-server tool registration and collision disambiguation predict low-friction MCP extension.",
+        "implementation": "https://github.com/zed-industries/zed/blob/6e0a0835755ea57c1db4e0057f1a30ddba554706/crates/agent/src/tools/context_server_registry.rs",
+        "invariant": "https://github.com/zed-industries/zed/blob/6e0a0835755ea57c1db4e0057f1a30ddba554706/crates/agent/src/tools/context_server_registry.rs",
+        "reachability": "https://github.com/zed-industries/zed/blob/6e0a0835755ea57c1db4e0057f1a30ddba554706/crates/agent/src/thread.rs",
+        "falsifier": "Tool changes remain stale or collisions expose the wrong tool to the model."
+      },
+      "Continuity": {
+        "grade": 4,
+        "claim_type": "source-inferred",
+        "claim": "Database flush and reopen tests restore messages, drafts, token usage and scroll state.",
+        "implementation": "https://github.com/zed-industries/zed/blob/6e0a0835755ea57c1db4e0057f1a30ddba554706/crates/agent/src/thread_store.rs",
+        "invariant": "https://github.com/zed-industries/zed/blob/6e0a0835755ea57c1db4e0057f1a30ddba554706/crates/agent/src/agent.rs",
+        "reachability": "https://github.com/zed-industries/zed/blob/6e0a0835755ea57c1db4e0057f1a30ddba554706/crates/agent/src/agent.rs",
+        "falsifier": "Application interruption loses committed thread state or reopen reconstructs an incoherent session."
+      }
+    },
+    "SWE-agent": {
+      "Cost": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "Configurable history processors bound observations and cache-control placement on the live message path.",
+        "implementation": "https://github.com/SWE-agent/SWE-agent/blob/3ea751c087f32b16e039a2233dd6eefecef325d5/sweagent/agent/history_processors.py",
+        "invariant": "https://github.com/SWE-agent/SWE-agent/blob/3ea751c087f32b16e039a2233dd6eefecef325d5/tests/test_history_processors.py",
+        "reachability": "https://github.com/SWE-agent/SWE-agent/blob/3ea751c087f32b16e039a2233dd6eefecef325d5/sweagent/agent/agents.py",
+        "falsifier": "The processors are unused for the target run or removed context increases repair cost."
+      },
+      "Compatibility": {
+        "grade": 3,
+        "claim_type": "source-observed",
+        "claim": "LiteLLM-backed model configuration exposes fallbacks, message conversion and per-model limits.",
+        "implementation": "https://github.com/SWE-agent/SWE-agent/blob/3ea751c087f32b16e039a2233dd6eefecef325d5/sweagent/agent/models.py",
+        "invariant": "https://github.com/SWE-agent/SWE-agent/blob/3ea751c087f32b16e039a2233dd6eefecef325d5/tests/test_models.py",
+        "reachability": "https://github.com/SWE-agent/SWE-agent/blob/3ea751c087f32b16e039a2233dd6eefecef325d5/sweagent/agent/agents.py",
+        "falsifier": "A required provider semantic is lost or the target model needs bespoke mediation."
+      },
+      "Continuity": {
+        "grade": 2,
+        "claim_type": "source-observed",
+        "claim": "Per-step trajectories support replay, but source evidence does not establish safe interrupted-session resume.",
+        "implementation": "https://github.com/SWE-agent/SWE-agent/blob/3ea751c087f32b16e039a2233dd6eefecef325d5/sweagent/agent/agents.py",
+        "invariant": null,
+        "reachability": "https://github.com/SWE-agent/SWE-agent/blob/3ea751c087f32b16e039a2233dd6eefecef325d5/sweagent/run/run_replay.py",
+        "falsifier": "Replay duplicates side effects or cannot restore in-progress state."
+      }
     }
   }
 }

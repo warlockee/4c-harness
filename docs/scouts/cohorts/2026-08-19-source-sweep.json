@@ -17,7 +17,16 @@
     "LangGraph",
     "CrewAI",
     "Langflow",
-    "LiteLLM"
+    "LiteLLM",
+    "Qwen Code",
+    "OpenCode",
+    "Goose",
+    "Kilo Code",
+    "Continue",
+    "Pi",
+    "Crush",
+    "Zed Agent",
+    "SWE-agent"
   ],
   "exact_commits": {
     "DeepSeek Harness": "141eb6fef83422698aef7a981029e843e8161534",
@@ -30,7 +39,16 @@
     "LangGraph": "837212b9699bc4c3400b97714988344d348598f8",
     "CrewAI": "4dfd074fae84fc287af9f9e8cce7e74096c4f626",
     "Langflow": "09ef6b2b7119e35a6787fc249f916f8b47b28615",
-    "LiteLLM": "4bb3152cc52415cf19a5d43eba2158718e924239"
+    "LiteLLM": "4bb3152cc52415cf19a5d43eba2158718e924239",
+    "Qwen Code": "39fc769d3a49a883d250914d8f705b6b3735720c",
+    "OpenCode": "e2505d434a6d78904ecfe546c4a1980d26bd8cd1",
+    "Goose": "af016f0a80a2d34c78009e0e00fdcc24e42b4ea0",
+    "Kilo Code": "9a6e081e4855e2e6a934bda519c1bef84e14d4b5",
+    "Continue": "5522c6f44ca0ac3528b37244818fbfa39b5af470",
+    "Pi": "b7bb00b936dbe21b8e160b3e89efdec361846699",
+    "Crush": "7d78d7422a92918441a68d01d96d48fa3b9fd9db",
+    "Zed Agent": "6e0a0835755ea57c1db4e0057f1a30ddba554706",
+    "SWE-agent": "3ea751c087f32b16e039a2233dd6eefecef325d5"
   },
   "source_queue": {
     "p1_information_value": [
@@ -40,8 +58,16 @@
       "LangGraph",
       "LiteLLM"
     ],
-    "p2_conditional": ["Codex", "Gemini CLI", "OpenHands", "Cline"],
-    "hold": ["CrewAI", "Langflow"]
+    "p2_conditional": [
+      "Codex",
+      "Gemini CLI",
+      "OpenHands",
+      "Cline"
+    ],
+    "hold": [
+      "CrewAI",
+      "Langflow"
+    ]
   },
   "baseline": null,
   "selection_baselines": null,
