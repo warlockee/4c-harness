@@ -1,69 +1,67 @@
-# 4C — Find the winner before the leaderboard
+# 4C — The Harness Evaluation Standard
 
-> **4C reads the source, calls the breakout AI Harness, then publishes the hit
-> or miss. Before the race.**
+> **See a Harness. Ask four questions: Cost, Compatibility, Continuity,
+> Cognition.**
 
-[![4C: Find the winner before the leaderboard](assets/4c-bole-card.png)](docs/bole-challenge.md)
+[![See a Harness. Ask 4C. The evaluation standard for AI Harnesses.](assets/4c-harness-standard.png)](docs/harness-scout.md)
 
-[**Open a public Bole bet →**](https://github.com/warlockee/4c-harness/issues/new?template=bole-challenge.yml) ·
-[See the challenge](docs/bole-challenge.md) ·
-[Scout board](docs/scouts/README.md) ·
+[**Run the 4C Check ↓**](#run-the-4c-check-in-five-minutes) ·
+[Scorecards](docs/scouts/2026-08-19-source-sweep.md#terrain-specific-source-scorecards) ·
+[Challenge a score](https://github.com/warlockee/4c-harness/issues/new?template=score-challenge.yml) ·
 [Full method](docs/harness-scout.md)
 
-> **Bole status: UNPROVEN** — 0/20 prospective calls resolved, 0 hits; 0/5 shadow calls.
+## Every Harness. The same four questions.
 
-## Call it. Race it. Publish it.
+When a new AI Harness appears, feature lists and demos tell you what exists.
+4C tells you what changes the result for a specific task—and what evidence
+would prove that judgment wrong.
 
-Most Harness comparisons start after the winner is already famous. 4C makes a
-source-backed call first, locks the finish line, and keeps every result public.
+| Ask | The decision question | Inspect the execution path for |
+|---|---|---|
+| **Cost** | Does it turn limited time, money, tokens and attention into more verified outcomes? | waits, calls, retries, context tax, concurrency and cache behavior |
+| **Compatibility** | Does it preserve the model, tool, provider and modality semantics the task needs? | translation loss, native controls, tool contracts and extension seams |
+| **Continuity** | Does useful work survive turns, failures, handoffs and change? | state, checkpoints, reconstruction, rollback and migration |
+| **Cognition** | Does evidence improve future policy—not merely accumulate more memory? | attributable updates, evaluation, promotion and rollback |
+
+4C is not a universal feature score. First name the task terrain, then activate
+only the pressures that change the decision. The same Harness can be excellent
+for interactive coding and poor for a durable high-authority workflow.
 
 ``` text
-source bet → locked paired trial → HIT / MISS / CENSORED
+name the terrain → activate the Cs → inspect the shipped path
+                 → score the evidence → try to falsify it
 ```
 
-A hit is not “has more features” or “felt cool in a demo.” The candidate must
-beat your current Harness on one real task by a predeclared amount, inside the
-same budget and authority boundary. A shadow sample of rejected candidates
-tracks the winners 4C missed.
+The ruthless rule: **if removing a pressure changes no decision, it does not
+count.** Every score carries its exact version, evidence stage and boundary
+status, so source predictions cannot masquerade as measured wins.
 
-The first source sweep found promising candidates—including the code paths that
-can explain DeepSeek Harness's speed and extensibility—but happened too late to
-count as prediction.
-4C will earn “Bole” only by beating popularity, feature coverage and random
-choice on future public calls. The machine-readable [certification
-status](docs/scouts/bole-status.json) is checked in CI, so the headline cannot
-advance ahead of the evidence.
+## Run the 4C Check in five minutes
 
-## Run one in five minutes
-
-[Create a Bole Challenge issue](https://github.com/warlockee/4c-harness/issues/new?template=bole-challenge.yml),
-or hand this prompt to a coding agent:
+Hand this prompt to a coding agent:
 
 ``` text
-Use the 4C Bole Challenge from https://github.com/warlockee/4c-harness.
+Use the 4C Harness Evaluation Standard from
+https://github.com/warlockee/4c-harness.
 
-Current Harness: <what I use now>
-Candidate: <the new Harness + exact version>
-Real task: <task + externally checkable finish line>
-Hard limit: <money/time/effects + resolution deadline>
+Harness: <name + exact version or commit>
+Task terrain: <real task, limits and externally checkable finish line>
 
-Before running the candidate trial:
-1. Name the one Cost / Compatibility / Continuity / Cognition pressure that
-   changes my decision.
+1. Decide which Cost / Compatibility / Continuity / Cognition pressures
+   actually change this task. Give inactive Cs zero weight.
 2. Lock terrain weights across every active C; inactive Cs get zero weight.
-3. Link exact source paths, grade each active C from 0–5 with the 4C Fit rubric,
-   and publish score + evidence stage + boundary status.
-4. Lock the minimum win and the observation that loses the bet.
-5. Run a paired trial, then publish HIT, MISS or CENSORED with evidence.
+3. Inspect the shipped execution path at the exact commit. For every active C,
+   link implementation, executable invariant and reachability.
+4. Grade each active C from 0–5 with the 4C Fit rubric. State the user-visible
+   prediction and the observation that would falsify it.
+5. Return 4C Fit score + evidence stage + boundary status. Separate source
+   facts, source inferences and runtime observations. Do not award points for
+   feature count, popularity, testimonials or an unlinked benchmark number.
 ```
 
-That is the public game. The [Scout](docs/harness-scout.md), [execution-yield
-guide](docs/execution-yield.md), [migration bill](#make-the-candidate-pay-the-moving-bill)
-and [calibration protocol](docs/scout-calibration.md) are available when the
-decision deserves deeper evidence.
-
-The ruthless 4C rule is still: **if removing a pressure changes no decision,
-it does not count.**
+For a switch decision, continue into the [source-path and yield
+audit](docs/execution-yield.md), [migration bill](#make-the-candidate-pay-the-moving-bill)
+and a locked paired trial.
 
 ## DeepSeek Harness: 80/100 where it matters
 
@@ -100,7 +98,30 @@ user-visible effect is a prediction, never a measured result. Think a grade is
 wrong? [Challenge that exact score](https://github.com/warlockee/4c-harness/issues/new?template=score-challenge.yml)—counterevidence can lower it as readily as
 new evidence can raise it.
 
-### Why the usual signals do not answer the question
+## A standard must survive public challenges
+
+Disagree with a grade? [Challenge the exact C, terrain and
+version](https://github.com/warlockee/4c-harness/issues/new?template=score-challenge.yml).
+The response must be pinned counterevidence, not brand preference. Accepted
+challenges change the evidence row and score together in public history.
+
+The [Bole Challenge](docs/bole-challenge.md) tests a harder, secondary claim:
+can 4C use this standard to identify an underappreciated Harness before runtime
+trials or consensus reveal the answer? That prospective hit rate is proof of
+the standard, not the brand positioning.
+
+[**Open a public Bole trial →**](https://github.com/warlockee/4c-harness/issues/new?template=bole-challenge.yml) ·
+[Scout board](docs/scouts/README.md) ·
+[Calibration protocol](docs/scout-calibration.md)
+
+> **Bole status: UNPROVEN** — 0/20 prospective calls resolved, 0 hits; 0/5 shadow calls.
+
+The first source sweep found the code paths that can explain DeepSeek Harness's
+speed and extensibility, but happened too late to count as prediction. The
+machine-readable [certification status](docs/scouts/bole-status.json) is checked
+in CI, so that claim cannot advance ahead of the evidence.
+
+## Why the usual signals do not answer the question
 
 | Signal you have today | What it answers | What it leaves open |
 |---|---|---|

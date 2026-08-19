@@ -1,6 +1,10 @@
 # Harness Scout Board
 
-Want to turn one nomination into evidence? [Open a public Bole
+This board applies the [4C Harness Evaluation Standard](../harness-scout.md) to
+pinned candidates and named terrains. Start with the Fit Score and its evidence
+stage; the trial queue is a scouting decision layered on top of that evaluation.
+
+Want to turn one nomination into runtime evidence? [Open a public Bole
 bet](https://github.com/warlockee/4c-harness/issues/new?template=bole-challenge.yml),
 lock the prediction before the run, and publish the hit or miss.
 

@@ -1,9 +1,19 @@
-# Harness Scout: Finding the Candidate Others Miss
+# 4C: The Harness Evaluation Standard
 
-The purpose of 4C selection is not to reward the most features or ratify the
-most famous benchmark winner. It is to find a Harness whose task-relevant
-advantage is still easier to see in its code than in the market consensus, then
-promote that candidate only as evidence accumulates.
+4C is a repeatable way to evaluate an AI Harness for a named task terrain. It
+asks whether four pressures—**Cost, Compatibility, Continuity and
+Cognition**—actually change the execution decision, how well the shipped path
+realizes each active pressure, and what evidence would prove that judgment
+wrong.
+
+The method produces a terrain-specific Fit Score with an exact version,
+evidence stage and boundary status. It does not reward feature count, collapse
+source predictions into runtime facts or pretend that one Harness is globally
+best.
+
+Harness scouting is one application of the standard. There, 4C looks for a
+task-relevant advantage that is still easier to see in code than in market
+consensus, then promotes the candidate only as evidence accumulates.
 
 A “best Harness” without a task terrain is meaningless. A **breakout Harness**
 is one that, for a named current or latent task portfolio:
@@ -18,7 +28,7 @@ is one that, for a named current or latent task portfolio:
 
 This is a promotion standard, not a universal numerical ranking.
 
-## 1. Scouting has two error budgets
+## 1. Scouting with 4C has two error budgets
 
 **Nomination should favor recall.** A source-predicted advantage with a precise
 falsifier is enough to earn a cheap trial. Requiring published product-level
