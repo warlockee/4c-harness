@@ -53,11 +53,26 @@ does not. They are the reason the exhaustive claim is rejected.
 | **Peer constraint / peer category** | A candidate proposed as a fifth C rather than as a mechanism. Most candidates fail here. |
 | **Postcondition** | What is true in the world after an action, as opposed to the action having been dispatched successfully. |
 | **Evidence level** | For experiments: whether the observed behaviour came from the upstream system or from code written here. See [`experiments/README.md`](../experiments/README.md). |
+| **Realization** | The actual source path by which a classified mechanism participates in execution; mechanism presence alone says nothing about the path's quality. |
+| **Path tax** | Serial waits, extra calls/hops, context tokens, blocking work or change touchpoints added by the implementation; the tax is justified only by a named task pressure or boundary obligation. |
+| **Execution yield** | The verified task result produced per unit of time, money, tokens and human attention, reported as a vector rather than one universal score. |
+| **Change path** | The supported path from a missing capability through interface discovery and implementation to a validated, rollbackable extension. |
+| **Task frontier** | The set of task classes worth attempting under the user's resource, validity and authority limits; a faster or cheaper product can expand it. |
+| **Model–Harness fit** | How faithfully the Harness preserves and uses one model/provider's reasoning, tools, context, streaming, cache and error semantics. |
+| **Terrain** | The scoped portfolio, rejected backlog, adjacent probes and limits for which a Harness is being evaluated; there is no context-free “best.” |
+| **Nomination** | A task-relevant source advantage with a user-visible prediction and falsifier; enough to justify a bounded trial, not adoption. |
+| **Promotion** | Advancement from mapped mechanisms through trace and task evidence toward scoped adoption or switching. |
+| **Trial-ready** | A nomination whose real terrain, causal claim, success threshold, budget, deadline and falsifier were frozen before measurement. |
+| **Bole hit** | A trial-ready prediction that reaches its predeclared `Task-proven`, `Frontier-proven` or `Adoptable` outcome within budget and deadline. |
+| **Discovery-only** | A useful source hypothesis that lacks the locked real-world contract required to enter hit-rate accounting. |
+| **Shadow Hold** | A randomly sampled non-selected candidate run cheaply to estimate how often the scout misses winners. |
+| **Calibration** | Agreement between predicted success and later resolved outcomes on information the predictor did not use. |
 
 ## What to read, and what to skip
 
-- **Using 4C on a real system:** the [README](../README.md) is sufficient. Steps
-  1–4 are the whole method.
+- **Choosing a real system:** start with the [README](../README.md), then use the
+  [Execution Yield audit](execution-yield.md) to turn classification into a
+  source-backed, task-validated verdict.
 - **Checking the definitions:** [theory sections 1–4](theory.md). That is the
   entire core; sections 5–11 are scope and adversarial apparatus.
 - **Attacking it:** [review guide](../REVIEW_GUIDE.md), then the

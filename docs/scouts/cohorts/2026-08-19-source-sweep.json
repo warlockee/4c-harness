@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "cohort_id": "2026-08-19-source-sweep",
+  "status": "discovery",
+  "information_cutoff": "2026-08-19",
+  "report": "../2026-08-19-source-sweep.md",
+  "decision_owner": null,
+  "terrain_contract": null,
+  "eligible_candidates": [
+    "DeepSeek Harness",
+    "Codex",
+    "Gemini CLI",
+    "OpenHands",
+    "Cline",
+    "Aider",
+    "browser-use",
+    "LangGraph",
+    "CrewAI",
+    "Langflow",
+    "LiteLLM"
+  ],
+  "exact_commits": {
+    "DeepSeek Harness": "141eb6fef83422698aef7a981029e843e8161534",
+    "Codex": "3b45c29062ff0e76e71c91b6753290400e7fa8da",
+    "Gemini CLI": "eaa30429a72a2a76c173ced853e9a15b14d92a64",
+    "OpenHands": "f2dd33090592f8777e3f2d1a519ddb44866e595e",
+    "Cline": "d9bb22883daa3df2c917a73b6af911f2551f68b0",
+    "Aider": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
+    "browser-use": "85ddbfedf609166b2d2c76c3d80506649fee82a9",
+    "LangGraph": "837212b9699bc4c3400b97714988344d348598f8",
+    "CrewAI": "4dfd074fae84fc287af9f9e8cce7e74096c4f626",
+    "Langflow": "09ef6b2b7119e35a6787fc249f916f8b47b28615",
+    "LiteLLM": "4bb3152cc52415cf19a5d43eba2158718e924239"
+  },
+  "source_queue": {
+    "p1_information_value": [
+      "DeepSeek Harness",
+      "Aider",
+      "browser-use",
+      "LangGraph",
+      "LiteLLM"
+    ],
+    "p2_conditional": ["Codex", "Gemini CLI", "OpenHands", "Cline"],
+    "hold": ["CrewAI", "Langflow"]
+  },
+  "baseline": null,
+  "selection_baselines": null,
+  "lane_allocation": null,
+  "candidates": null,
+  "outcome_adjudicator": null,
+  "included_in_hit_rate": false,
+  "exclusion_reason": "No owner-supplied terrain, primary uplift threshold, trial budget or deadline was locked before source review. P1 orders information value, not success probability."
+}

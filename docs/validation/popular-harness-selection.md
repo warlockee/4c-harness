@@ -11,10 +11,24 @@ list of agent-related projects or a coding-agent monoculture. Popularity
 determines which systems deserve scarce reader attention. It does not determine
 a 4C assessment or product quality.
 
+This audit is a **mechanism map**, not a selection result. `Strong`, `Partial`
+and `Evidence` record the presence and ownership of policy machinery. They do
+not measure the default execution path, Harness-added latency, prompt/cache tax,
+task completion, price or extension effort. A product verdict must continue
+through [Harness Scout nomination](../harness-scout.md) and the [Execution Yield
+audit](../execution-yield.md). A claimed selection advantage must additionally
+survive the locked, out-of-sample accounting in [Scout
+Calibration](../scout-calibration.md).
+
 The README uses two cohorts. The like-for-like cohort stays close to DeepSeek
 Harness and uses a runnable agent execution as its unit. The ecosystem cohort
 adds one high-visibility system for each materially different architecture that
 the first cohort misses. The two cohorts are not ranked together.
+
+The cohort was rerun at exact commits on 2026-08-19. The resulting P1/P2/Hold
+trial queue, source predictions and falsifiers are in the [Harness Scout source
+sweep](../scouts/2026-08-19-source-sweep.md). Popularity admitted the projects;
+it did not affect that queue.
 
 ## Admission rule
 
@@ -69,7 +83,7 @@ the MIT core.
 
 | Project | Why it is comparable | Primary mechanism evidence |
 |---|---|---|
-| [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) | General agent/coding Harness whose model adapter, tools, session log and loop are plugins. | [Architecture](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.md) |
+| [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) | General agent/coding Harness whose model adapter, tools, session log and loop are plugins. | [Architecture](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.md); pinned source-path evidence is recorded in the [Execution Yield case](../execution-yield.md#7-deepseek-harness-what-source-inspection-should-have-surfaced) and [Scout Card](../scouts/deepseek-harness.md). |
 | [Codex](https://github.com/openai/codex) | Terminal coding agent with an auditable execution core. | [Official Codex documentation](https://developers.openai.com/codex/) and repository [sandbox documentation](https://github.com/openai/codex/blob/main/docs/sandbox.md) |
 | [Gemini CLI](https://github.com/google-gemini/gemini-cli) | Terminal coding/general agent with tools, extensions and session lifecycle. | Repository documentation for [checkpointing](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/checkpointing.md), [model routing](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/model-routing.md), [token caching](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/token-caching.md) and [MCP](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md) |
 | [browser-use](https://github.com/browser-use/browser-use) | A specialized but complete browser-agent execution loop rather than a browser driver alone. | Project [README](https://github.com/browser-use/browser-use) and open [benchmark](https://github.com/browser-use/benchmark) |
@@ -151,6 +165,9 @@ projects remain valid evidence elsewhere in the repository.
   classifications, not benchmark scores.
 - The table does not measure usability, reliability, latency, output quality,
   maintenance burden or task fit.
+- Do not issue a stay/switch verdict from this table. Trace the candidate's
+  default execution and change paths, then run representative tasks through
+  externally verified postconditions.
 - A smaller 4C capability profile can be the correct minimal Harness.
 
 Reopen the cohort when a project crosses the threshold, changes license or

@@ -9,6 +9,14 @@ translates the vocabulary if the register gets in the way. Nothing else is
 required reading to review the claim — the ledger exists so that the claim can
 be checked, not so that it must be read first.
 
+The public **selection method** adds the [Harness Scout](docs/harness-scout.md),
+[Scout Calibration](docs/scout-calibration.md) and [Execution
+Yield](docs/execution-yield.md) documents. They are deliberately outside the
+causal 4C core. Review them when the question is whether this repository can
+nominate an underappreciated implementation, predict its success before seeing
+the result, and distinguish realized latency, cost, task completion or extension
+effort from source-level potential.
+
 ## Five-minute review
 
 Read the [README](README.md), then answer two questions:
@@ -19,6 +27,16 @@ Read the [README](README.md), then answer two questions:
    than a product or feature name?
 
 If either answer is no, open an issue with the smallest counterexample.
+
+For a five-minute product-selection review, ask one more question: does the
+verdict separate mechanism coverage from source-predicted path tax and
+task-validated execution yield? A verdict based only on `Strong` / `Partial` is
+invalid by construction.
+
+For a five-minute Bole review, also ask whether the real terrain, primary claim,
+uplift threshold, trial budget, deadline and falsifier were locked before the
+run. If not, the result is discovery evidence and cannot support a hit-rate
+claim.
 
 ## Thirty-minute review
 
@@ -52,6 +70,10 @@ boundaries:
   Epistemic Access, Validity or Authority without information loss;
 - a mechanism whose layer ownership cannot be determined from its controlled
   object;
-- a simpler rival model with equal or better engineering predictions.
+- a simpler rival model with equal or better engineering predictions;
+- a calibration cohort omitted after a miss, rewritten after its cutoff or
+  resolved differently from its locked postcondition;
+- popularity-, feature- or random-selection baselines that outperform Harness
+  Scout under the same trial budget.
 
 One strong counterexample outweighs every successful mapping in the repository.

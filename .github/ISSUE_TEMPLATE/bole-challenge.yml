@@ -1,0 +1,66 @@
+name: "🐎 Bole Challenge"
+description: Lock one source-backed Harness prediction before running the trial.
+title: "[Bole Bet] <candidate> for <terrain>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Call the horse before the race. Keep this issue short: one candidate, one real task, one decisive result.
+
+  - type: input
+    id: matchup
+    attributes:
+      label: Matchup
+      description: Current Harness versus candidate, including exact versions or commits.
+      placeholder: "Codex 0.x vs Candidate abc123"
+    validations:
+      required: true
+
+  - type: textarea
+    id: task
+    attributes:
+      label: Real task and finish line
+      description: Name a task you actually do or reject today, plus an externally checkable done condition.
+      placeholder: "On repo X, implement Y. Done means tests Z pass and effect scope stays inside the workspace."
+    validations:
+      required: true
+
+  - type: textarea
+    id: source_bet
+    attributes:
+      label: Source bet
+      description: Link the exact candidate code path and state the user-visible advantage it predicts.
+      placeholder: "Because <linked source path> avoids/adds <mechanism>, the candidate should improve <metric>."
+    validations:
+      required: true
+
+  - type: textarea
+    id: lock
+    attributes:
+      label: Trial lock
+      description: Set one metric, minimum meaningful win, budget, deadline, and observation that loses the bet.
+      placeholder: "Win if ... by at least ...; budget ...; resolve by ...; miss if ..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: lane
+    attributes:
+      label: Lane
+      options:
+        - Exploit — highest-confidence pick
+        - Explore — underappreciated source signal
+        - Shadow — randomly sampled holdout
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: pledge
+    attributes:
+      label: Public-result pledge
+      options:
+        - label: I have not run the measured candidate trial yet.
+          required: true
+        - label: I will close this as Hit, Miss, or Censored and link the evidence without deleting a loss.
+          required: true
+

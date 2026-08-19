@@ -1,70 +1,63 @@
-# 4C — Stop choosing AI agent Harnesses by vibes
+# 4C — Find the winner before the leaderboard
 
-> **Another Harness shipped. It has more tools, more agents and a better demo.
-> Cool. Does any of that change a decision your task actually needs?**
+> **4C reads the source, calls the breakout AI Harness, then publishes the hit
+> or miss. Before the race.**
 
-[Run the decision prompt](#put-a-candidate-on-trial) ·
-[Price a migration](#make-the-candidate-pay-the-moving-bill) ·
-[Compare popular systems](#skip-the-homework-popular-systems-pre-profiled) ·
-[Build the minimum](#building-one-start-smaller-than-feels-comfortable)
+[![4C: Find the winner before the leaderboard](assets/4c-bole-card.png)](docs/bole-challenge.md)
 
-4C turns “should we switch?” into two concrete artifacts: an **execution-policy
-diff** and a **line-by-line migration bill**.
+[**Open a public Bole bet →**](https://github.com/warlockee/4c-harness/issues/new?template=bole-challenge.yml) ·
+[See the challenge](docs/bole-challenge.md) ·
+[Scout board](docs/scouts/README.md) ·
+[Full method](docs/harness-scout.md)
 
-``` text
-your actual task ──→ 4C activation test ──→ stay / switch / adopt one piece
-                              │
-                              └────────────→ what carries over, what gets rebuilt
-```
+## Call it. Race it. Publish it.
 
-The rule is ruthless: **if removing a pressure does not change an execution
-decision, that pressure is inactive.** A candidate being brilliant at an
-inactive pressure is not a reason to migrate.
-
-### A 30-second example
-
-You use a small local coding Harness. The candidate's headline features are
-multi-provider routing, distributed checkpoints and adaptive memory. Your work
-uses one provider, finishes in one session and treats Git as recovery.
-
-| Candidate advantage | Relevant to your task? | Decision |
-|---|---:|---|
-| Multi-provider routing | No semantic differences to absorb | Ignore it |
-| Distributed checkpoints | No process boundary to survive | Ignore it |
-| Adaptive memory | No past-run evidence updates future policy | Ignore it |
-| Better sandbox boundary | Yes, effects need tighter scope | Test this one mechanism |
-
-The verdict is not “old good, new bad.” It is: **keep the current Harness and
-trial the sandbox boundary.** That is a decision you can test, budget and undo.
-
-## Put a candidate on trial
-
-Hand this to your coding agent. It works on any Harness, not just the ones
-profiled below.
+Most Harness comparisons start after the winner is already famous. 4C makes a
+source-backed call first, locks the finish line, and keeps every result public.
 
 ``` text
-Read https://github.com/warlockee/4c-harness (README, then docs/theory.md
-sections 1-4).
-
-Current Harness: <what you run today>
-Candidate Harness: <the new one>
-My task: <input, success condition, effects, required evidence, hard limits>
-
-Produce:
-1. Activation profile. Which of Cost / Compatibility / Continuity / Cognition
-   does my task actually activate? For each, state the exact policy delta.
-   Deleting the pressure must change a decision, or it is inactive.
-2. Difference table. For each activated pressure only, what does the candidate
-   decide differently from my current Harness? Cite documented mechanisms, not
-   marketing.
-3. Verdict: stay, switch, or adopt for one subtask. An inactive pressure where
-   the candidate is stronger is not a reason to switch.
-4. What the benchmarks did not measure for my case.
+source bet → locked paired trial → HIT / MISS / CENSORED
 ```
 
-An inactive pressure is the most common finding, and it is the one that saves
-the migration. A candidate with a stronger router changes nothing if your token
-envelope never binds.
+A hit is not “has more features” or “felt cool in a demo.” The candidate must
+beat your current Harness on one real task by a predeclared amount, inside the
+same budget and authority boundary. A shadow sample of rejected candidates
+tracks the winners 4C missed.
+
+**Live score: 0 counted calls, 0 proven hits.** The first source sweep found
+promising candidates—including the code paths that can explain DeepSeek
+Harness's speed and extensibility—but happened too late to count as prediction.
+4C will earn “Bole” only by beating popularity, feature coverage and random
+choice on future public calls.
+
+## Run one in five minutes
+
+[Create a Bole Challenge issue](https://github.com/warlockee/4c-harness/issues/new?template=bole-challenge.yml),
+or hand this prompt to a coding agent:
+
+``` text
+Use the 4C Bole Challenge from https://github.com/warlockee/4c-harness.
+
+Current Harness: <what I use now>
+Candidate: <the new Harness + exact version>
+Real task: <task + externally checkable finish line>
+Hard limit: <money/time/effects + resolution deadline>
+
+Before running the candidate trial:
+1. Name the one Cost / Compatibility / Continuity / Cognition pressure that
+   changes my decision.
+2. Link one exact source path and make one causal bet about the metric it changes.
+3. Lock the minimum win and the observation that loses the bet.
+4. Run a paired trial, then publish HIT, MISS or CENSORED with evidence.
+```
+
+That is the public game. The [Scout](docs/harness-scout.md), [execution-yield
+guide](docs/execution-yield.md), [migration bill](#make-the-candidate-pay-the-moving-bill)
+and [calibration protocol](docs/scout-calibration.md) are available when the
+decision deserves deeper evidence.
+
+The ruthless 4C rule is still: **if removing a pressure changes no decision,
+it does not count.**
 
 ### Why the usual signals do not answer the question
 
@@ -73,7 +66,8 @@ envelope never binds.
 | Task benchmarks (SWE-bench, Aider's benchmark, OSWorld, WebArena) | How well a model and Harness scored on someone else's task distribution | Whether it changes anything for *your* task, and how much of the score is the model |
 | Feature matrix and docs | Which mechanisms exist | Whether you need them, and what you would rebuild |
 | Stars, release cadence, demos | Attention and maintenance | Fit, and the cost of leaving what you have |
-| **4C** | Which of your execution decisions the switch would change, and what carries over | Usability, latency, output quality, how good it feels to use |
+| **4C activation** | Which pressures your task makes relevant | Whether either implementation realizes them well |
+| **Source-path + yield audit** | What the real code path adds or avoids, which rejected tasks become feasible, and what a pinned trial distribution delivers | Long-term behavior outside the sampled task portfolio |
 
 A model call is not a task. A **Harness** is the engineering layer that turns
 bounded, mostly stateless model calls into task execution across tools, state,
@@ -112,15 +106,24 @@ running it rather than by reading docs. Flag anything I currently get from the
 Harness that I would silently lose.
 ```
 
-## Skip the homework: popular systems, pre-profiled
+## Mechanism map, not a leaderboard
 
-Pre-computed, so you can skip the analysis if your candidate is here. These
-evaluate documented mechanisms, not project quality or how good the software is
-to use.
+These pre-computed rows tell you which mechanisms deserve inspection. They do
+**not** let you skip the source-path and yield audit: `Strong` / `Partial` /
+`Evidence` are coverage labels, never performance grades.
 
-| Open-source system | Cost | Compatibility | Continuity | Cognition | Best fit |
+The coverage columns below remain mechanism maps, not product grades. A pinned
+source rerun now advances nine terrain-specific prospects to `Nominated` while
+holding two ecosystem candidates at `Mapped`; see the
+[2026-08-19 Harness Scout source sweep](docs/scouts/2026-08-19-source-sweep.md).
+DeepSeek is the key correction: its default execution and change paths reveal a
+P1 prospect that the coverage table hid. None is yet `Qualified` or
+`Task-proven`; the [promotion ladder](docs/harness-scout.md#4-the-promotion-ladder)
+makes that missing evidence explicit.
+
+| Open-source system | Cost controls | Compatibility mechanisms | Continuity mechanisms | Cognition machinery | What source/docs establish |
 |---|---|---|---|---|---|
-| [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) | Partial | **Strong** | **Strong** | Evidence | Plugin-native coding/agent Harness with replaceable services and an event-sourced session model. Extensibility is not automatic learning. |
+| [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) | Partial | **Strong** | **Strong** | Evidence | Replaceable services and event-sourced sessions; its direct stream, off-path persistence/telemetry, parallel tool scheduler and agent-operable plugin loop predict low path tax and a short change path that still require a task trial. |
 | [Codex](https://github.com/openai/codex) | Partial | **Strong** | **Strong** | Evidence | Sandboxed tools, approval policy, MCP/skills and resumable sessions. Configuration and traces do not by themselves create Cognition. |
 | [Gemini CLI](https://github.com/google-gemini/gemini-cli) | **Strong** | **Strong** | **Strong** | Evidence | Model routing, token caching, MCP/extensions, sandboxing, checkpointing. Broad coverage is useful only when the task activates it. |
 | [OpenHands](https://github.com/OpenHands/OpenHands) | Partial | **Strong** | **Strong** | Evidence | Sandboxed execution and lifecycle control for autonomous runs. Evaluation evidence does not make the policy self-improving. |
@@ -153,8 +156,9 @@ Three things these tables are not saying:
 
 `Strong` is substantial first-class machinery, `Partial` is mechanisms that
 exist while application policy does most of the work, `External` means bring
-another component. Table eligibility is 30k+ GitHub stars, an OSI-approved
-license and activity in the prior six months; live counts and sources are in the
+another component. None of those labels means fast, cheap, reliable or
+pleasant. Table eligibility is 30k+ GitHub stars, an OSI-approved license and
+activity in the prior six months; live counts and sources are in the
 [selection audit](docs/validation/popular-harness-selection.md).
 
 ## The engine: three pressures + one feedback plane
@@ -296,25 +300,41 @@ Deliver:
 
 ## Worked example: DeepSeek Harness
 
-A useful test because its claim is architectural. Model adapters, tools,
-persistence, sandboxing, approval policy and the agent loop are all plugins
-rather than a privileged core.
+This is the case that exposed the missing evaluation layer. The earlier audit
+correctly found its mechanisms and still failed to surface why a person might
+love using it.
 
-| 4C pressure | Assessment | What the documented architecture shows |
+| 4C pressure | Machinery | What the documented architecture shows |
 |---|---|---|
 | **Cost** | Partial | Prompt assembly, telemetry and stopping give control points, but no closed-loop budget, routing or cache policy. |
 | **Compatibility** | **Strong** | Plugin-defined model adapters, tool registries and capability providers make the seams explicit and replaceable. |
 | **Continuity** | **Strong** | An append-only session-event log supports reconstruction, persistence, resume, fork and recovery. |
 | **Cognition** | Evidence | Logs, telemetry and benchmarks supply evidence; nothing automatically turns outcomes into a versioned future policy. |
 
-What a feature list would miss: plugin architecture is a powerful answer to
-Compatibility, not a substitute for Cost policy or Cognition, and for a single
-bounded model/tool path the same plugin tree is unnecessary machinery. Its
-guarded tool pipeline, sandbox and approvals matter, but they satisfy the
-boundary you always own rather than adding a fifth C. See its
-[architecture document](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.md)
-for the mechanisms; this assesses a developer preview whose own documentation
-warns that breaking changes are expected.
+`Cost: Partial` says only that DeepSeek exposes fewer cost-policy controls. It
+does **not** say DeepSeek is slow or expensive. Source-path inspection at
+upstream commit [`141eb6f`](https://github.com/deepseek-ai/deepseek-harness/tree/141eb6fef83422698aef7a981029e843e8161534)
+finds a different kind of evidence:
+
+| Code-path property | What it predicts |
+|---|---|
+| Direct SSE streaming; chunks enter the session stream as they arrive | Little Harness amplification before useful output |
+| Native translation of DeepSeek thinking, tool calls, cache usage and provider errors | Less loss at the Model–Harness seam than a lowest-common-denominator adapter |
+| Write-behind session persistence and a non-blocking telemetry contract | Durability and observation avoid awaited storage/network work on the response path |
+| Bounded parallel scheduling for parallel-safe tool calls | Independent tools can reduce wall time while results remain model-ordered |
+| Per-package token and KV-cache-effect documentation | Prompt tax and cache invalidation are inspectable rather than hidden |
+| Live Cordis inspection plus agent-callable define/run/stop tools and reversible plugin effects | A short change path from missing capability to running, rollbackable extension |
+
+Those facts explain why low-latency interaction and on-demand self-extension
+are plausible user experiences. They still do not prove provider latency,
+cost, correct completion or delight. The [full source-to-yield audit](docs/execution-yield.md#7-deepseek-harness-what-source-inspection-should-have-surfaced)
+states the predictions, evidence limits and runtime measurements needed for a
+switch verdict. DeepSeek is therefore **Nominated** for latency-, quota- and
+extension-sensitive terrain—not declared a winner. This separation lets code
+reveal implementation quality without turning a testimonial into a benchmark
+or a mechanism inventory into a score. Its [Scout
+Card](docs/scouts/deepseek-harness.md) states the exact terrain, falsifiers and
+qualification trial.
 
 ## Evidence, scars and ways this theory can die
 
@@ -329,6 +349,7 @@ system or from local instrumentation.
 python3 -m venv .venv
 .venv/bin/pip install -r experiments/requirements.txt
 .venv/bin/python experiments/run_all.py
+.venv/bin/python tools/scout_cohort_check.py
 ```
 
 The original claim here was that four constraints exhaust Harness engineering.
@@ -345,6 +366,13 @@ and the [review guide](REVIEW_GUIDE.md) says where to send it.
 
 - [Glossary](docs/glossary.md): every term in one plain sentence
 - [Theory](docs/theory.md): precise definitions; sections 1–4 are the core
+- [Bole Challenge](docs/bole-challenge.md): call, race and publish one candidate
+- [Harness Scout](docs/harness-scout.md): nomination signals, promotion ladder and scout card
+- [Scout Calibration](docs/scout-calibration.md): hard gates, hit-rate metrics and leakage control
+- [Scout Board](docs/scouts/README.md): current candidate stages and evidence gaps
+- [Calibration ledger](docs/scouts/calibration-ledger.md): locked cohorts, misses and resolutions
+- [Source sweep](docs/scouts/2026-08-19-source-sweep.md): exact-commit rerun of all 11 candidates
+- [Execution Yield](docs/execution-yield.md): source-path audit, runtime evidence and product verdicts
 - [Evidence matrix](docs/evidence.md): primary sources and reopening conditions
 - [Case studies](docs/case-studies.md): concrete boundary decisions
 - [Review guide](REVIEW_GUIDE.md): 5-minute, 30-minute and adversarial paths

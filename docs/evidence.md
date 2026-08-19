@@ -18,6 +18,13 @@ an inference or falsification result.
 Product marketing is evidence that a feature is claimed or implemented, not
 that it works well. Benchmark scores are not used to establish completeness.
 
+Product selection uses an additional evidence ladder defined by the [Execution
+Yield audit](execution-yield.md): `Source-predicted` → `Trace-observed` →
+`Task-validated` → `Human-observed`. A mechanism classification never advances
+itself to a performance claim. Source inspection may predict path tax; a pinned
+trace measures it; an external postcondition establishes useful completion;
+human observation establishes workflow effects such as retained flow.
+
 The evidence target is the composed Harness model, not `3 + 1` in isolation:
 transition structure describes what execution does; Epistemic Access, Validity
 and Authority mediate its boundaries; the 4C lens explains recurring causes of
@@ -30,6 +37,14 @@ policy variation. Evidence for one part does not establish the other two.
 | L1 | Inference serving and Harness task execution are different controlled objects. | vLLM describes inference/serving, PagedAttention, continuous batching and optimized kernels ([vLLM](https://docs.vllm.ai/en/latest/)); the [ONNX Runtime boundary reproduction](../experiments/onnxruntime_infra_boundary.py) varies threads/graph optimization while holding forward-pass result fixed; the OpenAI Agents SDK runner handles model turns, tools, handoffs and final output ([runner](https://openai.github.io/openai-agents-python/running_agents/)). | Cross-source inference + behavioral boundary control | That every vendor product occupies one layer, or that ONNX Runtime reproduces vLLM's GPU scheduler. |
 | L2 | One product can span layers. | SGLang documents a frontend for multi-call language-model programs and a runtime with inference optimizations ([paper](https://arxiv.org/abs/2312.07104)). | Cross-source inference | Where every current SGLang component belongs without mechanism-level inspection. |
 | L3 | Mechanism ownership follows the controlled object, not the feature name. | vLLM/SGLang caching optimizes model computation; LangGraph checkpoints task graph state ([LangGraph](https://docs.langchain.com/oss/python/langgraph/persistence)). | Cross-source inference | A universal organizational/code ownership boundary. |
+
+## Product-decision claims
+
+| ID | Claim | Evidence | Type | What the evidence does not prove |
+|---|---|---|---|---|
+| D1 | Mechanism coverage and implementation performance are independent observations. | DeepSeek Harness exposes only partial closed-loop Cost controls while its pinned source uses direct SSE streaming, detached write-behind persistence, non-blocking telemetry and bounded parallel tool dispatch; see the [source-path case](execution-yield.md#7-deepseek-harness-what-source-inspection-should-have-surfaced). | Source-predicted | Comparative provider latency, price, verified task completion or subjective flow. |
+| D2 | A product verdict requires task-frontier, activation, realization, observed-yield and migration evidence rather than a mechanism table alone. | The [Execution Yield procedure](execution-yield.md#6-the-combined-audit) separates latent tasks, source predictions, runtime distributions, external postconditions and human observations. | Methodological correction | That the proposed yield dimensions are sufficient for every product or that one workload generalizes. |
+| D3 | Candidate nomination and product promotion require different evidence thresholds. | The [Harness Scout ladder](harness-scout.md#4-the-promotion-ladder) permits a source-backed falsifiable nomination, then requires trace, task, frontier, tail and migration evidence for later stages. | Methodological correction | That the ladder's stages have yet been independently calibrated against successful or failed adoption decisions. |
 
 ## 3 + 1 claims
 

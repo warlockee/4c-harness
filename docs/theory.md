@@ -186,6 +186,57 @@ implement Cognition weakly or not at all. The coordinates describe why policy
 varies; they do not rank products. An adapter is not “below” a runtime, and an
 eval platform is not “above” a Harness merely because it supplies feedback.
 
+### 5.1 Classification is not a product verdict
+
+Mechanism presence does not establish mechanism quality. `Strong`, `Partial`
+and `Evidence` describe how much first-class machinery a system exposes; they
+do not say whether its default path is fast, cheap, reliable, easy to change or
+pleasant to use. In particular, a system can have few Cost controls and still
+deliver excellent latency and price, while a sophisticated router can add work
+that an activated task never recovers.
+
+Selection therefore adds a realization and outcome audit after classification:
+
+``` text
+Product decision
+  = task-frontier discovery        what becomes worth attempting
+  + 4C activation                  what each task needs
+  + implementation realization    what the actual code path adds or avoids
+  + observed execution yield      what verified result the resources produce
+  + migration price               what changing systems loses or rebuilds
+```
+
+The selection method is deliberately asymmetric. Source-level realization plus
+a falsifiable task-relevant prediction is sufficient to **nominate** an
+underappreciated candidate for a bounded trial; it is not sufficient to promote
+that candidate to adoption. Nomination favors discovery, while promotion
+requires trace, postcondition, human and migration evidence. The stages are
+defined in the [Harness Scout protocol](harness-scout.md).
+
+The task set cannot be assumed fixed. Lower latency, lower marginal cost or a
+shorter change path can make previously rejected work worth attempting. That is
+an Application-level expansion of the feasible task frontier, not a new C, but
+a selection method that considers only current tasks will systematically miss
+it.
+
+Realization traces five paths: clean install to first verified task; user request
+to externally verified outcome; provider capability through Model-visible
+serialization; human intent through streaming, steering and correction; and
+missing capability to validated extension. Source inspection can identify
+broken defaults, serial waits, extra model calls, provider/IPC hops, prompt and
+cache tax, lossy model translation, blocking persistence or telemetry, tool
+scheduling, privileged-core edits and rollback boundaries. It can predict
+user-visible effects, but only a pinned runtime trace can establish their
+magnitude; only the task postcondition can establish useful completion; and
+only a human observation can establish flow or delight.
+
+Execution yield is intentionally a vector: time to first useful output, time
+and money per verified outcome, request/tool amplification, human interventions,
+frontier expansion, time to a validated extension and distribution tails.
+Collapsing those values into one universal score would hide task-specific
+trade-offs and mandatory Validity or Authority costs. The full procedure is in
+the [Execution Yield audit](execution-yield.md).
+
 ## 6. Cognition as the feedback learning plane
 
 The first three Cs shape execution. Cognition learns from execution and
@@ -348,6 +399,12 @@ Apply the theory to a mechanism in this order:
    outcome or organizational process does not become a fundamental category
    until it leaves an independent execution decision under counterfactual
    removal.
+
+For product selection, classification is only the first pass. Continue with the
+[Execution Yield audit](execution-yield.md): trace the default source path,
+state a falsifiable performance prediction, run a pinned representative task,
+verify its external postcondition and separate Model, Infrastructure, Harness
+and Application contributions before issuing a verdict.
 
 A single mechanism can receive multiple classifications, but one causal reason
 must not be counted twice. For example, a timeout used to cap spend is Cost; the

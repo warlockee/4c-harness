@@ -5,6 +5,17 @@ on:
   pull_request:
 
 jobs:
+  scout-cohorts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject incomplete counted Scout cohorts
+        run: python tools/scout_cohort_check.py
+
   reproduce:
     runs-on: ubuntu-latest
     timeout-minutes: 10
