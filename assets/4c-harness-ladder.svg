@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1792" height="1528" viewBox="0 0 1792 1528" role="img" aria-labelledby="title desc" data-comparison-id="interactive-coding-v2" data-contract-sha256="8ec22b525ceb34a2dbf944c3eb24beae6b64fd594e349a2b676bd20efc4dbed9" data-market-snapshot="2026-08-19" data-github-metrics-captured-at="2026-08-20T00:14:37Z" data-bar-origin="470" data-pixels-per-point="9">
-<title id="title">4C open-source Harness ladder for interactive coding</title>
+<title id="title">The 4C AI Harness Ladder</title>
 <desc id="desc">Fifteen active open-source coding Harnesses answer the same frozen source exam. DeepSeek Harness leads at 86. Each row links to its official GitHub repository and shows a dated star snapshot. Stars do not affect the score. Longer bars mean better fit, not higher cost.</desc>
 <defs><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#B8C5D6" stroke-width="1" opacity=".28"/></pattern></defs>
 <rect width="1792" height="1528" fill="#EEF3F9"/><rect width="1792" height="1528" fill="url(#grid)"/>
 <rect width="1792" height="44" fill="#101826"/>
 <text x="52" y="29" fill="#fff" font-family="SFMono-Regular,Menlo,monospace" font-size="15" font-weight="700" letter-spacing="3">4C // THE HARNESS EVALUATION STANDARD</text>
 <rect x="1480" y="8" width="260" height="28" fill="#FF5A36"/><text x="1610" y="28" text-anchor="middle" fill="#fff" font-family="SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700" letter-spacing="2">PINNED · AUDITABLE</text>
-<text x="56" y="105" fill="#2457FF" font-family="SFMono-Regular,Menlo,monospace" font-size="18" font-weight="700" letter-spacing="3">4C OPEN-SOURCE HARNESS LADDER / 2026-08-19</text>
-<text x="52" y="163" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="62" font-weight="900" letter-spacing="-2">SEE A HARNESS. THINK 4C.</text>
-<text x="56" y="198" fill="#53657A" font-family="Helvetica Neue,Arial,sans-serif" font-size="19">Candidate-blind exam · 12 frozen questions · Exact commits · Missing evidence scores zero</text>
+<text x="56" y="105" fill="#2457FF" font-family="SFMono-Regular,Menlo,monospace" font-size="18" font-weight="700" letter-spacing="3">OPEN-SOURCE CODE AUDIT / 2026-08-19</text>
+<text x="52" y="163" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="62" font-weight="900" letter-spacing="-2">THE 4C AI HARNESS LADDER</text>
+<text x="56" y="198" fill="#53657A" font-family="Helvetica Neue,Arial,sans-serif" font-size="19">15 leading open-source Harnesses · One candidate-blind source exam</text>
 <text class="coverage-count" x="56" y="232" fill="#101826" font-family="SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">15 OPEN-SOURCE PRODUCTS · 15 PINNED CODE AUDITS</text>
 <text x="682" y="232" fill="#53657A" font-family="SFMono-Regular,Menlo,monospace" font-size="11">GITHUB STARS SNAPSHOT · 2026-08-20T00:14:37Z</text>
 <g transform="translate(1160 70)"><rect width="576" height="174" fill="#101826"/>

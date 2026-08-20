@@ -3,7 +3,7 @@
 > **See a Harness. Ask four questions: Cost, Compatibility, Continuity,
 > Cognition.**
 
-[![4C Open-Source Harness Ladder: DeepSeek Harness leads the candidate-blind source exam at 86 across 15 pinned code audits.](assets/4c-harness-ladder.svg)](docs/scouts/2026-08-19-open-source-ladder.md)
+[![The 4C AI Harness Ladder: 15 leading open-source Harnesses take one candidate-blind source exam. DeepSeek Harness leads at 86.](assets/4c-harness-ladder.svg)](docs/scouts/2026-08-19-open-source-ladder.md)
 
 **Current source-exam leader: DeepSeek Harness — 86/100.** The opening ladder
 ranks all 15 active open-source coding Harnesses that pass the dated 10k-star
