@@ -11,7 +11,9 @@ scope rule. Every candidate answers the same 12 frozen questions; missing
 evidence scores zero, and a contract hash prevents candidate-specific weights
 or post-hoc question changes. The [exam](docs/scouts/interactive-coding-v2-exam.json),
 [answer sheets](docs/scouts/interactive-coding-v2-results.json), and exact-commit
-evidence are machine-checked. Commercial and source-insufficient
+evidence are machine-checked. Each candidate now links to its official GitHub
+repository and shows a dated star snapshot; stars are context, never a scoring
+input. Commercial and source-insufficient
 products remain tracked—without invented scores—in the rule-based
 [market universe](docs/validation/market-universe.md).
 

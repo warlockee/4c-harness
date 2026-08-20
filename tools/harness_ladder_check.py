@@ -39,6 +39,12 @@ def display_number(value: float) -> str:
     return str(int(value)) if value.is_integer() else f"{value:g}"
 
 
+def display_stars(value: int) -> str:
+    thousands = value / 1000
+    rendered = f"{thousands:.1f}".removesuffix(".0")
+    return f"{rendered}K"
+
+
 def competition_ranks(candidates: list[dict]) -> list[int]:
     ranks: list[int] = []
     previous_score: float | None = None
@@ -72,6 +78,8 @@ def main() -> int:
     exam = json.loads(EXAM.read_text())
     payload = json.loads(RESULTS.read_text())
     market = json.loads(MARKET.read_text())
+    products = market.get("products", [])
+    products_by_name = {product.get("name"): product for product in products}
     weights = pressure_weights(exam)
     indexed = list(enumerate(payload["candidates"]))
     candidates = [
@@ -88,6 +96,8 @@ def main() -> int:
         errors.append("SVG is not bound to the frozen exam contract")
     if svg.get("data-market-snapshot") != market["snapshot_date"]:
         errors.append("SVG market snapshot does not match the market universe")
+    if svg.get("data-github-metrics-captured-at") != market.get("github_metrics_captured_at"):
+        errors.append("SVG GitHub metrics timestamp does not match the market universe")
     pixels_per_point = float(svg.get("data-pixels-per-point", "nan"))
     global_bar_origin = float(svg.get("data-bar-origin", "nan"))
 
@@ -99,15 +109,25 @@ def main() -> int:
             name = candidate["candidate"]
             score = float(candidate["score"])
             prefix = f"{name}:"
+            product = products_by_name.get(name, {})
+            official_url = str(product.get("official_url", ""))
+            stars = int(product.get("stars_at_snapshot", 0))
             if row.get("data-candidate") != name:
                 errors.append(f"{prefix} row order/name differs from scorecard")
             if row.get("data-score") != display_number(score):
                 errors.append(f"{prefix} data-score differs from {display_number(score)}")
             if row.get("data-rank") != str(rank):
                 errors.append(f"{prefix} rank differs from {rank}")
+            if row.get("data-url") != official_url:
+                errors.append(f"{prefix} row URL differs from the market snapshot")
+            if row.get("data-stars") != str(stars):
+                errors.append(f"{prefix} row stars differ from the market snapshot")
 
             try:
                 candidate_label = one_with_class(row, "candidate-label").text or ""
+                candidate_link = one_with_class(row, "candidate-link")
+                candidate_url = one_with_class(row, "candidate-url").text or ""
+                star_label = one_with_class(row, "star-label").text or ""
                 rank_label = one_with_class(row, "rank-label").text or ""
                 score_label = one_with_class(row, "score-label").text or ""
                 stage_label = one_with_class(row, "stage-label").text or ""
@@ -116,6 +136,12 @@ def main() -> int:
                 continue
             if candidate_label != name:
                 errors.append(f"{prefix} visible candidate label is stale")
+            if candidate_link.get("href") != official_url:
+                errors.append(f"{prefix} visible candidate link is stale")
+            if candidate_url != official_url.removeprefix("https://"):
+                errors.append(f"{prefix} visible GitHub URL is stale")
+            if star_label != f"★ {display_stars(stars)}":
+                errors.append(f"{prefix} visible GitHub stars are stale")
             if rank_label != f"{rank:02d}":
                 errors.append(f"{prefix} visible rank label is stale")
             if score_label != display_number(score):
@@ -185,7 +211,6 @@ def main() -> int:
     except ValueError as error:
         errors.append(str(error))
 
-    products = market.get("products", [])
     product_names = [product.get("name") for product in products]
     if len(product_names) != len(set(product_names)):
         errors.append("market universe contains duplicate product names")
@@ -198,12 +223,15 @@ def main() -> int:
             errors.append(f"{name}: unsupported market status {status!r}")
         if not str(product.get("official_url", "")).startswith("https://"):
             errors.append(f"{name}: official_url must be HTTPS")
+        if status == "ranked":
+            if not str(product.get("official_url", "")).startswith("https://github.com/"):
+                errors.append(f"{name}: ranked candidate requires an official GitHub URL")
+            if int(product.get("stars_at_snapshot", 0)) < 10_000:
+                errors.append(f"{name}: ranked candidate misses the market-presence gate")
         if status in {"source-audit-queued", "ranked"} and "pinned_commit" in product:
             commit = str(product.get("pinned_commit", ""))
             if len(commit) != 40 or any(character not in "0123456789abcdef" for character in commit):
                 errors.append(f"{name}: public source entry requires a 40-character commit")
-            if int(product.get("stars_at_snapshot", 0)) < 10_000:
-                errors.append(f"{name}: public source entry misses the market-presence gate")
 
     ranked_names = {product["name"] for product in products if product["status"] == "ranked"}
     scorecard_names = {candidate["candidate"] for candidate in candidates}

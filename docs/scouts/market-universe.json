@@ -1,5 +1,6 @@
 {
   "snapshot_date": "2026-08-19",
+  "github_metrics_captured_at": "2026-08-20T00:14:37Z",
   "scope_id": "active-general-purpose-coding-harness-v1",
   "scope": {
     "product_gate": "A general-purpose coding Harness must be able to inspect an existing repository, change code, and run commands, tests, or a pull-request workflow.",
@@ -17,33 +18,39 @@
     {
       "name": "DeepSeek Harness",
       "status": "ranked",
-      "official_url": "https://github.com/deepseek-ai/deepseek-harness"
+      "official_url": "https://github.com/deepseek-ai/deepseek-harness",
+      "stars_at_snapshot": 167152
     },
     {
       "name": "Aider",
       "status": "ranked",
-      "official_url": "https://github.com/Aider-AI/aider"
+      "official_url": "https://github.com/Aider-AI/aider",
+      "stars_at_snapshot": 48333
     },
     {
       "name": "Gemini CLI",
       "status": "ranked",
       "official_url": "https://github.com/google-gemini/gemini-cli",
+      "stars_at_snapshot": 106586,
       "note": "Still supported for enterprise and API-key users; Google transitioned individual subscription authentication to Antigravity CLI in June 2026."
     },
     {
       "name": "Codex",
       "status": "ranked",
-      "official_url": "https://github.com/openai/codex"
+      "official_url": "https://github.com/openai/codex",
+      "stars_at_snapshot": 106859
     },
     {
       "name": "Cline",
       "status": "ranked",
-      "official_url": "https://github.com/cline/cline"
+      "official_url": "https://github.com/cline/cline",
+      "stars_at_snapshot": 66499
     },
     {
       "name": "OpenHands",
       "status": "ranked",
-      "official_url": "https://github.com/OpenHands/OpenHands"
+      "official_url": "https://github.com/OpenHands/OpenHands",
+      "stars_at_snapshot": 84508
     },
     {
       "name": "Qwen Code",
@@ -57,14 +64,14 @@
       "status": "ranked",
       "official_url": "https://github.com/anomalyco/opencode",
       "pinned_commit": "e2505d434a6d78904ecfe546c4a1980d26bd8cd1",
-      "stars_at_snapshot": 199224
+      "stars_at_snapshot": 199235
     },
     {
       "name": "Goose",
       "status": "ranked",
       "official_url": "https://github.com/aaif-goose/goose",
       "pinned_commit": "af016f0a80a2d34c78009e0e00fdcc24e42b4ea0",
-      "stars_at_snapshot": 53012
+      "stars_at_snapshot": 53011
     },
     {
       "name": "Kilo Code",
@@ -85,14 +92,14 @@
       "status": "ranked",
       "official_url": "https://github.com/earendil-works/pi",
       "pinned_commit": "b7bb00b936dbe21b8e160b3e89efdec361846699",
-      "stars_at_snapshot": 93773
+      "stars_at_snapshot": 93784
     },
     {
       "name": "Crush",
       "status": "ranked",
       "official_url": "https://github.com/charmbracelet/crush",
       "pinned_commit": "7d78d7422a92918441a68d01d96d48fa3b9fd9db",
-      "stars_at_snapshot": 27503
+      "stars_at_snapshot": 27504
     },
     {
       "name": "Zed Agent",
@@ -100,14 +107,14 @@
       "official_url": "https://github.com/zed-industries/zed",
       "product_url": "https://zed.dev/docs/ai/zed-agent",
       "pinned_commit": "6e0a0835755ea57c1db4e0057f1a30ddba554706",
-      "stars_at_snapshot": 88896
+      "stars_at_snapshot": 88895
     },
     {
       "name": "SWE-agent",
       "status": "ranked",
       "official_url": "https://github.com/SWE-agent/SWE-agent",
       "pinned_commit": "3ea751c087f32b16e039a2233dd6eefecef325d5",
-      "stars_at_snapshot": 20081
+      "stars_at_snapshot": 20080
     },
     {
       "name": "Antigravity CLI",

@@ -59,6 +59,30 @@ class HarnessLadderTests(unittest.TestCase):
             with patch.object(ladder, "LADDER", path), redirect_stderr(io.StringIO()):
                 self.assertEqual(ladder.main(), 1)
 
+    def test_changed_candidate_url_is_rejected(self) -> None:
+        source = ladder.LADDER.read_text()
+        altered = source.replace(
+            'data-url="https://github.com/deepseek-ai/deepseek-harness"',
+            'data-url="https://github.com/example/not-the-candidate"',
+            1,
+        )
+        self.assertNotEqual(source, altered)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "ladder.svg"
+            path.write_text(altered)
+            with patch.object(ladder, "LADDER", path), redirect_stderr(io.StringIO()):
+                self.assertEqual(ladder.main(), 1)
+
+    def test_changed_candidate_stars_are_rejected(self) -> None:
+        source = ladder.LADDER.read_text()
+        altered = source.replace('data-stars="167152"', 'data-stars="167153"', 1)
+        self.assertNotEqual(source, altered)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "ladder.svg"
+            path.write_text(altered)
+            with patch.object(ladder, "LADDER", path), redirect_stderr(io.StringIO()):
+                self.assertEqual(ladder.main(), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

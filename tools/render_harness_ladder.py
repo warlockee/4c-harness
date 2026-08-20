@@ -50,10 +50,17 @@ def display(value: float) -> str:
     return str(int(value)) if float(value).is_integer() else f"{value:g}"
 
 
+def display_stars(value: int) -> str:
+    thousands = value / 1000
+    rendered = f"{thousands:.1f}".removesuffix(".0")
+    return f"{rendered}K"
+
+
 def main() -> None:
     exam = json.loads(EXAM.read_text())
     data = json.loads(RESULTS.read_text())
     market = json.loads(MARKET.read_text())
+    products = {product["name"]: product for product in market["products"]}
     indexed = list(enumerate(data["candidates"]))
     candidates = [x for _, x in sorted(indexed, key=lambda pair: (-pair[1]["score"], pair[0]))]
     weights = pressure_weights(exam)
@@ -66,9 +73,9 @@ def main() -> None:
     height = footer_y + 178
     esc = html.escape
     lines = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="1792" height="{height}" viewBox="0 0 1792 {height}" role="img" aria-labelledby="title desc" data-comparison-id="{COMPARISON_ID}" data-contract-sha256="{exam["contract_sha256"]}" data-market-snapshot="{market["snapshot_date"]}" data-bar-origin="{GLOBAL_BAR_X}" data-pixels-per-point="{PX}">',
+        f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1792" height="{height}" viewBox="0 0 1792 {height}" role="img" aria-labelledby="title desc" data-comparison-id="{COMPARISON_ID}" data-contract-sha256="{exam["contract_sha256"]}" data-market-snapshot="{market["snapshot_date"]}" data-github-metrics-captured-at="{market["github_metrics_captured_at"]}" data-bar-origin="{GLOBAL_BAR_X}" data-pixels-per-point="{PX}">',
         '<title id="title">4C open-source Harness ladder for interactive coding</title>',
-        f'<desc id="desc">Fifteen active open-source coding Harnesses answer the same frozen source exam. {esc(leaders[0]["candidate"])} leads at {display(top)}. Longer bars mean better fit, not higher cost.</desc>',
+        f'<desc id="desc">Fifteen active open-source coding Harnesses answer the same frozen source exam. {esc(leaders[0]["candidate"])} leads at {display(top)}. Each row links to its official GitHub repository and shows a dated star snapshot. Stars do not affect the score. Longer bars mean better fit, not higher cost.</desc>',
         '<defs><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#B8C5D6" stroke-width="1" opacity=".28"/></pattern></defs>',
         f'<rect width="1792" height="{height}" fill="#EEF3F9"/><rect width="1792" height="{height}" fill="url(#grid)"/>',
         '<rect width="1792" height="44" fill="#101826"/>',
@@ -78,6 +85,7 @@ def main() -> None:
         '<text x="52" y="163" fill="#101826" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="62" font-weight="900" letter-spacing="-2">SEE A HARNESS. THINK 4C.</text>',
         '<text x="56" y="198" fill="#53657A" font-family="Helvetica Neue,Arial,sans-serif" font-size="19">Candidate-blind exam · 12 frozen questions · Exact commits · Missing evidence scores zero</text>',
         f'<text class="coverage-count" x="56" y="232" fill="#101826" font-family="SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">{len(candidates)} OPEN-SOURCE PRODUCTS · {len(candidates)} PINNED CODE AUDITS</text>',
+        f'<text x="682" y="232" fill="#53657A" font-family="SFMono-Regular,Menlo,monospace" font-size="11">GITHUB STARS SNAPSHOT · {market["github_metrics_captured_at"]}</text>',
         '<g transform="translate(1160 70)"><rect width="576" height="174" fill="#101826"/>',
         '<text x="24" y="29" fill="#8FA3BC" font-family="SFMono-Regular,Menlo,monospace" font-size="12" letter-spacing="2">SOURCE EXAM LEADER · FIXED TEST V2</text>',
     ]
@@ -97,14 +105,20 @@ def main() -> None:
     for idx, (item, rank) in enumerate(zip(candidates, ranks)):
         y = row_start + idx * row_step
         leader = item["score"] == top
+        product = products[item["candidate"]]
+        official_url = product["official_url"]
+        visible_url = official_url.removeprefix("https://")
+        stars = int(product["stars_at_snapshot"])
         bg, fg, sub, stroke = ("#101826", "#FFFFFF", "#8FA3BC", "#2457FF") if leader else ("#FFFFFF", "#101826", "#718196", "#C7D2E0")
         lines += [
             f'<!-- {esc(item["candidate"])} -->',
-            f'<g class="candidate-row" data-candidate="{esc(item["candidate"])}" data-score="{display(item["score"])}" data-rank="{rank}" transform="translate({ROW_X} {y})">',
+            f'<g class="candidate-row" data-candidate="{esc(item["candidate"])}" data-score="{display(item["score"])}" data-rank="{rank}" data-url="{esc(official_url)}" data-stars="{stars}" transform="translate({ROW_X} {y})">',
             f'<rect width="1680" height="{row_height}" fill="{bg}" stroke="{stroke}" stroke-width="{2 if leader else 1}"/>',
             f'<text class="rank-label" x="18" y="38" fill="{fg}" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="31" font-weight="900">{rank:02d}</text>',
-            f'<text class="candidate-label" x="98" y="25" fill="{fg}" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" font-weight="800">{esc(item["candidate"])}</text>',
-            f'<text class="stage-label" x="98" y="44" fill="{sub}" font-family="SFMono-Regular,Menlo,monospace" font-size="9">{item["evidence_stage"].upper()}</text>',
+            f'<text class="candidate-label" x="98" y="23" fill="{fg}" font-family="Helvetica Neue,Arial,sans-serif" font-size="20" font-weight="800">{esc(item["candidate"])}</text>',
+            f'<text class="candidate-url" x="98" y="43" fill="{sub}" font-family="SFMono-Regular,Menlo,monospace" font-size="8">{esc(visible_url)}</text>',
+            f'<text class="star-label" x="398" y="43" text-anchor="end" fill="{sub}" font-family="SFMono-Regular,Menlo,monospace" font-size="10" font-weight="700">★ {display_stars(stars)}</text>',
+            f'<a class="candidate-link" href="{esc(official_url)}" xlink:href="{esc(official_url)}" target="_blank" aria-label="Open {esc(item["candidate"])} on GitHub"><rect x="90" y="3" width="312" height="48" fill="#FFFFFF" fill-opacity="0"/></a>',
             f'<rect x="{BAR_X}" y="15" width="900" height="27" fill="{("#27354A" if leader else "#D9E1EB")}"/>',
         ]
         cursor = BAR_X
@@ -119,7 +133,8 @@ def main() -> None:
         grade_text = f'CE{display(contribution_values["Cost"])} · K{display(contribution_values["Compatibility"])} · N{display(contribution_values["Continuity"])}'
         lines += [
             f'<text x="1360" y="23" fill="{sub}" font-family="SFMono-Regular,Menlo,monospace" font-size="9">{grade_text}</text>',
-            f'<text x="1360" y="41" fill="{fg}" font-family="SFMono-Regular,Menlo,monospace" font-size="11" font-weight="700">{item["exact_commit"][:7]}</text>',
+            f'<text class="stage-label" x="1360" y="42" fill="{sub}" font-family="SFMono-Regular,Menlo,monospace" font-size="8">{item["evidence_stage"].upper()}</text>',
+            f'<text class="commit-label" x="1516" y="42" fill="{fg}" font-family="SFMono-Regular,Menlo,monospace" font-size="10" font-weight="700">{item["exact_commit"][:7]}</text>',
             f'<text class="score-label" x="1632" y="41" text-anchor="end" fill="{fg}" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" font-size="37" font-weight="900">{display(item["score"])}</text>',
             '</g>',
         ]
@@ -138,6 +153,7 @@ def main() -> None:
         '<text x="0" y="102" fill="#101826" font-size="12">SCOPE  Active general-purpose open-source coding Harnesses with ≥10k GitHub stars</text>',
         '<text x="0" y="126" fill="#53657A" font-size="11">EXAM  12 frozen questions · 0 / HALF / FULL · No candidate-specific weights · Missing evidence = 0</text>',
         '<text x="0" y="150" fill="#53657A" font-size="11">BOUNDARY  Source examination only. Paired runtime trials may overturn this order. Contract hash pins the test.</text>',
+        '<text x="0" y="172" fill="#53657A" font-size="11">POPULARITY  GitHub stars are dated context only and contribute 0 points to the 4C score.</text>',
         '</g></svg>',
     ]
     OUTPUT.write_text("\n".join(lines) + "\n")

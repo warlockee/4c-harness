@@ -1,12 +1,16 @@
 # 4C Harness market universe
 
 Snapshot: **2026-08-19**  
+GitHub metrics captured: **2026-08-20T00:14:37Z**
 Scope: `active-general-purpose-coding-harness-v1`
 
 The market universe tracks **31 active Harness products**. The opening ladder
 ranks all **15 open-source products** that pass the public-implementation and
 10,000-star gates on the frozen candidate-blind `interactive-coding-v2` exam. The remaining
 16 need runtime evidence and are not given fabricated source scores.
+Every ranked candidate includes its official repository URL and exact GitHub
+star count at the shared capture time. Popularity is an inclusion/context
+signal only and contributes zero points to the 4C source exam.
 
 ## Inclusion rule
 

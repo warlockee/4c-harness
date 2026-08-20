@@ -3,6 +3,9 @@
 This report is the audit trail behind the opening ladder. It compares every
 active general-purpose open-source coding Harness in the dated market universe
 with at least 10,000 GitHub stars. Each repository is pinned to an exact commit.
+Every candidate row also carries its official GitHub URL and a star-count
+snapshot captured at **2026-08-20T00:14:37Z**. Stars are market context only:
+they contribute **0 points** to the 4C score.
 
 ## Locked comparison contract
 
@@ -20,26 +23,30 @@ with at least 10,000 GitHub stars. Each repository is pinned to an exact commit.
 
 ## Result
 
-| Rank | Harness | CE / K / N | Source exam | Pinned commit |
-|---:|---|---:|---:|---|
-| 1 | DeepSeek Harness | 40 / 30.5 / 15.5 | **86** | `141eb6f` |
-| 2 | Pi | 33.5 / 30.5 / 20 | **84** | `b7bb00b` |
-| 3 | Qwen Code | 33 / 31.5 / 18 | **82.5** | `39fc769` |
-| 4 | Gemini CLI | 23 / 35 / 20 | **78** | `eaa3042` |
-| 5 | Codex | 28 / 30.5 / 18 | **76.5** | `3b45c29` |
-| 6 | Zed Agent | 33.5 / 26.5 / 15.5 | **75.5** | `6e0a083` |
-| 7 | Goose | 28.5 / 26.5 / 20 | **75** | `af016f0` |
-| 8 | Kilo Code | 28 / 26 / 17.5 | **71.5** | `9a6e081` |
-| 9 | Continue | 28 / 30 / 11 | **69** | `5522c6f` |
-| 9 | Crush | 28 / 30 / 11 | **69** | `7d78d74` |
-| 11 | OpenCode | 23 / 27 / 15 | **65** | `e2505d4` |
-| 12 | Aider | 28 / 18 / 17.5 | **63.5** | `5dc9490` |
-| 13 | OpenHands | 16.5 / 22 / 17.5 | **56** | `f2dd330` |
-| 14 | Cline | 11 / 22 / 17.5 | **50.5** | `d9bb228` |
-| 15 | SWE-agent | 22 / 13 / 5.5 | **40.5** | `3ea751c` |
+| Rank | Harness | Official GitHub | Stars | CE / K / N | Source exam | Pinned commit |
+|---:|---|---|---:|---:|---:|---|
+| 1 | DeepSeek Harness | [github.com/deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) | 167,152 | 40 / 30.5 / 15.5 | **86** | `141eb6f` |
+| 2 | Pi | [github.com/earendil-works/pi](https://github.com/earendil-works/pi) | 93,784 | 33.5 / 30.5 / 20 | **84** | `b7bb00b` |
+| 3 | Qwen Code | [github.com/QwenLM/qwen-code](https://github.com/QwenLM/qwen-code) | 27,200 | 33 / 31.5 / 18 | **82.5** | `39fc769` |
+| 4 | Gemini CLI | [github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | 106,586 | 23 / 35 / 20 | **78** | `eaa3042` |
+| 5 | Codex | [github.com/openai/codex](https://github.com/openai/codex) | 106,859 | 28 / 30.5 / 18 | **76.5** | `3b45c29` |
+| 6 | Zed Agent | [github.com/zed-industries/zed](https://github.com/zed-industries/zed) | 88,895 | 33.5 / 26.5 / 15.5 | **75.5** | `6e0a083` |
+| 7 | Goose | [github.com/aaif-goose/goose](https://github.com/aaif-goose/goose) | 53,011 | 28.5 / 26.5 / 20 | **75** | `af016f0` |
+| 8 | Kilo Code | [github.com/Kilo-Org/kilocode](https://github.com/Kilo-Org/kilocode) | 26,937 | 28 / 26 / 17.5 | **71.5** | `9a6e081` |
+| 9 | Continue | [github.com/continuedev/continue](https://github.com/continuedev/continue) | 35,546 | 28 / 30 / 11 | **69** | `5522c6f` |
+| 9 | Crush | [github.com/charmbracelet/crush](https://github.com/charmbracelet/crush) | 27,504 | 28 / 30 / 11 | **69** | `7d78d74` |
+| 11 | OpenCode | [github.com/anomalyco/opencode](https://github.com/anomalyco/opencode) | 199,235 | 23 / 27 / 15 | **65** | `e2505d4` |
+| 12 | Aider | [github.com/Aider-AI/aider](https://github.com/Aider-AI/aider) | 48,333 | 28 / 18 / 17.5 | **63.5** | `5dc9490` |
+| 13 | OpenHands | [github.com/OpenHands/OpenHands](https://github.com/OpenHands/OpenHands) | 84,508 | 16.5 / 22 / 17.5 | **56** | `f2dd330` |
+| 14 | Cline | [github.com/cline/cline](https://github.com/cline/cline) | 66,499 | 11 / 22 / 17.5 | **50.5** | `d9bb228` |
+| 15 | SWE-agent | [github.com/SWE-agent/SWE-agent](https://github.com/SWE-agent/SWE-agent) | 20,080 | 22 / 13 / 5.5 | **40.5** | `3ea751c` |
 
 `CE / K / N` means Cost Efficiency / Compatibility / Continuity point
 contributions. Cognition is inactive for this comparison.
+
+Star counts come from the official GitHub repository API at the single timestamp
+above. They make project attention visible without turning popularity into a
+quality grade.
 
 ## The fixed exam
 
