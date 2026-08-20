@@ -19,7 +19,8 @@ class HarnessLadderTests(unittest.TestCase):
 
     def test_changed_segment_width_is_rejected(self) -> None:
         source = ladder.LADDER.read_text()
-        altered = source.replace('width="324"', 'width="323"', 1)
+        altered = source.replace('width="360"', 'width="359"', 1)
+        self.assertNotEqual(source, altered)
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "ladder.svg"
             path.write_text(altered)
@@ -31,10 +32,10 @@ class HarnessLadderTests(unittest.TestCase):
         altered = source.replace(
             'class="score-label" x="1632" y="41" text-anchor="end" '
             'fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" '
-            'font-size="37" font-weight="900">80</text>',
+            'font-size="37" font-weight="900">86</text>',
             'class="score-label" x="1632" y="41" text-anchor="end" '
             'fill="#FFFFFF" font-family="Arial Narrow,Helvetica Neue,Arial,sans-serif" '
-            'font-size="37" font-weight="900">81</text>',
+            'font-size="37" font-weight="900">87</text>',
             1,
         )
         self.assertNotEqual(source, altered)
@@ -47,8 +48,8 @@ class HarnessLadderTests(unittest.TestCase):
     def test_changed_ranked_candidate_is_rejected(self) -> None:
         source = ladder.LADDER.read_text()
         altered = source.replace(
-            'data-candidate="Qwen Code" data-score="71"',
-            'data-candidate="Missing Product" data-score="71"',
+            'data-candidate="Qwen Code" data-score="82.5"',
+            'data-candidate="Missing Product" data-score="82.5"',
             1,
         )
         self.assertNotEqual(source, altered)

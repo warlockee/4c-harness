@@ -3,13 +3,15 @@
 > **See a Harness. Ask four questions: Cost, Compatibility, Continuity,
 > Cognition.**
 
-[![4C Open-Source Harness Ladder: five source-fit leaders tie at 80 across 15 pinned code audits.](assets/4c-harness-ladder.svg)](docs/scouts/2026-08-19-open-source-ladder.md)
+[![4C Open-Source Harness Ladder: DeepSeek Harness leads the candidate-blind source exam at 86 across 15 pinned code audits.](assets/4c-harness-ladder.svg)](docs/scouts/2026-08-19-open-source-ladder.md)
 
-**Current source-fit leaders: DeepSeek Harness, OpenCode, Goose, Pi, and Zed
-Agent — 80/100.** The opening ladder ranks all 15 active open-source coding
-Harnesses that pass the dated 10k-star scope rule. Every bar is generated from
-one fixed terrain and machine-checked against exact-commit
-[scorecards](docs/scouts/fit-scores.json). Commercial and source-insufficient
+**Current source-exam leader: DeepSeek Harness — 86/100.** The opening ladder
+ranks all 15 active open-source coding Harnesses that pass the dated 10k-star
+scope rule. Every candidate answers the same 12 frozen questions; missing
+evidence scores zero, and a contract hash prevents candidate-specific weights
+or post-hoc question changes. The [exam](docs/scouts/interactive-coding-v2-exam.json),
+[answer sheets](docs/scouts/interactive-coding-v2-results.json), and exact-commit
+evidence are machine-checked. Commercial and source-insufficient
 products remain tracked—without invented scores—in the rule-based
 [market universe](docs/validation/market-universe.md).
 
@@ -46,6 +48,11 @@ The ruthless rule: **if removing a pressure changes no decision, it does not
 count.** Every score carries its exact version, evidence stage and boundary
 status, so source predictions cannot masquerade as measured wins.
 
+For a public comparison, broad 0–5 grades are not the leaderboard. 4C first
+freezes a candidate-blind exam: shared subquestions, shared weights, explicit
+half/full-credit rules, and a contract hash. Harnesses answer the exam; the exam
+does not move to flatter a Harness.
+
 ## Run the 4C Check in five minutes
 
 Hand this prompt to a coding agent:
@@ -62,9 +69,9 @@ Task terrain: <real task, limits and externally checkable finish line>
 2. Lock terrain weights across every active C; inactive Cs get zero weight.
 3. Inspect the shipped execution path at the exact commit. For every active C,
    link implementation, executable invariant and reachability.
-4. Grade each active C from 0–5 with the 4C Fit rubric. State the user-visible
-   prediction and the observation that would falsify it.
-5. Return 4C Fit score + evidence stage + boundary status. Separate source
+4. For one Scout Card, grade each active C from 0–5. For a comparison, freeze
+   candidate-blind subquestions and weights before opening candidate answers.
+5. Return the score + frozen contract + evidence stage + boundary status. Separate source
    facts, source inferences and runtime observations. Do not award points for
    feature count, popularity, testimonials or an unlinked benchmark number.
 ```
@@ -73,34 +80,32 @@ For a switch decision, continue into the [source-path and yield
 audit](docs/execution-yield.md), [migration bill](#make-the-candidate-pay-the-moving-bill)
 and a locked paired trial.
 
-## DeepSeek Harness: 80/100 where it matters
+## DeepSeek Harness: 86/100 on the fixed source exam
 
-> **4C Fit: 80/100 (Excellent) · Source-predicted · Nominated · Boundary unknown**
+> **4C Source Exam: 86/100 · Source-examined · Nominated · Boundary unknown**
 
 Terrain: latency- and quota-sensitive interactive coding with on-demand local
 extension.
 
-| Active C | Weight | Grade | Contribution | What earns it |
-|---|---:|---:|---:|---|
-| **Cost** | 45 | 4/5 | 36 | Direct native streaming, off-path persistence/telemetry, bounded parallel tools and explicit cache accounting predict low path tax. |
-| **Compatibility** | 35 | 4/5 | 28 | Native DeepSeek semantics plus live, reversible plugin seams shorten the path from a missing capability to a working extension. |
-| **Continuity** | 20 | 4/5 | 16 | Append-only session events and write-behind persistence preserve work without blocking the response path. |
-| **Cognition** | 0 | N/A | 0 | This terrain does not require automatic policy learning, so its absence does not become a fake penalty. |
+| Active C | Available | Earned | Lost points |
+|---|---:|---:|---|
+| **Cost Efficiency** | 45 | 40 | Hard budget/stop enforcement receives only half credit. |
+| **Compatibility** | 35 | 30.5 | General tool-protocol coverage receives only half credit. |
+| **Continuity** | 20 | 15.5 | Crash-tail integrity and session rollback each receive only half credit. |
+| **Cognition** | 0 | 0 | Inactive for this terrain. |
 
-Same terrain, same weights, same source ceiling:
+Same terrain, same frozen exam:
 
-| DeepSeek | Codex | Gemini CLI | Aider | Cline | OpenHands |
+| DeepSeek | Pi | Qwen Code | Gemini CLI | Codex | Zed Agent |
 |---:|---:|---:|---:|---:|---:|
-| **80** | 64 | 71 | 73 | 51 | 51 |
+| **86** | 84 | 82.5 | 78 | 76.5 | 75.5 |
 
-`Strong / Partial` missed this because it counts machinery. The [4C Fit
-rubric](docs/harness-scout.md#21-the-4c-fit-score) grades realized decisions on
-the active task path. DeepSeek reaches the source-only ceiling: excellent
-inspectable fit, immediate trial priority, but not yet a runtime-proven switch.
-The [same rubric applied to all 11 candidates](docs/scouts/2026-08-19-source-sweep.md#terrain-specific-source-scorecards)
-prevents a DeepSeek-only curve.
+The old whole-C grade compressed five candidates to 80. The
+[candidate-blind exam](docs/scouts/interactive-coding-v2-exam.json) replaces
+that coarse leaderboard with 12 shared questions and mechanical scoring.
+DeepSeek leads, but does not receive a private curve or a perfect source score.
 
-Every non-zero grade has a public, commit-pinned evidence row: the
+Every non-zero answer resolves to a public, commit-pinned evidence row: the
 [implementation, executable invariant, shipped reachability and
 falsifier](docs/scouts/fit-score-evidence.json). `source-observed` means the
 row states only what the code or test establishes; `source-inferred` means the

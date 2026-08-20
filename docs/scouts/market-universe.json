@@ -9,7 +9,7 @@
     "exclusions": "Models and APIs without a Harness, autocomplete-only assistants, app builders that cannot operate on an arbitrary existing repository, libraries/frameworks, archived products, and duplicate product surfaces."
   },
   "status_definitions": {
-    "ranked": "Pinned implementation evidence has been graded on interactive-coding-v1 and is included in the visible ladder.",
+    "ranked": "Pinned implementation evidence has answered the candidate-blind interactive-coding-v2 source exam and is included in the visible ladder.",
     "source-audit-queued": "A substantial public implementation is available, but its 4C evidence ledger is not complete. No score is published.",
     "runtime-evidence-needed": "The product is active, but public source is absent or too thin for source scoring. A controlled runtime trial is required. No score is published."
   },

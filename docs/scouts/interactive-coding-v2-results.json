@@ -1,0 +1,863 @@
+{
+  "schema_version": 1,
+  "exam_id": "interactive-coding-v2",
+  "contract_sha256": "8ec22b525ceb34a2dbf944c3eb24beae6b64fd594e349a2b676bd20efc4dbed9",
+  "source_report": "docs/scouts/2026-08-19-open-source-ladder.md",
+  "candidates": [
+    {
+      "candidate": "DeepSeek Harness",
+      "exact_commit": "141eb6fef83422698aef7a981029e843e8161534",
+      "answers": {
+        "cost.hot_path": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.context_cache": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.budget_stop": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.failure_fidelity": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        }
+      },
+      "score": 86.0,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Loses points on hard budget enforcement, general tool-protocol coverage, crash-tail guarantees and session-level rollback."
+    },
+    {
+      "candidate": "OpenCode",
+      "exact_commit": "e2505d434a6d78904ecfe546c4a1980d26bd8cd1",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.context_cache": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 0
+        },
+        "cost.budget_stop": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.failure_fidelity": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        }
+      },
+      "score": 65.0,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Compaction, provider semantics, MCP and revert are strong; safe parallelism is unproven and hot path, budget, live refresh and crash recovery are partial."
+    },
+    {
+      "candidate": "Goose",
+      "exact_commit": "af016f0a80a2d34c78009e0e00fdcc24e42b4ea0",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.context_cache": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.budget_stop": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.failure_fidelity": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        }
+      },
+      "score": 75.0,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Complete protocol and Continuity answers; hot path, bounded parallelism, budget enforcement and model/failure fidelity remain partial."
+    },
+    {
+      "candidate": "Pi",
+      "exact_commit": "b7bb00b936dbe21b8e160b3e89efdec361846699",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.context_cache": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.budget_stop": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.failure_fidelity": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        }
+      },
+      "score": 84.0,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Strongest Continuity answer; partial evidence remains for hot-path parsimony, bounded parallelism and general tool protocols."
+    },
+    {
+      "candidate": "Zed Agent",
+      "exact_commit": "6e0a0835755ea57c1db4e0057f1a30ddba554706",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.context_cache": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.budget_stop": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.failure_fidelity": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        }
+      },
+      "score": 75.5,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Broad tested surface, with partial evidence for hot path, parallelism, model fidelity, failure recovery and rollback."
+    },
+    {
+      "candidate": "Aider",
+      "exact_commit": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.context_cache": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 0
+        },
+        "cost.budget_stop": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 0
+        },
+        "compat.failure_fidelity": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        }
+      },
+      "score": 63.5,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Excellent bounded repository context and Git undo; no qualifying safe parallelism or live extension answer on this terrain."
+    },
+    {
+      "candidate": "Gemini CLI",
+      "exact_commit": "eaa30429a72a2a76c173ced853e9a15b14d92a64",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.context_cache": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 0
+        },
+        "cost.budget_stop": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.failure_fidelity": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        }
+      },
+      "score": 78.0,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Complete Compatibility and Continuity coverage, but no qualifying safe-parallelism answer and only partial hot-path/budget evidence."
+    },
+    {
+      "candidate": "Qwen Code",
+      "exact_commit": "39fc769d3a49a883d250914d8f705b6b3735720c",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.context_cache": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.budget_stop": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.failure_fidelity": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        }
+      },
+      "score": 82.5,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Strong concurrency, extension refresh and recovery; cache/context economy, failure fidelity and non-destructive rollback remain partial."
+    },
+    {
+      "candidate": "Kilo Code",
+      "exact_commit": "9a6e081e4855e2e6a934bda519c1bef84e14d4b5",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.context_cache": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 0
+        },
+        "cost.budget_stop": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.failure_fidelity": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        }
+      },
+      "score": 71.5,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Compaction, provider behavior and projection are strong; safe parallelism is unproven and several extension/recovery answers are partial."
+    },
+    {
+      "candidate": "Continue",
+      "exact_commit": "5522c6f44ca0ac3528b37244818fbfa39b5af470",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.context_cache": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 0
+        },
+        "cost.budget_stop": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.failure_fidelity": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 0
+        }
+      },
+      "score": 69.0,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Strong context control and MCP coverage; no qualifying safe parallelism or rollback answer and only partial crash-safe resume evidence."
+    },
+    {
+      "candidate": "Crush",
+      "exact_commit": "7d78d7422a92918441a68d01d96d48fa3b9fd9db",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.context_cache": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.budget_stop": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.failure_fidelity": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 0
+        }
+      },
+      "score": 69.0,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Strong parallel tools and MCP lifecycle; context policy, hard budgets and durable recovery remain partial, with no rollback/fork proof."
+    },
+    {
+      "candidate": "Codex",
+      "exact_commit": "3b45c29062ff0e76e71c91b6753290400e7fa8da",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.context_cache": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "cost.budget_stop": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.failure_fidelity": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        }
+      },
+      "score": 76.5,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Strong controlled concurrency, protocols and recovery; context/cache economy, budget policy, live extension and rollback remain partial."
+    },
+    {
+      "candidate": "SWE-agent",
+      "exact_commit": "3ea751c087f32b16e039a2233dd6eefecef325d5",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.context_cache": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 0
+        },
+        "cost.budget_stop": {
+          "level": 1,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 0
+        },
+        "compat.failure_fidelity": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 0
+        },
+        "continuity.safe_resume": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 0
+        }
+      },
+      "score": 40.5,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Limits and history processors are visible, but live extension, crash integrity and rollback are unproven and replay is not safe resume."
+    },
+    {
+      "candidate": "Cline",
+      "exact_commit": "d9bb22883daa3df2c917a73b6af911f2551f68b0",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0
+        },
+        "cost.context_cache": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 0
+        },
+        "cost.budget_stop": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.failure_fidelity": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        }
+      },
+      "score": 50.5,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Strong protocol and reversible session design; no qualifying hot-path or safe-parallelism evidence and budget/model paths are partial."
+    },
+    {
+      "candidate": "OpenHands",
+      "exact_commit": "f2dd33090592f8777e3f2d1a519ddb44866e595e",
+      "answers": {
+        "cost.hot_path": {
+          "level": 0
+        },
+        "cost.context_cache": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.safe_parallelism": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "cost.budget_stop": {
+          "level": 0.5,
+          "evidence_pressure": "Cost"
+        },
+        "compat.model_semantics": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.tool_protocol": {
+          "level": 1,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.live_extension": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "compat.failure_fidelity": {
+          "level": 0.5,
+          "evidence_pressure": "Compatibility"
+        },
+        "continuity.durable_state": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.crash_integrity": {
+          "level": 0.5,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.safe_resume": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        },
+        "continuity.rollback_fork": {
+          "level": 1,
+          "evidence_pressure": "Continuity"
+        }
+      },
+      "score": 56,
+      "evidence_stage": "Source-examined",
+      "boundary_status": "Unknown",
+      "audit_note": "Concurrent isolated work and continuity are visible; hot-path parsimony is unproven and several cost/model-extension answers remain partial."
+    }
+  ]
+}

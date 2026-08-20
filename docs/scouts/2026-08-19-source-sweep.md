@@ -84,6 +84,12 @@ does not prove the prediction; that is why every grade 4 remains explicitly
 `source-inferred` and carries a falsifier. CI repeats the live audit with
 [`tools/evidence_link_check.py`](../../tools/evidence_link_check.py).
 
+> **Comparison update:** the whole-C `interactive-coding-v1` comparison is
+> retained as the historical nomination pass, but is superseded for the market
+> ladder by the candidate-blind
+> [`interactive-coding-v2` exam](interactive-coding-v2-exam.json). The earlier
+> integer grades were too coarse to separate equally strong source prospects.
+
 ## 4C activation and realization view
 
 This is the actual 4C pass behind the queue. A named C means removing that

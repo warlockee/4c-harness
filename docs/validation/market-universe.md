@@ -5,7 +5,7 @@ Scope: `active-general-purpose-coding-harness-v1`
 
 The market universe tracks **31 active Harness products**. The opening ladder
 ranks all **15 open-source products** that pass the public-implementation and
-10,000-star gates on the fixed `interactive-coding-v1` terrain. The remaining
+10,000-star gates on the frozen candidate-blind `interactive-coding-v2` exam. The remaining
 16 need runtime evidence and are not given fabricated source scores.
 
 ## Inclusion rule

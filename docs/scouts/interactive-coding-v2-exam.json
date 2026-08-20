@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "exam_id": "interactive-coding-v2",
+  "terrain": "latency- and quota-sensitive interactive coding with on-demand local extension",
+  "levels": {
+    "0": "No qualifying pinned source evidence in this audit.",
+    "0.5": "A reachable, tested mechanism covers part of the question, but defaultness, completeness or the decisive failure case remains open.",
+    "1": "The pinned shipped path and executable invariant satisfy the full-pass rule."
+  },
+  "questions": [
+    {
+      "id": "cost.hot_path",
+      "pressure": "Cost",
+      "weight": 12,
+      "prompt": "Does the default execution path minimize serial provider hops and blocking secondary work?",
+      "full_pass": "A shipped default path plus executable invariant isolates the avoided blocking work."
+    },
+    {
+      "id": "cost.context_cache",
+      "pressure": "Cost",
+      "weight": 12,
+      "prompt": "Does it control context growth or cache reuse with explicit token and invalidation semantics?",
+      "full_pass": "A shipped path and invariant enforce a token/cache policy rather than only reporting usage."
+    },
+    {
+      "id": "cost.safe_parallelism",
+      "pressure": "Cost",
+      "weight": 11,
+      "prompt": "Can independent work overlap without losing limits or deterministic model-visible ordering?",
+      "full_pass": "An executable invariant covers concurrent execution, bounds and deterministic result handling."
+    },
+    {
+      "id": "cost.budget_stop",
+      "pressure": "Cost",
+      "weight": 10,
+      "prompt": "Are resource limits compiled into pre-call, stop or overflow policy?",
+      "full_pass": "The reachable path enforces a limit before or during execution and tests the boundary."
+    },
+    {
+      "id": "compat.model_semantics",
+      "pressure": "Compatibility",
+      "weight": 10,
+      "prompt": "Are provider/model-specific reasoning, tool, media and error semantics preserved?",
+      "full_pass": "Provider-specific translation is reachable and executable tests cover non-common-denominator semantics."
+    },
+    {
+      "id": "compat.tool_protocol",
+      "pressure": "Compatibility",
+      "weight": 9,
+      "prompt": "Are external tools and protocols supported through a tested lifecycle rather than bespoke core patches?",
+      "full_pass": "A shipped protocol/tool lifecycle has discovery, invocation and failure invariants."
+    },
+    {
+      "id": "compat.live_extension",
+      "pressure": "Compatibility",
+      "weight": 9,
+      "prompt": "Can capability changes become usable without privileged core edits or process restart?",
+      "full_pass": "Executable tests cover load or refresh, use and cleanup/rollback on the live path."
+    },
+    {
+      "id": "compat.failure_fidelity",
+      "pressure": "Compatibility",
+      "weight": 7,
+      "prompt": "Do translation and extension failures remain typed, attributable and recoverable?",
+      "full_pass": "The shipped boundary preserves actionable failure semantics and tests recovery or isolation."
+    },
+    {
+      "id": "continuity.durable_state",
+      "pressure": "Continuity",
+      "weight": 6,
+      "prompt": "Is decisive task state durably persisted rather than held only in process memory?",
+      "full_pass": "The shipped session path persists enough ordered state to reconstruct useful work."
+    },
+    {
+      "id": "continuity.crash_integrity",
+      "pressure": "Continuity",
+      "weight": 5,
+      "prompt": "Does persistence remain coherent across torn writes, interruption or partial failure?",
+      "full_pass": "An executable failure invariant covers atomicity, repair, idempotency or a durable transaction."
+    },
+    {
+      "id": "continuity.safe_resume",
+      "pressure": "Continuity",
+      "weight": 5,
+      "prompt": "Can interrupted work resume without losing decisive state or blindly repeating effects?",
+      "full_pass": "Recovery/replay tests classify interruption and reconstruct a safe next state."
+    },
+    {
+      "id": "continuity.rollback_fork",
+      "pressure": "Continuity",
+      "weight": 4,
+      "prompt": "Can users reverse or branch work without mutating the source state?",
+      "full_pass": "Executable tests cover non-destructive revert, undo or fork semantics."
+    }
+  ],
+  "contract_sha256": "8ec22b525ceb34a2dbf944c3eb24beae6b64fd594e349a2b676bd20efc4dbed9",
+  "anti_overfit_rules": [
+    "The exam file contains no candidate names or candidate-specific weights.",
+    "Question text, weights and level anchors are shared by every candidate.",
+    "Missing evidence scores zero; popularity, testimonials and feature count score nothing.",
+    "Results live in a separate answer file and cannot redefine the exam.",
+    "Runtime outcomes remain a separate promotion stage and may overturn this source order."
+  ]
+}

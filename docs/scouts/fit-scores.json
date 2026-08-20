@@ -426,6 +426,8 @@
   "comparisons": [
     {
       "comparison_id": "interactive-coding-v1",
+      "status": "superseded-for-market-ladder",
+      "superseded_by": "docs/scouts/interactive-coding-v2-exam.json",
       "terrain": "latency- and quota-sensitive interactive coding with on-demand local extension",
       "weights": {
         "Cost": 45,

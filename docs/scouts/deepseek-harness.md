@@ -15,6 +15,11 @@ ledger](calibration-ledger.md) rather than backfilling them after a run.
 
 ## 4C Fit Score
 
+> This 80-point whole-C Scout Card is retained as the coarse nomination record.
+> It no longer drives the market ladder. The candidate-blind
+> [`interactive-coding-v2` source exam](2026-08-19-open-source-ladder.md)
+> resolves the same terrain into 12 frozen questions and scores DeepSeek 86.
+
 **80/100 (Excellent) · Source-predicted · Nominated · Boundary unknown**
 
 Terrain: latency- and quota-sensitive interactive coding with on-demand local

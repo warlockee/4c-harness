@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify that the published 4C Harness Ladder matches its scorecard data."""
+"""Verify that the published ladder matches the frozen source exam."""
 
 from __future__ import annotations
 
@@ -10,10 +10,11 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCORES = ROOT / "docs" / "scouts" / "fit-scores.json"
+EXAM = ROOT / "docs" / "scouts" / "interactive-coding-v2-exam.json"
+RESULTS = ROOT / "docs" / "scouts" / "interactive-coding-v2-results.json"
 MARKET = ROOT / "docs" / "scouts" / "market-universe.json"
 LADDER = ROOT / "assets" / "4c-harness-ladder.svg"
-COMPARISON_ID = "interactive-coding-v1"
+COMPARISON_ID = "interactive-coding-v2"
 SVG_NS = "{http://www.w3.org/2000/svg}"
 ROW_BAR_ORIGIN = 414.0
 THRESHOLDS = (50, 65, 80, 100)
@@ -51,15 +52,28 @@ def competition_ranks(candidates: list[dict]) -> list[int]:
     return ranks
 
 
+def pressure_weights(exam: dict) -> dict[str, int]:
+    return {
+        pressure: sum(q["weight"] for q in exam["questions"] if q["pressure"] == pressure)
+        for pressure in ("Cost", "Compatibility", "Continuity")
+    } | {"Cognition": 0}
+
+
+def pressure_contributions(exam: dict, candidate: dict) -> dict[str, float]:
+    values = {"Cost": 0.0, "Compatibility": 0.0, "Continuity": 0.0, "Cognition": 0.0}
+    questions = {q["id"]: q for q in exam["questions"]}
+    for question_id, answer in candidate["answers"].items():
+        question = questions[question_id]
+        values[question["pressure"]] += question["weight"] * answer["level"]
+    return values
+
+
 def main() -> int:
-    payload = json.loads(SCORES.read_text())
+    exam = json.loads(EXAM.read_text())
+    payload = json.loads(RESULTS.read_text())
     market = json.loads(MARKET.read_text())
-    comparison = next(
-        item
-        for item in payload["comparisons"]
-        if item["comparison_id"] == COMPARISON_ID
-    )
-    indexed = list(enumerate(comparison["candidates"]))
+    weights = pressure_weights(exam)
+    indexed = list(enumerate(payload["candidates"]))
     candidates = [
         candidate
         for _, candidate in sorted(indexed, key=lambda item: (-item[1]["score"], item[0]))
@@ -70,6 +84,8 @@ def main() -> int:
     errors: list[str] = []
     if svg.get("data-comparison-id") != COMPARISON_ID:
         errors.append("SVG comparison id does not match the fixed comparison")
+    if svg.get("data-contract-sha256") != exam["contract_sha256"]:
+        errors.append("SVG is not bound to the frozen exam contract")
     if svg.get("data-market-snapshot") != market["snapshot_date"]:
         errors.append("SVG market snapshot does not match the market universe")
     pixels_per_point = float(svg.get("data-pixels-per-point", "nan"))
@@ -110,20 +126,17 @@ def main() -> int:
             segments = elements_with_class(row, "score-segment")
             active_pressures = [
                 pressure
-                for pressure, weight in comparison["weights"].items()
+                for pressure, weight in weights.items()
                 if weight > 0
             ]
             if [segment.get("data-pressure") for segment in segments] != active_pressures:
                 errors.append(f"{prefix} score segments differ from active-C order")
                 continue
             expected_x = ROW_BAR_ORIGIN
+            contribution_values = pressure_contributions(exam, candidate)
             contribution_sum = 0.0
             for segment, pressure in zip(segments, active_pressures):
-                contribution = (
-                    comparison["weights"][pressure]
-                    * candidate["grades"][pressure]
-                    / 5
-                )
+                contribution = contribution_values[pressure]
                 contribution_sum += contribution
                 width = contribution * pixels_per_point
                 segment_x = float(segment.get("x", "nan"))
@@ -143,7 +156,7 @@ def main() -> int:
         for item in elements_with_class(svg, "legend-item")
     }
     expected_legend = {
-        pressure: str(weight) for pressure, weight in comparison["weights"].items()
+        pressure: str(weight) for pressure, weight in weights.items()
     }
     if legend != expected_legend:
         errors.append("legend weights differ from the fixed comparison")
@@ -210,10 +223,14 @@ def main() -> int:
         for error in errors:
             print(f"FAIL {error}", file=sys.stderr)
         return 1
+    leader_text = (
+        f"leader {leaders[0]['candidate']} at {display_number(leader_score_value)}"
+        if len(leaders) == 1
+        else f"{len(leaders)} leaders tied at {display_number(leader_score_value)}"
+    )
     print(
         f"PASS 4C Harness Ladder: {len(candidates)} ranked, "
-        f"{len(expected_unranked)} runtime-only tracked, "
-        f"{len(leaders)} leaders tied at {display_number(leader_score_value)}"
+        f"{len(expected_unranked)} runtime-only tracked, {leader_text}"
     )
     return 0
 

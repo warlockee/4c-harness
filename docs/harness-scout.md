@@ -121,6 +121,38 @@ Scores are comparable only when terrain weights, task distribution and boundary
 requirements match. Best-fit scores on different terrains are portfolio cards,
 not a global leaderboard.
 
+### 2.1.1 Candidate-blind comparison exams
+
+The 0–5 realization grade is deliberately coarse: it is useful for one Scout
+Card and for promotion stages, but it is not sufficiently discriminating for a
+market ladder. A public comparison must therefore freeze a candidate-blind exam
+before scoring answer sheets.
+
+1. Derive subquestions from the named terrain, never from candidate features.
+2. Give every subquestion one pressure, one fixed weight and one full-pass rule.
+3. Permit only `0 / 0.5 / 1`: no qualifying evidence, partial evidence, or the
+   complete pinned path plus executable invariant.
+4. Put the exam and candidate answers in separate files and hash the exam
+   contract. Candidate names and candidate-specific weights are forbidden in
+   the exam.
+5. Score missing evidence as zero. Do not infer an answer from popularity,
+   testimonials, neighboring features or another candidate's implementation.
+
+``` text
+4C comparison score = Σ(frozen question weight × answer level)
+```
+
+The current reference implementation is the
+[`interactive-coding-v2` exam](scouts/interactive-coding-v2-exam.json). Its 12
+questions preserve the terrain-level `45 / 35 / 20` weights while resolving
+individual Cost Efficiency, Compatibility and Continuity behaviors. CI
+recomputes every answer sheet and rejects question drift, arithmetic changes,
+candidate leakage and full-credit answers without an executable invariant.
+
+This separation is constitutional: **4C writes the exam; Harnesses sit it.** A
+new Harness may challenge an answer with counterevidence, but it cannot change
+the questions or weights inside an existing comparison.
+
 ### 2.2 Every grade must be challengeable
 
 A public score is an audit record, not editorial opinion. Every active-C grade
