@@ -50,6 +50,26 @@ python3.13 -m venv .venv-inference
 .venv-inference/bin/python experiments/onnxruntime_infra_boundary.py
 ```
 
+The Orze GPU-research experiment is intentionally separate from `run_all.py`:
+it requires adjacent Orze and Orze-Pro source checkouts and a valid local
+Orze-Pro license, while its CPU/fault phase makes no accelerator query. Run it
+with explicit source roots:
+
+``` shell
+ORZE_SOURCE_ROOT=../orze ORZE_PRO_SOURCE_ROOT=../orze-pro \
+  python3 experiments/orze_gpu_research.py
+```
+
+Its preserved two-run replication is
+[`results/orze-gpu-research-4c.json`](results/orze-gpu-research-4c.json). The
+result is `PARTIAL`: it verifies control-plane Cost, recovery and lease
+Continuity, scope/standalone/access gates, versioned policy rollback, and the
+bounded validator-rejection feedback loop. The standalone context probe also
+confirms that a synthetic composite-model steering message is withheld. It
+deliberately does not claim competitive yield, Task-proven status, a real
+campaign's absence of leakage, or a 4C rank without the paired GPU and
+cross-provider trials.
+
 `run_all.py` also runs the two experiments that need a locally installed CLI
 (`codex`, `claude`) and reports them as `SKIP` when the binary is absent, which
 is why the same command is useful locally and in CI. It exits nonzero if an
@@ -83,6 +103,7 @@ requests.
 | `langgraph_authority_continuity.py` | Instrumented illustration | LangGraph `interrupt`, `Command` and in-memory checkpointing | Same graph and pending state; approve versus deny | Authority changes admissibility; Continuity preserves and resumes the decision point. LangGraph supplies suspend/resume; the allow/deny divergence is authored locally. |
 | `autoevals_cognition_boundary.py` | Instrumented illustration | Braintrust Autoevals local scorer | Same output and score; passive evaluation versus explicit reusable policy update | Evaluation evidence alone is not Cognition; adaptation is. Autoevals supplies the score; the adaptation operator is authored locally. |
 | `coding_harness_authority_surface.py` | Declared interface | Installed Codex and Claude Code binary interfaces | Two independent products expose permission, sandbox and bypass controls | Interface-level replication of Authority; does **not** prove enforcement efficacy. |
+| `orze_gpu_research.py` | Third-party behaviour, partial terrain coverage | Orze 4.6.1 control plane, recovery auditor, lease/scope/data/model-form gates; Orze-Pro 0.13.0 versioned policy and rejection feedback | Clean versus corrupted ledger; allowed versus forbidden scope/model/data; held versus released lease; promoted versus rolled-back policy; recent rejection versus malformed row; standalone context versus composite steering | Confirms the named mechanisms but explicitly leaves paired GPU yield and cross-provider Compatibility unproven. |
 
 This is a first executable reproduction, not empirical closure, and only the
 three third-party rows independently support a classification. The Authority and

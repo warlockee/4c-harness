@@ -1,0 +1,243 @@
+{
+  "experiment": "orze-gpu-research-4c-replication",
+  "repetitions": 2,
+  "result": {
+    "competitive_claim_proven": false,
+    "status": "PARTIAL",
+    "task_proven": false
+  },
+  "runs": [
+    {
+      "boundaries": {
+        "data_access": {
+          "clean_probe": "CLEAN",
+          "forbidden_probe": "TAINTED",
+          "mechanism_status": "VERIFIED",
+          "real_campaign_absence_of_leakage_proven": false
+        },
+        "gpu_scope": {
+          "allowed_physical_gpus": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "forbidden_physical_gpus": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "forbidden_probe_result": "gpu_outside_managed_scope:0",
+          "live_gpu_campaign_run": false,
+          "mechanism_status": "VERIFIED"
+        },
+        "standalone_model": {
+          "composite_probe_result": "research_policy_composite_forbidden:config.ensemble_models",
+          "mechanism_status": "VERIFIED"
+        }
+      },
+      "evidence_level": "third-party behaviour: the observed policy delta is produced by the upstream system under test",
+      "experiment": "orze-gpu-research-4c",
+      "observations": {
+        "cognition": {
+          "future_yield_uplift_proven": false,
+          "malformed_ledger_row_ignored": true,
+          "physical_accelerator_queried": false,
+          "promotion_atomic_and_versioned": true,
+          "proposal_content_addressed": true,
+          "recent_rejection_feedback_closed_loop": true,
+          "rollback_exact": true,
+          "standalone_context_rejected_composite_steering": true,
+          "status": "MECHANISM_VERIFIED_YIELD_UNVERIFIED"
+        },
+        "compatibility": {
+          "cross_provider_task_trial_run": false,
+          "orze_pro_version": "0.13.0",
+          "orze_version": "4.6.1",
+          "source_pair_imported": true,
+          "status": "PARTIAL"
+        },
+        "continuity": {
+          "clean_terminal_ledger": "VERIFIED",
+          "corrupt_transition_ledger": "FAILED",
+          "cross_process_gpu_lease": {
+            "overlap_rejected": true,
+            "physical_accelerator_queried": false,
+            "released_scope_reusable": true,
+            "typed_failure": "gpu_lease_contended"
+          },
+          "status": "VERIFIED"
+        },
+        "cost": {
+          "accelerator_access": "none",
+          "bulk_insert_rows_per_second": 3327.094,
+          "idea_count": 50000,
+          "iterations": 20,
+          "lifecycle_round_trip_p95_ms": 57.06,
+          "status": "VERIFIED",
+          "steady_control_tick_p95_ms": 67.793
+        }
+      },
+      "result": {
+        "competitive_claim_proven": false,
+        "not_proven": [
+          "higher qualified research yield than a same-stack control",
+          "GPU duty cycle or tail behaviour on physical GPUs 4-7",
+          "cross-provider task compatibility",
+          "absence of leakage in a real training campaign",
+          "an independent 4C rank"
+        ],
+        "reason": "Cost, recovery, scope, lease, standalone, access-audit, versioned-policy, and validator-feedback mechanisms behaved as specified; no paired GPU yield trial or cross-provider task trial has completed.",
+        "status": "PARTIAL",
+        "task_proven": false
+      },
+      "source_sha256": {
+        "experiment": "c1434386bfb0a543211e17554dae9da7e2389533acca410cb843ec5426777c68",
+        "orze_access_audit": "b85465f6885f699527cb8e9ec50ddad6a043221e5681f3d228d03e29af313403",
+        "orze_cpu_benchmark": "14254aa8d58de35c73e90c5fdca50a7d164c57c9311c327a632e54a214494a92",
+        "orze_gpu_lease": "a5241d9ece928f56a2a20ec4c93f8847597d7c1031f5c8e77c21f8ef9b63d558",
+        "orze_gpu_scope": "037e863a4bdc4f6aa9ad71a3930242e99d7873473b622915da8d3a7875002ab9",
+        "orze_pro_policy": "efda09a57e2337a6b404deafacca6e48fa3c7863bd3f6da85e1ed4cc1e0ef0b9",
+        "orze_pro_research_context": "659b559beb5d780a8b0efd6523bd97445ee013aa28066728ae0a25e7d18b0f06",
+        "orze_recovery": "3e523733f57ea472fb64ea74fe246c4551965a3f6063a6ab822a30e5bb382f17",
+        "orze_research_policy": "19e1647cb1b2efc47908f12fce86a3bfb2fe3e88fb0af5413d2224acff0a287d"
+      },
+      "systems": {
+        "orze": {
+          "commit": "2b6591341adf11c6579b6732b1da0cbff449b807",
+          "tree_clean": false,
+          "version": "4.6.1"
+        },
+        "orze_pro": {
+          "commit": "99a24ff8abdf8d8c47e5a5255dbfec8f08d03349",
+          "tree_clean": false,
+          "version": "0.13.0"
+        }
+      },
+      "terrain": "bounded, GPU-constrained ML research with external validity gates"
+    },
+    {
+      "boundaries": {
+        "data_access": {
+          "clean_probe": "CLEAN",
+          "forbidden_probe": "TAINTED",
+          "mechanism_status": "VERIFIED",
+          "real_campaign_absence_of_leakage_proven": false
+        },
+        "gpu_scope": {
+          "allowed_physical_gpus": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "forbidden_physical_gpus": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "forbidden_probe_result": "gpu_outside_managed_scope:0",
+          "live_gpu_campaign_run": false,
+          "mechanism_status": "VERIFIED"
+        },
+        "standalone_model": {
+          "composite_probe_result": "research_policy_composite_forbidden:config.ensemble_models",
+          "mechanism_status": "VERIFIED"
+        }
+      },
+      "evidence_level": "third-party behaviour: the observed policy delta is produced by the upstream system under test",
+      "experiment": "orze-gpu-research-4c",
+      "observations": {
+        "cognition": {
+          "future_yield_uplift_proven": false,
+          "malformed_ledger_row_ignored": true,
+          "physical_accelerator_queried": false,
+          "promotion_atomic_and_versioned": true,
+          "proposal_content_addressed": true,
+          "recent_rejection_feedback_closed_loop": true,
+          "rollback_exact": true,
+          "standalone_context_rejected_composite_steering": true,
+          "status": "MECHANISM_VERIFIED_YIELD_UNVERIFIED"
+        },
+        "compatibility": {
+          "cross_provider_task_trial_run": false,
+          "orze_pro_version": "0.13.0",
+          "orze_version": "4.6.1",
+          "source_pair_imported": true,
+          "status": "PARTIAL"
+        },
+        "continuity": {
+          "clean_terminal_ledger": "VERIFIED",
+          "corrupt_transition_ledger": "FAILED",
+          "cross_process_gpu_lease": {
+            "overlap_rejected": true,
+            "physical_accelerator_queried": false,
+            "released_scope_reusable": true,
+            "typed_failure": "gpu_lease_contended"
+          },
+          "status": "VERIFIED"
+        },
+        "cost": {
+          "accelerator_access": "none",
+          "bulk_insert_rows_per_second": 3375.104,
+          "idea_count": 50000,
+          "iterations": 20,
+          "lifecycle_round_trip_p95_ms": 53.427,
+          "status": "VERIFIED",
+          "steady_control_tick_p95_ms": 68.308
+        }
+      },
+      "result": {
+        "competitive_claim_proven": false,
+        "not_proven": [
+          "higher qualified research yield than a same-stack control",
+          "GPU duty cycle or tail behaviour on physical GPUs 4-7",
+          "cross-provider task compatibility",
+          "absence of leakage in a real training campaign",
+          "an independent 4C rank"
+        ],
+        "reason": "Cost, recovery, scope, lease, standalone, access-audit, versioned-policy, and validator-feedback mechanisms behaved as specified; no paired GPU yield trial or cross-provider task trial has completed.",
+        "status": "PARTIAL",
+        "task_proven": false
+      },
+      "source_sha256": {
+        "experiment": "c1434386bfb0a543211e17554dae9da7e2389533acca410cb843ec5426777c68",
+        "orze_access_audit": "b85465f6885f699527cb8e9ec50ddad6a043221e5681f3d228d03e29af313403",
+        "orze_cpu_benchmark": "14254aa8d58de35c73e90c5fdca50a7d164c57c9311c327a632e54a214494a92",
+        "orze_gpu_lease": "a5241d9ece928f56a2a20ec4c93f8847597d7c1031f5c8e77c21f8ef9b63d558",
+        "orze_gpu_scope": "037e863a4bdc4f6aa9ad71a3930242e99d7873473b622915da8d3a7875002ab9",
+        "orze_pro_policy": "efda09a57e2337a6b404deafacca6e48fa3c7863bd3f6da85e1ed4cc1e0ef0b9",
+        "orze_pro_research_context": "659b559beb5d780a8b0efd6523bd97445ee013aa28066728ae0a25e7d18b0f06",
+        "orze_recovery": "3e523733f57ea472fb64ea74fe246c4551965a3f6063a6ab822a30e5bb382f17",
+        "orze_research_policy": "19e1647cb1b2efc47908f12fce86a3bfb2fe3e88fb0af5413d2224acff0a287d"
+      },
+      "systems": {
+        "orze": {
+          "commit": "2b6591341adf11c6579b6732b1da0cbff449b807",
+          "tree_clean": false,
+          "version": "4.6.1"
+        },
+        "orze_pro": {
+          "commit": "99a24ff8abdf8d8c47e5a5255dbfec8f08d03349",
+          "tree_clean": false,
+          "version": "0.13.0"
+        }
+      },
+      "terrain": "bounded, GPU-constrained ML research with external validity gates"
+    }
+  ],
+  "schema_version": 2,
+  "semantic_agreement": {
+    "observations.cognition.recent_rejection_feedback_closed_loop": true,
+    "observations.cognition.standalone_context_rejected_composite_steering": true,
+    "observations.cognition.status": true,
+    "observations.compatibility.status": true,
+    "observations.continuity.status": true,
+    "observations.cost.status": true,
+    "result.competitive_claim_proven": true,
+    "result.status": true,
+    "result.task_proven": true
+  }
+}
